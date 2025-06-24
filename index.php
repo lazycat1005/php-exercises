@@ -16,8 +16,18 @@
   <div class="container">
     <h1>PHP 練習題</h1>
 
-    <a href="./exercises/08_temperature-unit-conversion/ajax/">溫度轉換(Ajax)</a>
-    <a href="./exercises/08_temperature-unit-conversion/php-version/">溫度轉換(PHP)</a>
+    <div class="exercisesCards">
+      <div class="exercisesCard">
+        <h2>溫度轉換</h2>
+        <ul>
+          <li><a href="./exercises/08_temperature-unit-conversion/ajax/">溫度轉換(Ajax)</a></li>
+          <li><a href="./exercises/08_temperature-unit-conversion/php-version/">溫度轉換(PHP)</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+
   </div>
 </body>
 
