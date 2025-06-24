@@ -33,6 +33,19 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 20px;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+@media (max-width: 560px) {
+  .container #temperatureConversion {
+    flex-direction: column;
+  }
+}
+@media (max-width: 560px) {
+  .container #temperatureConversion .celsius,
+  .container #temperatureConversion .fahrenheit {
+    margin: 10px 0;
+  }
 }
 .container #temperatureConversion .celsius input,
 .container #temperatureConversion .fahrenheit input {
@@ -48,4 +61,12 @@
 }
 .container #temperatureConversion .fahrenheit label {
   color: #007bff;
+}
+.container .messageText {
+  text-align: center;
+}
+.container .messageText p {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #f00;
 }/*# sourceMappingURL=main.css.map */

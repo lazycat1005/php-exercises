@@ -18,6 +18,12 @@ $(document).ready(function () {
     }
 
     if ($.isNumeric(inputVal)) {
+      // 檢查是否為科學記號格式（如 1e10、2E5 等）
+      if (/e/i.test(inputVal)) {
+        errorMessage.text("無效的值");
+        $(otherInput).val("");
+        return;
+      }
       $.ajax({
         url: "./php/convert.php",
         type: "POST",

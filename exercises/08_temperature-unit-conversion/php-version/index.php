@@ -20,7 +20,7 @@
       <fieldset id="temperatureConversion">
         <div class="celsius">
           <label for="celsius">攝氏溫度 (°C):</label>
-          <input type="number" name="celsius" step="any" value="<?= isset($_POST['celsius']) ? htmlspecialchars($_POST['celsius']) : '' ?>">
+          <input type="number" name="celsius" step="any">
         </div>
 
         <div class="buttons">
@@ -31,13 +31,14 @@
 
         <div class="fahrenheit">
           <label for="fahrenheit">華氏溫度 (°F):</label>
-          <input type="number" name="fahrenheit" step="any" value="<?= isset($_POST['fahrenheit']) ? htmlspecialchars($_POST['fahrenheit']) : '' ?>">
+          <input type="number" name="fahrenheit" step="any">
         </div>
       </fieldset>
     </form>
 
     <div class="messageText">
       <?php
+      // 檢查是否為 POST 請求
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $convert = $_POST['convert'] ?? null;
         $celsius = $_POST['celsius'] ?? '';
@@ -46,14 +47,24 @@
         $hasCelsius = $celsius !== '';
         $hasFahrenheit = $fahrenheit !== '';
 
+        // 檢查是否為科學記號格式
+        $invalidCelsius = preg_match('/e/i', $celsius);
+        $invalidFahrenheit = preg_match('/e/i', $fahrenheit);
+
+        // 同時輸入兩個欄位
         if ($hasCelsius && $hasFahrenheit) {
           echo "<p>請只填一個欄位，不能兩個都填。</p>";
-        } elseif (!$hasCelsius && !$hasFahrenheit) {
+        }
+        // 兩個欄位都沒填
+        elseif (!$hasCelsius && !$hasFahrenheit) {
           echo "<p>請輸入一個溫度值。</p>";
         } else {
+          // 攝氏轉華氏
           if ($convert === 'toFahrenheit') {
             if (!$hasCelsius) {
               echo "<p>請輸入攝氏溫度來進行轉換。</p>";
+            } elseif ($invalidCelsius) {
+              echo "<p>無效的值</p>";
             } elseif (!is_numeric($celsius)) {
               echo "<p>攝氏溫度無效，請輸入數字。</p>";
             } else {
@@ -61,9 +72,13 @@
               $f = round(($c * 9 / 5) + 32, 2);
               echo "<p>攝氏 {$c}°C 等於華氏 {$f}°F</p>";
             }
-          } elseif ($convert === 'toCelsius') {
+          }
+          // 華氏轉攝氏
+          elseif ($convert === 'toCelsius') {
             if (!$hasFahrenheit) {
               echo "<p>請輸入華氏溫度來進行轉換。</p>";
+            } elseif ($invalidFahrenheit) {
+              echo "<p>無效的值</p>";
             } elseif (!is_numeric($fahrenheit)) {
               echo "<p>華氏溫度無效，請輸入數字。</p>";
             } else {
@@ -71,7 +86,9 @@
               $c = round(($f - 32) * 5 / 9, 2);
               echo "<p>華氏 {$f}°F 等於攝氏 {$c}°C</p>";
             }
-          } else {
+          }
+          // 未選擇轉換方向
+          else {
             echo "<p>請選擇轉換方向。</p>";
           }
         }
