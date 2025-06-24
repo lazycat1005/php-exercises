@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // outline: 1px solid limegreen !important;
+  // background: rgb(0 100 0 /0.05) !important;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+  }
+}
