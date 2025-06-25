@@ -13,12 +13,14 @@
 </head>
 
 <body>
-  <main>
-    <section>
+  <main id="phpVersion" class="container">
+    <section class="introduction">
       <h1>電話費計算器</h1>
-      <p>600 分鐘以下每分鐘 0.5 元</p>
-      <p>600~1200 分鐘電話費以 9 折計算</p>
-      <p>1200 分鐘以上電話費以 79 折計算</p>
+      <ul>
+        <li>600 分鐘以下每分鐘 0.5 元</li>
+        <li>600~1200 分鐘電話費以 9 折計算</li>
+        <li>1200 分鐘以上電話費以 79 折計算</li>
+      </ul>
     </section>
 
     <form action="" method="post">
@@ -30,8 +32,8 @@
       </fieldset>
     </form>
 
-    <section>
-      <h2>您這個月的電話帳單金額為:</h2>
+    <section class="result">
+      <h2>這個月的電話帳單詳細為:</h2>
       <?php
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $callDuration = $_POST['callDuration'] ?? 0;
@@ -81,6 +83,7 @@
 
   </main>
 
+  <a class="fixedBtn" href="../../../index.php">Back</a>
 </body>
 
 </html>
