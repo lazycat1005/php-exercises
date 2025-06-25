@@ -17,27 +17,43 @@
     <h1>PHP 練習題</h1>
 
     <div class="exercisesCards">
-      <div class="exercisesCard">
-        <h2>溫度轉換</h2>
-        <ul>
-          <li><a href="./exercises/08_temperature-unit-conversion/ajax/">溫度轉換(Ajax)</a></li>
-          <li><a href="./exercises/08_temperature-unit-conversion/php-version/">溫度轉換(PHP)</a></li>
-        </ul>
-      </div>
+      <?php
+      //將所有的題目與版本、連結、標題名稱製作成一個多維陣列
+      $exercises = [
+        [
+          'title' => '溫度轉換',
+          'links' => [
+            'ajax' => './exercises/08_temperature-unit-conversion/ajax/',
+            'php' => './exercises/08_temperature-unit-conversion/php-version/'
+          ]
+        ],
+        [
+          'title' => '電話帳單',
+          'links' => [
+            'php' => './exercises/47_telephone-bill-calculation/php-version/',
+            'js' => './exercises/47_telephone-bill-calculation/js-version/'
+          ]
+        ]
+      ];
 
-      <div class="exercisesCard">
-        <h2>電話帳單</h2>
-        <ul>
-          <li><a href="./exercises/47_telephone-bill-calculation/php-version/">電話帳單(PHP)</a></li>
-          <li><a href="./exercises/47_telephone-bill-calculation/js-version/">電話帳單(JS)</a></li>
-        </ul>
-      </div>
+      // 顯示所有題目
+      foreach ($exercises as $exercise) {
+        echo '<div class="exercisesCard">';
+        echo '<h2>' . htmlspecialchars($exercise['title']) . '</h2>';
+        echo '<ul>';
+        foreach ($exercise['links'] as $type => $url) {
+          $typeName = '';
+          if ($type === 'ajax') $typeName = 'Ajax';
+          elseif ($type === 'php') $typeName = 'PHP';
+          elseif ($type === 'js') $typeName = 'JS';
+          else $typeName = ucfirst($type);
+          echo '<li><a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($exercise['title']) . "($typeName)</a></li>";
+        }
+        echo '</ul>';
+        echo '</div>';
+      }
+      ?>
     </div>
-
-    <?php
-    //將所有的題目與版本、連結、標題名稱製作成一個多維陣列
-
-    ?>
   </div>
 </body>
 
