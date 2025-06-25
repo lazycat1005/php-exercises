@@ -13,7 +13,9 @@ PHP-EXERCISES/
 │   │   ├── php-version/       # 純 PHP 實作版本
 │   │   └── README.md          # 題目解說
 │   └── 47_telephone-bill-calculation/
-│       └──
+│   │   ├── js-version/        # 使用 jQuery 方式實作的版本
+│   │   ├── php-version/       # 純 PHP 實作版本
+│   │   └── README.md          # 題目解說
 ├── index.php                  # 首頁
 └── README.md                  # 本說明文件
 ```
