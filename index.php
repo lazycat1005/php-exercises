@@ -24,10 +24,20 @@
           <li><a href="./exercises/08_temperature-unit-conversion/php-version/">溫度轉換(PHP)</a></li>
         </ul>
       </div>
+
+      <div class="exercisesCard">
+        <h2>電話帳單</h2>
+        <ul>
+          <li><a href="./exercises/47_telephone-bill-calculation/php-version/">電話帳單(PHP)</a></li>
+          <li><a href="./exercises/47_telephone-bill-calculation/js-version/">電話帳單(JS)</a></li>
+        </ul>
+      </div>
     </div>
 
+    <?php
+    //將所有的題目與版本、連結、標題名稱製作成一個多維陣列
 
-
+    ?>
   </div>
 </body>
 
