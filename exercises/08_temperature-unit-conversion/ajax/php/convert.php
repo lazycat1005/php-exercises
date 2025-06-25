@@ -5,8 +5,20 @@ header('Content-Type: application/json'); // 設定回應內容為 JSON 格式
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // 檢查必要參數是否存在
   if (isset($_POST['temperature'], $_POST['unit'])) {
-    $temperature = floatval($_POST['temperature']); // 取得並轉換溫度值
+    $rawTemperature = $_POST['temperature'];
     $unit = $_POST['unit']; // 取得單位
+
+    // 僅允許格式：可選負號開頭，後面為數字（整數或小數），不允許科學記號或 + * / 等
+    $validNumberPattern = '/^-?\d+(\.\d+)?$/';
+    if (!preg_match($validNumberPattern, $rawTemperature) || preg_match('/e/i', $rawTemperature)) {
+      echo json_encode([
+        'success' => false,
+        'message' => '無效的值'
+      ]);
+      exit;
+    }
+
+    $temperature = floatval($rawTemperature); // 取得並轉換溫度值
 
     switch ($unit) {
       case 'celsius':

@@ -9,11 +9,11 @@
   <link rel="icon" sizes="192x192" href="#">
   <title>溫度單位轉換</title>
   <meta name="description" content="溫度單位轉換">
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
-  <div class="container">
+  <div id="phpVersion" class="container">
     <h1>溫度單位轉換</h1>
 
     <form action="" method="post">
@@ -25,8 +25,8 @@
 
         <div class="buttons">
           <button type="submit" name="convert" value="toCelsius">← 轉換成攝氏</button>
+          <button type="button" id="clearBtn">清除</button>
           <button type="submit" name="convert" value="toFahrenheit">轉換成華氏 →</button>
-
         </div>
 
         <div class="fahrenheit">
@@ -47,9 +47,22 @@
         $hasCelsius = $celsius !== '';
         $hasFahrenheit = $fahrenheit !== '';
 
-        // 檢查是否為科學記號格式
-        $invalidCelsius = preg_match('/e/i', $celsius);
-        $invalidFahrenheit = preg_match('/e/i', $fahrenheit);
+        function validateTemperature($value, $label)
+        {
+          $trimmed = trim($value);
+          $isEmpty = $trimmed === '';
+          $isInvalid = preg_match('/e/i', $trimmed);
+          $isNumeric = is_numeric($trimmed);
+
+          if ($isEmpty) {
+            return "請輸入{$label}溫度來進行轉換。";
+          } elseif ($isInvalid) {
+            return "無效的值（不能包含科學記號）。";
+          } elseif (!$isNumeric) {
+            return "{$label}溫度無效，請輸入數字。";
+          }
+          return ''; // 表示驗證通過
+        }
 
         // 同時輸入兩個欄位
         if ($hasCelsius && $hasFahrenheit) {
@@ -61,12 +74,9 @@
         } else {
           // 攝氏轉華氏
           if ($convert === 'toFahrenheit') {
-            if (!$hasCelsius) {
-              echo "<p>請輸入攝氏溫度來進行轉換。</p>";
-            } elseif ($invalidCelsius) {
-              echo "<p>無效的值</p>";
-            } elseif (!is_numeric($celsius)) {
-              echo "<p>攝氏溫度無效，請輸入數字。</p>";
+            $msg = validateTemperature($celsius, '攝氏');
+            if ($msg !== '') {
+              echo "<p>{$msg}</p>";
             } else {
               $c = floatval($celsius);
               $f = round(($c * 9 / 5) + 32, 2);
@@ -75,12 +85,9 @@
           }
           // 華氏轉攝氏
           elseif ($convert === 'toCelsius') {
-            if (!$hasFahrenheit) {
-              echo "<p>請輸入華氏溫度來進行轉換。</p>";
-            } elseif ($invalidFahrenheit) {
-              echo "<p>無效的值</p>";
-            } elseif (!is_numeric($fahrenheit)) {
-              echo "<p>華氏溫度無效，請輸入數字。</p>";
+            $msg = validateTemperature($fahrenheit, '華氏');
+            if ($msg !== '') {
+              echo "<p>{$msg}</p>";
             } else {
               $f = floatval($fahrenheit);
               $c = round(($f - 32) * 5 / 9, 2);
@@ -97,7 +104,42 @@
     </div>
   </div>
 
+  <a class="fixedBtn" href="../../../index.php">Back</a>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const celsiusInput = document.querySelector('input[name="celsius"]');
+      const fahrenheitInput = document.querySelector('input[name="fahrenheit"]');
+      const toCelsiusBtn = document.querySelector('button[value="toCelsius"]');
+      const toFahrenheitBtn = document.querySelector('button[value="toFahrenheit"]');
+
+      // 綁定 keydown 事件
+      [celsiusInput, fahrenheitInput].forEach(input => {
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault(); // 阻止預設送出行為
+
+            // 根據哪個欄位有值來決定按哪個按鈕
+            if (this.name === 'celsius' && this.value.trim() !== '') {
+              toFahrenheitBtn.click();
+            } else if (this.name === 'fahrenheit' && this.value.trim() !== '') {
+              toCelsiusBtn.click();
+            }
+          }
+        });
+      });
+
+      // 清除事件
+      const clearBtn = document.getElementById('clearBtn');
+      const messageBox = document.querySelector('.messageText');
+
+      clearBtn.addEventListener('click', () => {
+        celsiusInput.value = '';
+        fahrenheitInput.value = '';
+        messageBox.innerHTML = '';
+      });
+    });
+  </script>
 </body>
 
 </html>

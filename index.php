@@ -38,15 +38,20 @@
 
       // 顯示所有題目
       foreach ($exercises as $exercise) {
+        // 產生一個卡片區塊
         echo '<div class="exercisesCard">';
+        // 顯示題目標題
         echo '<h2>' . htmlspecialchars($exercise['title']) . '</h2>';
         echo '<ul>';
+        // 針對每個題目的不同版本（如 ajax/php/js）產生連結
         foreach ($exercise['links'] as $type => $url) {
           $typeName = '';
+          // 依版本型態決定顯示名稱
           if ($type === 'ajax') $typeName = 'Ajax';
           elseif ($type === 'php') $typeName = 'PHP';
           elseif ($type === 'js') $typeName = 'JS';
           else $typeName = ucfirst($type);
+          // 顯示連結，格式為「題目名稱(版本)」
           echo '<li><a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($exercise['title']) . "($typeName)</a></li>";
         }
         echo '</ul>';
