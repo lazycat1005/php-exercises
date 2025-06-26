@@ -18,40 +18,21 @@
 
     <div class="exercisesCards">
       <?php
-      //將所有的題目與版本、連結、標題名稱製作成一個多維陣列
-      $exercises = [
-        [
-          'title' => '溫度轉換',
-          'links' => [
-            'ajax' => './exercises/08_temperature-unit-conversion/ajax/',
-            'php' => './exercises/08_temperature-unit-conversion/php-version/'
-          ]
-        ],
-        [
-          'title' => '電話帳單',
-          'links' => [
-            'php' => './exercises/47_telephone-bill-calculation/php-version/',
-            'js' => './exercises/47_telephone-bill-calculation/js-version/'
-          ]
-        ]
-      ];
+      // 讀取 JSON 檔案
+      $json = file_get_contents(__DIR__ . '/exercises.json');
+      $exercises = json_decode($json, true);
 
       // 顯示所有題目
       foreach ($exercises as $exercise) {
-        // 產生一個卡片區塊
         echo '<div class="exercisesCard">';
-        // 顯示題目標題
         echo '<h2>' . htmlspecialchars($exercise['title']) . '</h2>';
         echo '<ul>';
-        // 針對每個題目的不同版本（如 ajax/php/js）產生連結
         foreach ($exercise['links'] as $type => $url) {
           $typeName = '';
-          // 依版本型態決定顯示名稱
           if ($type === 'ajax') $typeName = 'Ajax';
           elseif ($type === 'php') $typeName = 'PHP';
           elseif ($type === 'js') $typeName = 'JS';
           else $typeName = ucfirst($type);
-          // 顯示連結，格式為「題目名稱(版本)」
           echo '<li><a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($exercise['title']) . "($typeName)</a></li>";
         }
         echo '</ul>';

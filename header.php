@@ -1,0 +1,33 @@
+<?php
+// 檔案載入前需設定 $metaKey 與 $exerciseDir
+if (!isset($metaKey)) $metaKey = "temperature";
+if (!isset($exerciseDir)) $exerciseDir = __DIR__; // fallback
+
+// 讀取 metadata
+$metaJson = file_get_contents(__DIR__ . '/exercises.json');
+$metaArr = json_decode($metaJson, true);
+$title = $metaArr[$metaKey]['title'] ?? '';
+$desc = $metaArr[$metaKey]['description'] ?? '';
+
+// 設定 css 路徑
+$cssRealPath = rtrim($exerciseDir, '/') . '/css/main.css';
+$cssUrlPath = '../css/main.css'; // 對瀏覽器路徑（index.php 位置相對於 css）
+
+if (file_exists($cssRealPath)) {
+  $cssVer = filemtime($cssRealPath);
+  $cssUrlPath .= '?v=' . $cssVer;
+}
+?>
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <link rel="icon" sizes="192x192" href="#">
+  <title><?= htmlspecialchars($title) ?></title>
+  <meta name="description" content="<?= htmlspecialchars($desc) ?>">
+  <link rel="stylesheet" href="<?= htmlspecialchars($cssUrlPath) ?>">
+</head>

@@ -1,0 +1,18 @@
+{
+  "temperature": {
+    "title": "溫度轉換",
+    "description": "將溫度從攝氏度轉換為華氏度，或從華氏度轉換為攝氏度。",
+    "links": {
+      "js": "./exercises/08_temperature-unit-conversion/js-version/",
+      "php": "./exercises/08_temperature-unit-conversion/php-version/"
+    }
+  },
+  "telephone": {
+    "title": "電話帳單",
+    "description": "計算電話帳單的費用，根據通話時間和費率進行計算。",
+    "links": {
+      "php": "./exercises/47_telephone-bill-calculation/php-version/",
+      "js": "./exercises/47_telephone-bill-calculation/js-version/"
+    }
+  }
+}

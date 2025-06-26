@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index,follow">
-  <meta name="googlebot" content="index,follow">
-  <link rel="icon" sizes="192x192" href="#">
-  <title>溫度單位轉換</title>
-  <meta name="description" content="溫度單位轉換">
-  <link rel="stylesheet" href="../css/main.css">
-</head>
+<?php
+$metaKey = "temperature";
+$exerciseDir = __DIR__ . '/../';  // 對應 08_temperature-unit-conversion/
+include '../../../header.php';
+?>
 
 <body>
   <div id="phpVersion" class="container">
@@ -38,6 +30,23 @@
 
     <div class="messageText">
       <?php
+      function validateTemperature($value, $label)
+      {
+        $trimmed = trim($value);
+        $isEmpty = $trimmed === '';
+        $isInvalid = preg_match('/e/i', $trimmed);
+        $isNumeric = is_numeric($trimmed);
+
+        if ($isEmpty) {
+          return "請輸入{$label}溫度來進行轉換。";
+        } elseif ($isInvalid) {
+          return "無效的值（不能包含科學記號）。";
+        } elseif (!$isNumeric) {
+          return "{$label}溫度無效，請輸入數字。";
+        }
+        return ''; // 表示驗證通過
+      }
+
       // 檢查是否為 POST 請求
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $convert = $_POST['convert'] ?? null;
@@ -46,23 +55,6 @@
 
         $hasCelsius = $celsius !== '';
         $hasFahrenheit = $fahrenheit !== '';
-
-        function validateTemperature($value, $label)
-        {
-          $trimmed = trim($value);
-          $isEmpty = $trimmed === '';
-          $isInvalid = preg_match('/e/i', $trimmed);
-          $isNumeric = is_numeric($trimmed);
-
-          if ($isEmpty) {
-            return "請輸入{$label}溫度來進行轉換。";
-          } elseif ($isInvalid) {
-            return "無效的值（不能包含科學記號）。";
-          } elseif (!$isNumeric) {
-            return "{$label}溫度無效，請輸入數字。";
-          }
-          return ''; // 表示驗證通過
-        }
 
         // 同時輸入兩個欄位
         if ($hasCelsius && $hasFahrenheit) {
