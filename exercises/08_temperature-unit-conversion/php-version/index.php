@@ -1,6 +1,11 @@
 <?php
+// 顯示所有錯誤，方便除錯
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
 $metaKey = "temperature";
-$exerciseDir = __DIR__ . '/../';  // 對應 08_temperature-unit-conversion/
+$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 
@@ -8,7 +13,7 @@ include '../../../header.php';
   <div id="phpVersion" class="container">
     <h1>溫度單位轉換</h1>
 
-    <form action="" method="post">
+    <form action="" method="get">
       <fieldset id="temperatureConversion">
         <div class="celsius">
           <label for="celsius">攝氏溫度 (°C):</label>
@@ -30,28 +35,14 @@ include '../../../header.php';
 
     <div class="messageText">
       <?php
-      function validateTemperature($value, $label)
-      {
-        $trimmed = trim($value);
-        $isEmpty = $trimmed === '';
-        $isInvalid = preg_match('/e/i', $trimmed);
-        $isNumeric = is_numeric($trimmed);
+      require_once '../utils/Validator.php';
+      $validator = new Validator();
 
-        if ($isEmpty) {
-          return "請輸入{$label}溫度來進行轉換。";
-        } elseif ($isInvalid) {
-          return "無效的值（不能包含科學記號）。";
-        } elseif (!$isNumeric) {
-          return "{$label}溫度無效，請輸入數字。";
-        }
-        return ''; // 表示驗證通過
-      }
-
-      // 檢查是否為 POST 請求
-      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $convert = $_POST['convert'] ?? null;
-        $celsius = $_POST['celsius'] ?? '';
-        $fahrenheit = $_POST['fahrenheit'] ?? '';
+      // 檢查是否有 GET 資料
+      if (!empty($_GET)) {
+        $convert = $_GET['convert'] ?? null;
+        $celsius = $_GET['celsius'] ?? '';
+        $fahrenheit = $_GET['fahrenheit'] ?? '';
 
         $hasCelsius = $celsius !== '';
         $hasFahrenheit = $fahrenheit !== '';
@@ -66,9 +57,9 @@ include '../../../header.php';
         } else {
           // 攝氏轉華氏
           if ($convert === 'toFahrenheit') {
-            $msg = validateTemperature($celsius, '攝氏');
-            if ($msg !== '') {
-              echo "<p>{$msg}</p>";
+            $error = $validator->validateTemperature($celsius, '攝氏');
+            if ($error !== '') {
+              echo "<p>{$error}</p>";
             } else {
               $c = floatval($celsius);
               $f = round(($c * 9 / 5) + 32, 2);
@@ -77,9 +68,9 @@ include '../../../header.php';
           }
           // 華氏轉攝氏
           elseif ($convert === 'toCelsius') {
-            $msg = validateTemperature($fahrenheit, '華氏');
-            if ($msg !== '') {
-              echo "<p>{$msg}</p>";
+            $error = $validator->validateTemperature($fahrenheit, '華氏');
+            if ($error !== '') {
+              echo "<p>{$error}</p>";
             } else {
               $f = floatval($fahrenheit);
               $c = round(($f - 32) * 5 / 9, 2);

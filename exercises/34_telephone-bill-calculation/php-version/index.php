@@ -15,7 +15,7 @@ include '../../../header.php';
       </ul>
     </section>
 
-    <form action="" method="post">
+    <form action="" method="get">
       <fieldset id="telephoneBillCalculation">
         <label for="callDuration">通話時長（分鐘）:</label>
         <input type="number" id="callDuration" name="callDuration" step="any" min="0" max="44640" required>
@@ -27,8 +27,8 @@ include '../../../header.php';
     <section class="result">
       <h2>這個月的電話帳單詳細為:</h2>
       <?php
-      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $callDuration = $_POST['callDuration'] ?? 0;
+      if (isset($_GET['callDuration'])) {
+        $callDuration = $_GET['callDuration'] ?? 0;
 
         // 檢查通話時長是否為正整數，並且不是科學符號，如"1e10"
         if (!is_numeric($callDuration) || $callDuration < 0 || preg_match('/e/i', $callDuration)) {
