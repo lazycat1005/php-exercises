@@ -11,8 +11,15 @@
     "title": "電話帳單",
     "description": "計算電話帳單的費用，根據通話時間和費率進行計算。",
     "links": {
-      "php": "./exercises/47_telephone-bill-calculation/php-version/",
-      "js": "./exercises/47_telephone-bill-calculation/js-version/"
+      "php": "./exercises/34_telephone-bill-calculation/php-version/",
+      "js": "./exercises/34_telephone-bill-calculation/js-version/"
+    }
+  },
+  "leap-years": {
+    "title": "閏年計算",
+    "description": "判斷給定的年份是否為閏年。",
+    "links": {
+      "php": "./exercises/27_calculating-leap-years/php-version/"
     }
   }
 }
