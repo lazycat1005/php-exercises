@@ -21,5 +21,15 @@
     "links": {
       "php": "./exercises/27_calculating-leap-years/php-version/"
     }
+  },
+  "English-letters": {
+    "title": "英文字母轉換",
+    "description": "將使用者輸入的英文字母轉換為大寫或小寫。",
+    "links": {
+      "1st": "./exercises/19-determine-the-case-of-English-letters/1st/",
+      "2nd": "./exercises/19-determine-the-case-of-English-letters/2nd/",
+      "3th": "./exercises/19-determine-the-case-of-English-letters/3th/",
+      "4th": "./exercises/19-determine-the-case-of-English-letters/4th/"
+    }
   }
 }

@@ -30,4 +30,5 @@ if (file_exists($cssRealPath)) {
   <title><?= htmlspecialchars($title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($desc) ?>">
   <link rel="stylesheet" href="<?= htmlspecialchars($cssUrlPath) ?>">
+  <link rel="stylesheet" href="../../../css/all.css">
 </head>

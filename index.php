@@ -9,14 +9,14 @@
   <link rel="icon" sizes="192x192" href="#">
   <title>PHP 練習題</title>
   <meta name="description" content="PHP 練習題">
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/all.css">
 </head>
 
 <body>
-  <div class="container">
+  <main id="indexPage" class="container">
     <h1>PHP 練習題</h1>
 
-    <div class="exercisesCards">
+    <section class="exercisesCards">
       <?php
       // 讀取 JSON 檔案
       $json = file_get_contents(__DIR__ . '/exercises.json');
@@ -39,8 +39,8 @@
         echo '</div>';
       }
       ?>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>
 
 </html>

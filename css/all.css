@@ -9,52 +9,72 @@ a {
   transition: all 0.3s;
 }
 
-ul {
+ul,
+ol {
   list-style: none;
 }
 
-.container {
+.fixedBtn {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+}
+.fixedBtn:hover {
+  background-color: #0062cc;
+}
+
+main#indexPage {
   max-width: 900px;
   margin: 0 auto;
 }
 @media (max-width: 900px) {
-  .container {
+  main#indexPage {
     width: 100%;
     padding: 10px;
   }
 }
-.container h1 {
+main#indexPage h1 {
   text-align: center;
   margin-bottom: 30px;
 }
-.container .exercisesCards {
+main#indexPage .exercisesCards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 @media (max-width: 900px) {
-  .container .exercisesCards {
+  main#indexPage .exercisesCards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 450px) {
-  .container .exercisesCards {
+  main#indexPage .exercisesCards {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.container .exercisesCards .exercisesCard {
+main#indexPage .exercisesCards .exercisesCard {
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
   padding: 20px;
 }
-.container .exercisesCards .exercisesCard h2 {
+main#indexPage .exercisesCards .exercisesCard h2 {
   margin-bottom: 10px;
 }
-.container .exercisesCards .exercisesCard li {
+main#indexPage .exercisesCards .exercisesCard li {
   margin-bottom: 10px;
 }
-.container .exercisesCards .exercisesCard li a {
+main#indexPage .exercisesCards .exercisesCard li a {
   display: block;
   color: #fff;
   background-color: #089;
@@ -63,6 +83,6 @@ ul {
   border-radius: 10px;
   text-align: center;
 }
-.container .exercisesCards .exercisesCard li a:hover {
+main#indexPage .exercisesCards .exercisesCard li a:hover {
   background-color: #005b66;
-}/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=all.css.map */
