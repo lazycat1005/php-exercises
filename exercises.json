@@ -31,5 +31,14 @@
       "3th": "./exercises/19-determine-the-case-of-English-letters/3th/",
       "4th": "./exercises/19-determine-the-case-of-English-letters/4th/"
     }
+  },
+  "multiplication-table": {
+    "title": "九九乘法表",
+    "description": "生成九九乘法表，顯示從1到9的乘法結果。",
+    "links": {
+      "php-1": "./exercises/47_multiplication-table/php-version-1/",
+      "php-2": "./exercises/47_multiplication-table/php-version-2/",
+      "php-3": "./exercises/47_multiplication-table/php-version-3/"
+    }
   }
 }

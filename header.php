@@ -14,21 +14,21 @@ $cssRealPath = rtrim($exerciseDir, '/') . '/css/main.css';
 $cssUrlPath = '../css/main.css'; // 對瀏覽器路徑（index.php 位置相對於 css）
 
 if (file_exists($cssRealPath)) {
-  $cssVer = filemtime($cssRealPath);
-  $cssUrlPath .= '?v=' . $cssVer;
+    $cssVer = filemtime($cssRealPath);
+    $cssUrlPath .= '?v=' . $cssVer;
 }
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index,follow">
-  <meta name="googlebot" content="index,follow">
-  <link rel="icon" sizes="192x192" href="#">
-  <title><?= htmlspecialchars($title) ?></title>
-  <meta name="description" content="<?= htmlspecialchars($desc) ?>">
-  <link rel="stylesheet" href="<?= htmlspecialchars($cssUrlPath) ?>">
-  <link rel="stylesheet" href="../../../css/all.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <link rel="icon" sizes="192x192" href="#">
+    <title><?= htmlspecialchars($title) ?></title>
+    <meta name="description" content="<?= htmlspecialchars($desc) ?>">
+    <link rel="stylesheet" href="<?= htmlspecialchars($cssUrlPath) ?>">
+    <link rel="stylesheet" href="../../../css/all.css">
 </head>

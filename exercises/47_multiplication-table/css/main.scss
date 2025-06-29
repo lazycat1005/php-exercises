@@ -1,0 +1,23 @@
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+table.outer {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.outer td {
+  border: 1px solid #000;
+  vertical-align: top;
+  padding: 5px;
+}
+
+table.inner td {
+  text-align: left;
+  font-family: monospace;
+  border: none;
+}
