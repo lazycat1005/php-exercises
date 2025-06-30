@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="icon" sizes="192x192" href="#">
-    <title>網頁標題</title>
-    <meta name="description" content="網頁簡介">
-    <link rel="stylesheet" href="./css/main.css">
-</head>
+<?php
+$metaKey = "mergeFiles";
+$exerciseDir = __DIR__ . '/../';
+include '../../../header.php';
+?>
 
 <body>
     <!-- 建立一個表單容器，裡面有兩個輸入框可供使用者上傳檔案1與檔案2，還有一個按鈕提交 -->
@@ -57,6 +48,8 @@
             }
         }
         ?>
+    </main>
+    <a class="fixedBtn" href="../../../index.php">Back</a>
 </body>
 
 </html>

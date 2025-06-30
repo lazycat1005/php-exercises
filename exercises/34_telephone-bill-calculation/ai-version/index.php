@@ -15,9 +15,11 @@ function calculatePhoneBill($minutes)
     if ($minutes <= 600) {
         return $minutes * 0.5;
     } elseif ($minutes <= 1200) {
-        return $minutes * 0.5 * 0.9; // 9折
+        // 先計算前600分鐘，再加上超過600分鐘的部分(9折)
+        return 600 * 0.5 + ($minutes - 600) * 0.5 * 0.9;
     } else {
-        return $minutes * 0.5 * 0.79; // 79折
+        // 先計算前600分鐘，再加上600~1200分鐘(9折)，最後加上超過1200分鐘的部分(79折)
+        return 600 * 0.5 + 600 * 0.5 * 0.9 + ($minutes - 1200) * 0.5 * 0.79;
     }
 }
 
@@ -201,25 +203,30 @@ if (isset($_GET['minutes']) && isset($_GET['action'])) {
             </div>
         </div>
     </div>
+    <a class="fixedBtn" href="../../../index.php">Back</a>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery 1.12.4 -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
     <script>
-        // 計算電話費的 JavaScript 函數
+        // 計算電話費的 jQuery 版本函數（分段計價）
         function calculatePhoneBill(minutes) {
             if (minutes <= 600) {
                 return minutes * 0.5;
             } else if (minutes <= 1200) {
-                return minutes * 0.5 * 0.9; // 9折
+                // 先計算前600分鐘，再加上超過600分鐘的部分(9折)
+                return 600 * 0.5 + (minutes - 600) * 0.5 * 0.9;
             } else {
-                return minutes * 0.5 * 0.79; // 79折
+                // 先計算前600分鐘，再加上600~1200分鐘(9折)，最後加上超過1200分鐘的部分(79折)
+                return 600 * 0.5 + 600 * 0.5 * 0.9 + (minutes - 1200) * 0.5 * 0.79;
             }
         }
 
-        // 驗證輸入的 JavaScript 函數
+        // 驗證輸入的 jQuery 版本函數
         function validateMinutes(input) {
-            const trimmed = input.trim();
+            const trimmed = $.trim(input);
 
             if (trimmed === '') {
                 return {
@@ -268,154 +275,150 @@ if (isset($_GET['minutes']) && isset($_GET['action'])) {
         let calculationHistory = [];
         let historyCounter = 0;
 
-        // DOM 元素
-        const phpForm = document.getElementById('phpForm');
-        const jsForm = document.getElementById('jsForm');
-        const jsResults = document.getElementById('jsResults');
-        const jsMinutesInput = document.getElementById('jsMinutes');
-        const jsCalculateBtn = document.getElementById('jsCalculate');
-        const jsError = document.getElementById('jsError');
-        const resultTableBody = document.getElementById('resultTableBody');
-        const clearHistoryBtn = document.getElementById('clearHistory');
+        // jQuery DOM ready
+        $(function() {
+            const $phpForm = $('#phpForm');
+            const $jsForm = $('#jsForm');
+            const $jsResults = $('#jsResults');
+            const $jsMinutesInput = $('#jsMinutes');
+            const $jsCalculateBtn = $('#jsCalculate');
+            const $jsError = $('#jsError');
+            const $resultTableBody = $('#resultTableBody');
+            const $clearHistoryBtn = $('#clearHistory');
 
-        // 模式切換事件
-        document.querySelectorAll('input[name="calculationMode"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                if (this.value === 'php') {
-                    phpForm.style.display = 'block';
-                    jsForm.style.display = 'none';
-                    jsResults.style.display = 'none';
+            // 模式切換事件
+            $('input[name="calculationMode"]').on('change', function() {
+                if ($(this).val() === 'php') {
+                    $phpForm.show();
+                    $jsForm.hide();
+                    $jsResults.hide();
                 } else {
-                    phpForm.style.display = 'none';
-                    jsForm.style.display = 'block';
+                    $phpForm.hide();
+                    $jsForm.show();
                     if (calculationHistory.length > 0) {
-                        jsResults.style.display = 'block';
+                        $jsResults.show();
                     }
                 }
             });
-        });
 
-        // JavaScript 計算按鈕事件
-        jsCalculateBtn.addEventListener('click', function() {
-            const input = jsMinutesInput.value;
-            const validation = validateMinutes(input);
+            // JavaScript 計算按鈕事件
+            $jsCalculateBtn.on('click', function() {
+                const input = $jsMinutesInput.val();
+                const validation = validateMinutes(input);
 
-            // 清除之前的驗證狀態
-            jsMinutesInput.classList.remove('is-valid', 'is-invalid');
-            jsError.textContent = '';
+                // 清除之前的驗證狀態
+                $jsMinutesInput.removeClass('is-valid is-invalid');
+                $jsError.text('');
 
-            if (!validation.isValid) {
-                jsMinutesInput.classList.add('is-invalid');
-                jsError.textContent = validation.error;
-                // 添加震動效果
-                jsMinutesInput.style.animation = 'shake 0.5s ease-in-out';
-                setTimeout(() => {
-                    jsMinutesInput.style.animation = '';
-                }, 500);
-                return;
-            }
-
-            // 驗證通過
-            jsMinutesInput.classList.add('is-valid');
-
-            // 添加載入效果
-            const originalText = jsCalculateBtn.innerHTML;
-            jsCalculateBtn.innerHTML = '<span class="loading"></span> 計算中...';
-            jsCalculateBtn.disabled = true;
-
-            // 模擬計算時間（增加使用者體驗）
-            setTimeout(() => {
-                const minutes = validation.value;
-                const bill = calculatePhoneBill(minutes);
-
-                // 添加到歷史記錄
-                historyCounter++;
-                const record = {
-                    id: historyCounter,
-                    minutes: minutes,
-                    bill: bill,
-                    timestamp: new Date().toLocaleString('zh-TW')
-                };
-
-                calculationHistory.unshift(record); // 新記錄添加到最前面
-
-                // 更新表格
-                updateResultTable();
-
-                // 顯示結果區域
-                jsResults.style.display = 'block';
-
-                // 清空輸入框
-                jsMinutesInput.value = '';
-                jsMinutesInput.classList.remove('is-valid');
-
-                // 恢復按鈕
-                jsCalculateBtn.innerHTML = originalText;
-                jsCalculateBtn.disabled = false;
-
-                // 滾動到結果區域
-                jsResults.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                });
-            }, 800);
-        });
-
-        // 更新結果表格
-        function updateResultTable() {
-            resultTableBody.innerHTML = '';
-
-            calculationHistory.forEach((record, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${record.id}</td>
-                    <td>${record.minutes.toFixed(2)}</td>
-                    <td>NT$ ${record.bill.toFixed(2)}</td>
-                    <td>${record.timestamp}</td>
-                `;
-
-                // 為新記錄添加動畫效果
-                if (index === 0) {
-                    row.style.background = 'linear-gradient(135deg, rgba(25, 135, 84, 0.2) 0%, rgba(25, 135, 84, 0.1) 100%)';
-                    row.style.animation = 'fadeInUp 0.6s ease-out';
-
-                    // 3秒後移除高亮效果
+                if (!validation.isValid) {
+                    $jsMinutesInput.addClass('is-invalid');
+                    $jsError.text(validation.error);
+                    // 添加震動效果
+                    $jsMinutesInput.css('animation', 'shake 0.5s ease-in-out');
                     setTimeout(() => {
-                        row.style.background = '';
-                        row.style.animation = '';
-                    }, 3000);
+                        $jsMinutesInput.css('animation', '');
+                    }, 500);
+                    return;
                 }
 
-                resultTableBody.appendChild(row);
-            });
-        }
+                // 驗證通過
+                $jsMinutesInput.addClass('is-valid');
 
-        // 清除歷史記錄
-        clearHistoryBtn.addEventListener('click', function() {
-            if (calculationHistory.length === 0) {
-                return;
-            }
+                // 添加載入效果
+                const originalText = $jsCalculateBtn.html();
+                $jsCalculateBtn.html('<span class="loading"></span> 計算中...');
+                $jsCalculateBtn.prop('disabled', true);
 
-            // 使用 Bootstrap 模態框進行確認
-            if (confirm('確定要清除所有計算記錄嗎？此操作無法撤銷。')) {
-                // 添加淡出動畫
-                jsResults.style.transition = 'opacity 0.3s ease-out';
-                jsResults.style.opacity = '0';
-
+                // 模擬計算時間（增加使用者體驗）
                 setTimeout(() => {
-                    calculationHistory = [];
-                    historyCounter = 0;
-                    jsResults.style.display = 'none';
-                    jsResults.style.opacity = '1';
-                }, 300);
-            }
-        });
+                    const minutes = validation.value;
+                    const bill = calculatePhoneBill(minutes);
 
-        // Enter 鍵支援
-        jsMinutesInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                jsCalculateBtn.click();
+                    // 添加到歷史記錄
+                    historyCounter++;
+                    const record = {
+                        id: historyCounter,
+                        minutes: minutes,
+                        bill: bill,
+                        timestamp: (new Date()).toLocaleString('zh-TW')
+                    };
+
+                    calculationHistory.unshift(record); // 新記錄添加到最前面
+
+                    // 更新表格
+                    updateResultTable();
+
+                    // 顯示結果區域
+                    $jsResults.show();
+
+                    // 清空輸入框
+                    $jsMinutesInput.val('').removeClass('is-valid');
+
+                    // 恢復按鈕
+                    $jsCalculateBtn.html(originalText);
+                    $jsCalculateBtn.prop('disabled', false);
+
+                    // 滾動到結果區域
+                    $('html, body').animate({
+                        scrollTop: $jsResults.offset().top
+                    }, 400);
+                }, 800);
+            });
+
+            // 更新結果表格
+            function updateResultTable() {
+                $resultTableBody.empty();
+
+                calculationHistory.forEach((record, index) => {
+                    const $row = $(`
+                        <tr>
+                            <td>${record.id}</td>
+                            <td>${record.minutes.toFixed(2)}</td>
+                            <td>NT$ ${record.bill.toFixed(2)}</td>
+                            <td>${record.timestamp}</td>
+                        </tr>
+                    `);
+
+                    // 為新記錄添加動畫效果
+                    if (index === 0) {
+                        $row.css({
+                            background: 'linear-gradient(135deg, rgba(25, 135, 84, 0.2) 0%, rgba(25, 135, 84, 0.1) 100%)',
+                            animation: 'fadeInUp 0.6s ease-out'
+                        });
+                        setTimeout(() => {
+                            $row.css({
+                                background: '',
+                                animation: ''
+                            });
+                        }, 3000);
+                    }
+
+                    $resultTableBody.append($row);
+                });
             }
+
+            // 清除歷史記錄
+            $clearHistoryBtn.on('click', function() {
+                if (calculationHistory.length === 0) {
+                    return;
+                }
+
+                if (confirm('確定要清除所有計算記錄嗎？此操作無法撤銷。')) {
+                    $jsResults.css('transition', 'opacity 0.3s ease-out').css('opacity', '0');
+                    setTimeout(() => {
+                        calculationHistory = [];
+                        historyCounter = 0;
+                        $jsResults.hide().css('opacity', '1');
+                    }, 300);
+                }
+            });
+
+            // Enter 鍵支援
+            $jsMinutesInput.on('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    $jsCalculateBtn.click();
+                }
+            });
         });
     </script>
 </body>

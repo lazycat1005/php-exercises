@@ -191,6 +191,7 @@ include_once '../../../header.php';
             </div>
         </div>
     </div>
+    <a class="fixedBtn" href="../../../index.php">Back</a>
 
     <!-- jQuery 1.12.4 -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
