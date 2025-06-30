@@ -5,9 +5,14 @@ include '../../../header.php';
 ?>
 
 <body>
-    <!-- 建立一個表單容器，裡面有兩個輸入框可供使用者上傳檔案1與檔案2，還有一個按鈕提交 -->
-    <main>
+    <!-- 標題 -->
+    <header>
         <h1>合併兩個檔案</h1>
+        <p>建立一個表單容器，裡面有兩個輸入框可供使用者上傳檔案1與檔案2，還有一個按鈕提交</p>
+    </header>
+
+    <!-- 主結構 -->
+    <main>
         <form id="mergeForm" action="" method="post" enctype="multipart/form-data">
             <label for="file1">檔案1：</label>
             <input type="file" id="file1" name="file1" accept=".txt" required>
@@ -49,6 +54,8 @@ include '../../../header.php';
         }
         ?>
     </main>
+
+    <!-- 返回首頁按鈕 -->
     <a class="fixedBtn" href="../../../index.php">Back</a>
 </body>
 
