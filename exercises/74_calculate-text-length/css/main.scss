@@ -1,0 +1,156 @@
+// 74_calculate-text-length 專用樣式
+.text-length {
+  &__container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #6c757d;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__form {
+    background: white;
+    padding: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      padding: 1rem;
+      border: 2px solid #e9ecef;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+      }
+
+      &::placeholder {
+        color: #adb5bd;
+      }
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background: #0056b3;
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  &__result {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0;
+      font-size: 1.1rem;
+
+      &#charCount {
+        font-weight: 600;
+        color: #28a745;
+      }
+    }
+
+    // 錯誤訊息樣式
+    p[style*="color:red"],
+    p[style*="color: red"] {
+      color: #dc3545 !important;
+      font-weight: 600;
+      padding: 0.75rem;
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      border-radius: 4px;
+    }
+  }
+
+  // 字數統計顯示
+  &__char-count {
+    background: #e8f5e8;
+    padding: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid #28a745;
+    font-weight: 600;
+    color: #155724;
+  }
+
+  // 響應式設計
+  @media (max-width: 768px) {
+    &__container {
+      margin: 1rem;
+      padding: 1rem;
+    }
+
+    &__header h1 {
+      font-size: 2rem;
+    }
+
+    &__form {
+      padding: 1rem;
+    }
+  }
+}
+
+// 返回按鈕樣式調整
+.fixedBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #6c757d;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: white;
+  }
+}
