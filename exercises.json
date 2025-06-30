@@ -3,26 +3,26 @@
     "title": "溫度轉換",
     "description": "將溫度從攝氏度轉換為華氏度，或從華氏度轉換為攝氏度。",
     "links": {
-      "js": "./exercises/08_temperature-unit-conversion/js-version/",
-      "php": "./exercises/08_temperature-unit-conversion/php-version/",
-      "ai": "./exercises/08_temperature-unit-conversion/ai-version/"
+      "ajax": "./exercises/08_temperature-unit-conversion/version-js/",
+      "php": "./exercises/08_temperature-unit-conversion/version-php/",
+      "ai": "./exercises/08_temperature-unit-conversion/version-ai/"
     }
   },
   "telephone": {
     "title": "電話帳單",
     "description": "計算電話帳單的費用，根據通話時間和費率進行計算。",
     "links": {
-      "php": "./exercises/34_telephone-bill-calculation/php-version/",
-      "js": "./exercises/34_telephone-bill-calculation/js-version/",
-      "ai": "./exercises/34_telephone-bill-calculation/ai-version/"
+      "php": "./exercises/34_telephone-bill-calculation/version-php/",
+      "js": "./exercises/34_telephone-bill-calculation/version-js/",
+      "ai": "./exercises/34_telephone-bill-calculation/version-ai/"
     }
   },
   "leap-years": {
     "title": "閏年計算",
     "description": "判斷給定的年份是否為閏年，並計算該年度總天數。",
     "links": {
-      "php": "./exercises/27_calculating-leap-years/php-version/",
-      "ai": "./exercises/27_calculating-leap-years/ai-version/"
+      "php": "./exercises/27_calculating-leap-years/version-php/",
+      "ai": "./exercises/27_calculating-leap-years/version-ai/"
     }
   },
   "English-letters": {
@@ -48,7 +48,7 @@
     "title": "合併檔案",
     "description": "將兩個TXT檔案的內容合併為一個TXT檔案，並顯示下載鏈結。",
     "links": {
-      "php": "./exercises/94_mergeFiles/php-version/"
+      "php": "./exercises/94_mergeFiles/version-php/"
     }
   },
   "textLength": {
