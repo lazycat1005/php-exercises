@@ -29,19 +29,19 @@
     "title": "英文字母轉換",
     "description": "將使用者輸入的英文字母轉換為大寫或小寫。",
     "links": {
-      "1st": "./exercises/19-determine-the-case-of-English-letters/1st/",
-      "2nd": "./exercises/19-determine-the-case-of-English-letters/2nd/",
-      "3th": "./exercises/19-determine-the-case-of-English-letters/3th/",
-      "4th": "./exercises/19-determine-the-case-of-English-letters/4th/"
+      "v-1": "./exercises/19-determine-the-case-of-English-letters/version-1/",
+      "v-2": "./exercises/19-determine-the-case-of-English-letters/version-2/",
+      "v-3": "./exercises/19-determine-the-case-of-English-letters/version-3/",
+      "v-4": "./exercises/19-determine-the-case-of-English-letters/version-4/"
     }
   },
   "multiplication-table": {
     "title": "九九乘法表",
     "description": "生成九九乘法表，顯示從1到9的乘法結果。",
     "links": {
-      "php-1": "./exercises/47_multiplication-table/php-version-1/",
-      "php-2": "./exercises/47_multiplication-table/php-version-2/",
-      "php-3": "./exercises/47_multiplication-table/php-version-3/"
+      "v-1": "./exercises/47_multiplication-table/version-1/",
+      "v-2": "./exercises/47_multiplication-table/version-2/",
+      "v-3": "./exercises/47_multiplication-table/version-3/"
     }
   },
   "mergeFiles": {
