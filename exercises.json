@@ -29,10 +29,10 @@
     "title": "英文字母轉換",
     "description": "將使用者輸入的英文字母轉換為大寫或小寫。",
     "links": {
-      "v-1": "./exercises/19-determine-the-case-of-English-letters/version-1/",
-      "v-2": "./exercises/19-determine-the-case-of-English-letters/version-2/",
-      "v-3": "./exercises/19-determine-the-case-of-English-letters/version-3/",
-      "v-4": "./exercises/19-determine-the-case-of-English-letters/version-4/"
+      "v-1": "./exercises/19_english-letter-case/version-1/",
+      "v-2": "./exercises/19_english-letter-case/version-2/",
+      "v-3": "./exercises/19_english-letter-case/version-3/",
+      "v-4": "./exercises/19_english-letter-case/version-4/"
     }
   },
   "multiplication-table": {
@@ -48,7 +48,7 @@
     "title": "合併檔案",
     "description": "將兩個TXT檔案的內容合併為一個TXT檔案，並顯示下載鏈結。",
     "links": {
-      "php": "./exercises/94_mergeFiles/version-php/"
+      "php": "./exercises/94_file-merger/version-php/"
     }
   },
   "textLength": {
