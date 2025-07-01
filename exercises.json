@@ -3,7 +3,7 @@
     "title": "溫度轉換",
     "description": "將溫度從攝氏度轉換為華氏度，或從華氏度轉換為攝氏度。",
     "links": {
-      "ajax": "./exercises/08_temperature-unit-conversion/version-js/",
+      "ajax": "./exercises/08_temperature-unit-conversion/version-ajax/",
       "php": "./exercises/08_temperature-unit-conversion/version-php/",
       "ai": "./exercises/08_temperature-unit-conversion/version-ai/"
     }
