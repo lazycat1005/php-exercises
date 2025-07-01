@@ -3,7 +3,6 @@ $metaKey = "mergeFiles";
 $exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
-<link rel="stylesheet" href="../css/main.css">
 
 <body>
     <div class="file-merger__container">

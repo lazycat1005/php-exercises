@@ -60,5 +60,13 @@
       "v-3": "./exercises/74_calculate-text-length/version-3/",
       "v-4": "./exercises/74_calculate-text-length/version-4/"
     }
+  },
+  "removeSpaces": {
+    "title": "刪除字串空格",
+    "description": "刪除使用者輸入字串中的所有空格，並顯示處理後的結果。",
+    "links": {
+      "php": "./exercises/97_remove-spaces/version-php/",
+      "js": "./exercises/97_remove-spaces/version-js/"
+    }
   }
 }
