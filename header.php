@@ -12,11 +12,19 @@ $desc = $metaArr[$metaKey]['description'] ?? '';
 // 設定 css 路徑
 $cssRealPath = rtrim($exerciseDir, '/') . '/css/main.css';
 $cssUrlPath = '../css/main.css'; // 對瀏覽器路徑（index.php 位置相對於 css）
+$allCssRealPath = __DIR__ . '/css/all.css';
+$allCssUrlPath = '../../../css/all.css';
 
 if (file_exists($cssRealPath)) {
     $cssVer = filemtime($cssRealPath);
     $cssUrlPath .= '?v=' . $cssVer;
 }
+
+if (file_exists($allCssRealPath)) {
+    $allCssVer = filemtime($allCssRealPath);
+    $allCssUrlPath .= '?v=' . $allCssVer;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-TW">
@@ -30,5 +38,5 @@ if (file_exists($cssRealPath)) {
     <title><?= htmlspecialchars($title) ?></title>
     <meta name="description" content="<?= htmlspecialchars($desc) ?>">
     <link rel="stylesheet" href="<?= htmlspecialchars($cssUrlPath) ?>">
-    <link rel="stylesheet" href="../../../css/all.css">
+    <link rel="stylesheet" href="<?= htmlspecialchars($allCssUrlPath) ?>">
 </head>

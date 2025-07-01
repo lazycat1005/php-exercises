@@ -28,11 +28,7 @@
                 echo '<h2>' . htmlspecialchars($exercise['title']) . '</h2>';
                 echo '<ul>';
                 foreach ($exercise['links'] as $type => $url) {
-                    $typeName = '';
-                    if ($type === 'ajax') $typeName = 'Ajax';
-                    elseif ($type === 'php') $typeName = 'PHP';
-                    elseif ($type === 'js') $typeName = 'JS';
-                    else $typeName = ucfirst($type);
+                    $typeName = $type;
                     echo '<li><a href="' . htmlspecialchars($url) . '">' . htmlspecialchars($exercise['title']) . "($typeName)</a></li>";
                 }
                 echo '</ul>';
