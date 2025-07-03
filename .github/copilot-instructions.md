@@ -23,18 +23,18 @@
 
 - **雙 JavaScript 檔案引入策略**：每個練習題目頁面都會引入兩隻 JS 檔案
   1. `/assets/js/common.js` (共用功能) - 包含全域函數、共用邏輯等
-  2. `/assets/js/[題目編號].js` (專用腳本) - 如 `temperature08.js`、`telephoneBill34.js`
+  2. `/assets/js/[題目編號][題目名稱].js` (專用腳本) - 如 `08temperature.js`、`34telephoneBill.js`
 
 #### 開發規則
 
 - **新增 JavaScript 功能**：
   - 共用功能請在 `/assets/js/common.js` 中撰寫
-  - 題目專用邏輯請在 `/assets/js/[題目編號].js` 中撰寫
+  - 題目專用邏輯請在 `/assets/js/[題目編號][題目名稱].js` 中撰寫
   - 確保 jQuery 1.12.4 已經載入後再執行自定義腳本
 
 #### 檔案命名規則
 
-- 題目專用 JS 檔案命名：`[題目編號].js` (如：`temperature08.js`)
+- 題目專用 JS 檔案命名：`[題目編號][題目名稱].js` (如：`08temperature.js`)
 - 所有 JavaScript 檔案統一放置在 `/assets/js/` 目錄
 
 ### SCSS (CSS)
@@ -43,14 +43,14 @@
 
 - **雙 CSS 檔案引入策略**：每個練習題目頁面都會引入兩隻 CSS 檔案
   1. `/assets/css/all.css` (全域樣式) - 包含 CSS Reset、變數定義、共用樣式等
-  2. `/assets/css/[題目編號].css` (專用樣式) - 如 `temperature08.css`、`telephoneBill34.css`
+  2. `/assets/css/[題目編號][題目名稱].css` (專用樣式) - 如 `08temperature.css`、`34telephoneBill.css`
 
 #### 開發規則
 
 - **新增 CSS 樣式**：
 
   - 共用樣式請修改 `/assets/scss/_common.scss`
-  - 題目專用樣式請在 `/assets/scss/[題目編號].scss` 中撰寫
+  - 題目專用樣式請在 `/assets/scss/[題目編號][題目名稱].scss` 中撰寫
   - 變數定義請在 `/assets/scss/_variables.scss` 中管理
 
 - **SCSS 語法規範**：
@@ -60,7 +60,7 @@
 
 #### 檔案命名規則
 
-- 題目專用 SCSS 檔案命名：`[題目編號].scss` (如：`temperature08.scss`)
+- 題目專用 SCSS 檔案命名：`[題目編號][題目名稱].scss` (如：`08temperature.scss`)
 - 編譯後的 CSS 檔案會自動產生在 `/assets/css/` 目錄
 
 ## 生成紀錄

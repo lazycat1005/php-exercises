@@ -8,8 +8,8 @@
 
 1. **統一管理**：將所有 CSS/SCSS 檔案集中在 `/assets/` 目錄
 2. **模組化設計**：採用雙 CSS 檔案引入策略
-3. **提升維護性**：建立一致的檔案命名和組織結構
-4. 只將目前的 css 與 scss 檔案搬移至新目錄路徑下，不需要做任何優化與增加程式碼
+3. **提升維護性**：建立一致的檔案命名和組織結構，範例:`[題目編號][題目英文簡稱]`
+4. **不更動內容**：只將目前的 css 與 scss 檔案搬移至新目錄路徑下，不需要做任何優化與增加程式碼
 
 ## 檔案結構規劃
 
@@ -39,13 +39,13 @@ assets/
 │   ├── _reset.scss                # CSS 重設
 │   ├── _common.scss               # 共用樣式
 │   ├── all.scss                   # 主要入口檔案
-│   ├── temperature08.scss         # 溫度轉換專用樣式
-│   ├── telephoneBill34.scss       # 電話帳單專用樣式
+│   ├── 08temperature.scss         # 溫度轉換專用樣式
+│   ├── 34telephoneBill.scss       # 電話帳單專用樣式
 │   └── ...其他題目專用樣式
 └── css/                           # 編譯後的 CSS
     ├── all.css                    # 全域樣式
-    ├── temperature08.css          # 溫度轉換專用樣式
-    ├── telephoneBill34.css        # 電話帳單專用樣式
+    ├── 08temperature.css          # 溫度轉換專用樣式
+    ├── 34telephoneBill.css        # 電話帳單專用樣式
     └── ...其他題目專用樣式
 ```
 
@@ -111,22 +111,22 @@ ol {
 
 | 原始檔案路徑                                             | 新檔案路徑                          | 檔案名稱規則                    |
 | -------------------------------------------------------- | ----------------------------------- | ------------------------------- |
-| `exercises/08_temperature-unit-conversion/css/main.scss` | `assets/scss/temperature08.scss`    | `[題目英文簡稱][題目編號].scss` |
-| `exercises/34_telephone-bill-calculation/css/main.scss`  | `assets/scss/telephoneBill34.scss`  | `[題目英文簡稱][題目編號].scss` |
-| `exercises/19_english-letter-case/css/main.css`          | `assets/scss/englishLetters19.scss` | `[題目英文簡稱][題目編號].scss` |
+| `exercises/08_temperature-unit-conversion/css/main.scss` | `assets/scss/08temperature.scss`    | `[題目編號][題目英文簡稱].scss` |
+| `exercises/34_telephone-bill-calculation/css/main.scss`  | `assets/scss/34telephoneBill.scss`  | `[題目編號][題目英文簡稱].scss` |
+| `exercises/19_english-letter-case/css/main.css`          | `assets/scss/19englishLetters.scss` | `[題目編號][題目英文簡稱].scss` |
 
 #### 3.2 題目名稱對照表
 
-| 題目編號 | 題目名稱                    | 檔案前綴            | 完整檔案名                 |
+| 題目編號 | 題目名稱                    | 檔案後綴            | 完整檔案名                 |
 | -------- | --------------------------- | ------------------- | -------------------------- |
-| 08       | temperature-unit-conversion | temperature         | temperature08.scss         |
-| 19       | english-letter-case         | englishLetters      | englishLetters19.scss      |
-| 27       | calculating-leap-years      | leapYear            | leapYear27.scss            |
-| 34       | telephone-bill-calculation  | telephoneBill       | telephoneBill34.scss       |
-| 47       | multiplication-table        | multiplicationTable | multiplicationTable47.scss |
-| 74       | calculate-text-length       | textLength          | textLength74.scss          |
-| 94       | file-merger                 | fileMerger          | fileMerger94.scss          |
-| 97       | remove-spaces               | removeSpaces        | removeSpaces97.scss        |
+| 08       | temperature-unit-conversion | temperature         | 08temperature.scss         |
+| 19       | english-letter-case         | englishLetters      | 19englishLetters.scss      |
+| 27       | calculating-leap-years      | leapYear            | 27leapYear.scss            |
+| 34       | telephone-bill-calculation  | telephoneBill       | 34telephoneBill.scss       |
+| 47       | multiplication-table        | multiplicationTable | 47multiplicationTable.scss |
+| 74       | calculate-text-length       | textLength          | 74textLength.scss          |
+| 94       | file-merger                 | fileMerger          | 94fileMerger.scss          |
+| 97       | remove-spaces               | removeSpaces        | 97removeSpaces.scss        |
 
 #### 3.3 遷移步驟範例
 
@@ -142,17 +142,17 @@ ol {
 2. **建立新的 SCSS 檔案**
 
    ```bash
-   touch assets/scss/temperature08.scss
+   touch assets/scss/08temperature.scss
    ```
 
 3. **遷移樣式內容**
 
    - 移除重複的重設樣式 (已在 `_reset.scss` 中)
    - 保留題目專屬的樣式
-   - 在 `exercises\08_temperature-unit-conversion\version-ajax\index.php` 與 `exercises\08_temperature-unit-conversion\version-php\index.php`中加入加入變數`$newCssName ='temperature08.css'`
+   - 在 `exercises\08_temperature-unit-conversion\version-ajax\index.php` 與 `exercises\08_temperature-unit-conversion\version-php\index.php`中加入加入變數`$newCssName ='08temperature.css'`
 
    ```php
-   $newCssName = 'temperature08.css'; //添加此行
+   $newCssName = '08temperature.css'; //添加此行
    $exerciseDir = __DIR__ . '/../';
    include '../../../header.php';
    ```

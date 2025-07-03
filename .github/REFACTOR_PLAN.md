@@ -29,23 +29,23 @@ PHP-Exercises/
 ├── app/                      # 應用程式核心
 │   ├── controller/           # 控制器層
 │   │   ├── BaseController.php
-│   │   ├── Temperature08Controller.php
-│   │   ├── EnglishLetters19Controller.php
-│   │   ├── LeapYear27Controller.php
-│   │   ├── TelephoneBill34Controller.php
-│   │   ├── MultiplicationTable47Controller.php
-│   │   ├── TextLength74Controller.php
-│   │   ├── FileMerger94Controller.php
-│   │   └── RemoveSpaces97Controller.php
+│   │   ├── 08temperatureController.php
+│   │   ├── 19englishLettersController.php
+│   │   ├── 27leapYearController.php
+│   │   ├── 34telephoneBillController.php
+│   │   ├── 47multiplicationTableController.php
+│   │   ├── 74textLengthController.php
+│   │   ├── 94fileMergerController.php
+│   │   └── 97removeSpacesController.php
 │   ├── validator/            # 驗證器層
 │   │   ├── BaseValidator.php # 基底驗證器
-│   │   ├── Temperature08Validator.php
-│   │   ├── EnglishLetters19Validator.php
-│   │   ├── LeapYear27Validator.php
-│   │   ├── TelephoneBill34Validator.php
-│   │   ├── TextLength74Validator.php
-│   │   ├── FileMerger94Validator.php
-│   │   └── RemoveSpaces97Validator.php
+│   │   ├── 08temperatureValidator.php
+│   │   ├── 19englishLettersValidator.php
+│   │   ├── 27leapYearValidator.php
+│   │   ├── 34telephoneBillValidator.php
+│   │   ├── 74textLengthValidator.php
+│   │   ├── 94fileMergerValidator.php
+│   │   └── 97removeSpacesValidator.php
 │   ├── helper/               # 輔助函數
 │   │   ├── HtmlHelper.php    # HTML 生成輔助器(header/footer function)
 │   │   ├── StringHelper.php  # 字串處理輔助器
@@ -59,34 +59,34 @@ PHP-Exercises/
 │   │   ├── _reset.scss                # CSS 重設
 │   │   ├── _common.scss               # 重複性極高的共用樣式
 │   │   ├── all.scss                   # 主要入口檔案
-│   │   ├── temperature08.scss         # 溫度轉換專用樣式
-│   │   ├── englishLetters19.scss      # 英文字母轉換專用樣式
-│   │   ├── leapYear27.scss            # 閏年計算專用樣式
-│   │   ├── telephoneBill34.scss       # 電話帳單專用樣式
-│   │   ├── multiplicationTable47.scss # 九九乘法表專用樣式
-│   │   ├── textLength74.scss          # 文字長度計算專用樣式
-│   │   ├── fileMerger94.scss          # 檔案合併專用樣式
-│   │   └── removeSpaces97.scss        # 移除空格專用樣式
+│   │   ├── 08temperature.scss         # 溫度轉換專用樣式
+│   │   ├── 19englishLetters.scss      # 英文字母轉換專用樣式
+│   │   ├── 27leapYear.scss            # 閏年計算專用樣式
+│   │   ├── 34telephoneBill.scss       # 電話帳單專用樣式
+│   │   ├── 47multiplicationTable.scss # 九九乘法表專用樣式
+│   │   ├── 74textLength.scss          # 文字長度計算專用樣式
+│   │   ├── 94fileMerger.scss          # 檔案合併專用樣式
+│   │   └── 97removeSpaces.scss        # 移除空格專用樣式
 │   ├── css/                           # 編譯後的 CSS
 │   │   ├── all.css                    # 全域樣式(每個頁面都會引入)
-│   │   ├── temperature08.css          # 溫度轉換專用樣式
-│   │   ├── englishLetters19.css       # 英文字母轉換專用樣式
-│   │   ├── leapYear27.css             # 閏年計算專用樣式
-│   │   ├── telephoneBill34.css        # 電話帳單專用樣式
-│   │   ├── multiplicationTable47.css  # 九九乘法表專用樣式
-│   │   ├── textLength74.css           # 文字長度計算專用樣式
-│   │   ├── fileMerger94.css           # 檔案合併專用樣式
-│   │   └── removeSpaces97.css         # 移除空格專用樣式
+│   │   ├── 08temperature.css          # 溫度轉換專用樣式
+│   │   ├── 19englishLetters.css       # 英文字母轉換專用樣式
+│   │   ├── 27leapYear.css             # 閏年計算專用樣式
+│   │   ├── 34telephoneBill.css        # 電話帳單專用樣式
+│   │   ├── 47multiplicationTable.css  # 九九乘法表專用樣式
+│   │   ├── 74textLength.css           # 文字長度計算專用樣式
+│   │   ├── 94fileMerger.css           # 檔案合併專用樣式
+│   │   └── 97removeSpaces.css         # 移除空格專用樣式
 │   ├── js/                            # JavaScript 檔案
 │   │   ├── common.js                  # 共用 JavaScript 功能
-│   │   ├── temperature08.js           # 溫度轉換專用腳本
-│   │   ├── englishLetters19.js        # 英文字母轉換專用腳本
-│   │   ├── leapYear27.js              # 閏年計算專用腳本
-│   │   ├── telephoneBill34.js         # 電話帳單專用腳本
-│   │   ├── multiplicationTable47.js   # 九九乘法表專用腳本
-│   │   ├── textLength74.js            # 文字長度計算專用腳本
-│   │   ├── fileMerger94.js            # 檔案合併專用腳本
-│   │   └── removeSpaces97.js          # 移除空格專用腳本
+│   │   ├── 08temperature.js           # 溫度轉換專用腳本
+│   │   ├── 19englishLetters.js        # 英文字母轉換專用腳本
+│   │   ├── 27leapYear.js              # 閏年計算專用腳本
+│   │   ├── 34telephoneBill.js         # 電話帳單專用腳本
+│   │   ├── 47multiplicationTable.js   # 九九乘法表專用腳本
+│   │   ├── 74textLength.js            # 文字長度計算專用腳本
+│   │   ├── 94fileMerger.js            # 檔案合併專用腳本
+│   │   └── 97removeSpaces.js          # 移除空格專用腳本
 │   └── images/               # 圖片資源(如有需要)
 ├── exercises/                # 練習題目(保持現有結構)
 │   ├── 08_temperature/       # 溫度轉換
@@ -139,7 +139,7 @@ PHP-Exercises/
 2. **\[題目編號].css** (專用樣式)
    - 每個練習題目的專屬樣式
    - 統一放在 `/assets/css/` 目錄
-   - 如：temperature08.css、telephoneBill34.css
+   - 如：08temperature.css、34telephoneBill.css
 
 ##### SCSS 結構
 
@@ -150,7 +150,7 @@ PHP-Exercises/
 @import "common"; // 共用樣式(按鈕、表單、卡片等)
 
 // 各題目專用 SCSS 檔案
-// temperature08.scss、telephoneBill34.scss 等
+// 08temperature.scss、34telephoneBill.scss 等
 ```
 
 #### 1.3 Header/Footer 函數化
@@ -180,8 +180,8 @@ echo HtmlHelper::renderFooter($jsFiles);
   "08_temperature": {
     "title": "溫度轉換",
     "description": "將溫度從攝氏度轉換為華氏度，或從華氏度轉換為攝氏度。",
-    "css": "temperature08.css",
-    "js": "temperature08.js",
+    "css": "08temperature.css",
+    "js": "08temperature.js",
     "versions": {
       "php": "./exercises/08_temperature/version-php/",
       "ajax": "./exercises/08_temperature/version-ajax/",
@@ -200,7 +200,7 @@ echo HtmlHelper::renderFooter($jsFiles);
   <head>
     <!-- 通過 HtmlHelper 動態生成 -->
     <link rel="stylesheet" href="/assets/css/all.css" />
-    <link rel="stylesheet" href="/assets/css/temperature08.css" />
+    <link rel="stylesheet" href="/assets/css/08temperature.css" />
   </head>
   <body>
     <!-- 頁面內容 -->
@@ -208,7 +208,7 @@ echo HtmlHelper::renderFooter($jsFiles);
     <!-- 通過 HtmlHelper 動態生成 -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="/assets/js/common.js"></script>
-    <script src="/assets/js/temperature08.js"></script>
+    <script src="/assets/js/08temperature.js"></script>
   </body>
 </html>
 ```
