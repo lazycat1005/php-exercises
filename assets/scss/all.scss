@@ -2,3 +2,76 @@
 @import "variables";
 @import "reset";
 @import "common";
+
+//返回首頁的固定按鈕
+.fixedBtn {
+  font-size: 1.6rem;
+  width: 5rem;
+  height: 5rem;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  bottom: 5rem;
+  right: 2rem;
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  &:hover {
+    background-color: darken($color: #007bff, $amount: 10);
+  }
+}
+
+//only for indexPage
+main#indexPage {
+  max-width: 90rem;
+  margin: 0 auto;
+  @media (max-width: 900px) {
+    width: 100%;
+    padding: 1rem;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.4rem;
+  }
+  .exercisesCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 450px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .exercisesCard {
+      border: 1px solid #000;
+      border-radius: 10px;
+      box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      h2 {
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+      }
+      li {
+        margin-bottom: 1rem;
+        a {
+          font-size: 1.6rem;
+          display: block;
+          color: #fff;
+          background-color: #089;
+          box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+          padding: 0.5rem 1rem;
+          border-radius: 1rem;
+          text-align: center;
+          &:hover {
+            background-color: darken($color: #089, $amount: 10);
+          }
+        }
+      }
+    }
+  }
+}

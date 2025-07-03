@@ -1,0 +1,97 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.container .introduction h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.container .introduction ul {
+  margin-left: 20px;
+}
+.container .introduction ul li {
+  margin-bottom: 10px;
+}
+.container form #telephoneBillCalculation {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #4f7cd1, #b0c1ee);
+  border: none;
+}
+@media (max-width: 450px) {
+  .container form #telephoneBillCalculation {
+    flex-direction: column;
+  }
+}
+.container form #telephoneBillCalculation label {
+  font-size: 20px;
+  color: #fff;
+}
+.container form #telephoneBillCalculation input {
+  font-size: 20px;
+  padding: 5px;
+  margin: 0 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 250px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 1024px) {
+  .container form #telephoneBillCalculation input {
+    margin: 20px 0px;
+  }
+}
+.container form #telephoneBillCalculation button {
+  font-size: 20px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.container form #telephoneBillCalculation button:hover {
+  background-color: #0056b3;
+}
+.container .result {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  background-color: #f8f9fa;
+}
+.container .result h2 {
+  font-size: 20px;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.container .result p {
+  margin-bottom: 10px;
+}
+.container .result h4 {
+  margin: 20px 0;
+}
+.container .result ol,
+.container .result ul {
+  margin-left: 20px;
+}
+.container .result ol li,
+.container .result ul li {
+  margin-bottom: 10px;
+  color: #333;
+}
+.container .result h3 {
+  color: #0056b3;
+}
+
+/*# sourceMappingURL=34telephoneBill.css.map */

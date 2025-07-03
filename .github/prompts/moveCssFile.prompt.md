@@ -8,14 +8,14 @@ mode: agent
 
 本指南說明如何將現有分散在各練習題目中的 CSS/SCSS 檔案，重構整合到統一的 `/assets/` 目錄結構中，實現模組化管理。
 
-我會指示本次要重構的`[題目編號][題目英文簡稱]`資料夾，**一次只做一個練習題目資料夾的搬移**，以確保每次變更都能清楚追蹤和測試。請勿改動我未指示的`[題目編號][題目英文簡稱]`資料夾。
+我會指示本次要重構的 `[題目編號][題目英文簡稱]` 資料夾，** 一次只做一個練習題目資料夾的搬移 **，以確保每次變更都能清楚追蹤和測試。請勿改動我未指示的 `[題目編號][題目英文簡稱]` 資料夾。
 
 ## 重構目標
 
-1. **統一管理**：將所有 CSS/SCSS 檔案集中在 `/assets/` 目錄
-2. **模組化設計**：採用雙 CSS 檔案引入策略，一為固定的`all.css`另一個為該題目專屬的 CSS 檔案
-3. **提升維護性**：建立一致的檔案命名和組織結構，範例:`[題目編號][題目英文簡稱]`
-4. **不更動內容**：只將目前的 css 與 scss 檔案搬移至新目錄路徑下，不需要做任何優化與增加程式碼
+1. ** 統一管理 **：將所有 CSS/SCSS 檔案集中在 `/assets/` 目錄
+2. ** 模組化設計 **：採用雙 CSS 檔案引入策略，一為固定的 `all.css` 另一個為該題目專屬的 CSS 檔案
+3. ** 提升維護性 **：建立一致的檔案命名和組織結構，範例:`[題目編號][題目英文簡稱]`
+4. ** 不更動內容 **：只將目前的 css 與 scss 檔案搬移至新目錄路徑下，不需要做任何優化與增加程式碼
 
 ## 檔案結構規劃
 
@@ -33,7 +33,7 @@ exercises/
 │       ├── main.css
 │       ├── main.css.map
 │       └── main.scss
-└── ...其他題目
+└── ... 其他題目
 ```
 
 ### 重構後結構
@@ -47,12 +47,12 @@ assets/
 │   ├── all.scss                   # 主要入口檔案
 │   ├── 08temperature.scss         # 溫度轉換專用樣式
 │   ├── 34telephoneBill.scss       # 電話帳單專用樣式
-│   └── ...其他題目專用樣式
+│   └── ... 其他題目專用樣式
 └── css/                           # 編譯後的 CSS
     ├── all.css                    # 全域樣式
     ├── 08temperature.css          # 溫度轉換專用樣式
     ├── 34telephoneBill.css        # 電話帳單專用樣式
-    └── ...其他題目專用樣式
+    └── ... 其他題目專用樣式
 ```
 
 ## 重構步驟
@@ -71,7 +71,7 @@ mkdir -p assets/css
 
 - 暫時為空檔案
 
-#### 2.2 建立重設檔案 `_reset.scss`，從`/css/all.scss`中搬移出來
+#### 2.2 建立重設檔案 `_reset.scss`，從 `/css/all.scss` 中搬移出來
 
 ```scss
 /* CSS Reset */
@@ -79,8 +79,8 @@ mkdir -p assets/css
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // outline: 1px solid limegreen !important;
-  // background: rgb(0 100 0 /0.05) !important;
+  //outline: 1px solid limegreen !important;
+  //background: rgb (0 100 0 /0.05) !important;
 }
 
 html {
@@ -138,28 +138,28 @@ ol {
 
 以溫度轉換 (08) 為例：
 
-1. **複製原始檔案內容**
+1. ** 複製原始檔案內容 **
 
    ```bash
    # 檢視原始檔案
    cat exercises/08_temperature-unit-conversion/css/main.scss
    ```
 
-2. **建立新的 SCSS 檔案**
+2. ** 建立新的 SCSS 檔案 **
 
-   ```bash
-   touch assets/scss/08temperature.scss
-   ```
+```bash
+touch assets/scss/08temperature.scss
+```
 
-3. **遷移樣式內容**
+3. ** 遷移樣式內容 **
 
    - 移除重複的重設樣式 (已在 `_reset.scss` 中)
    - 保留題目專屬的樣式
-   - 在 `exercises\08_temperature-unit-conversion\version-ajax\index.php` 與 `exercises\08_temperature-unit-conversion\version-php\index.php`中加入加入變數`$newCssName ='08temperature.css'`
+   - 在 `exercises\08_temperature-unit-conversion\version-ajax\index.php` 與 `exercises\08_temperature-unit-conversion\version-php\index.php` 中加入加入變數 `$newCssName ='08temperature.css'`
 
    ```php
-   $newCssName = '08temperature.css'; //添加此行
-   $exerciseDir = __DIR__ . '/../';
+   $newCssName = '08temperature.css'; // 添加此行
+   //$exerciseDir = __DIR__ . '/../';// 此變數不再需要，請刪除這一行
    include '../../../header.php';
    ```
 

@@ -1,7 +1,6 @@
 <?php
 // 檔案載入前需設定 $metaKey 與 $exerciseDir
 if (!isset($metaKey)) $metaKey = "temperature";
-if (!isset($exerciseDir)) $exerciseDir = __DIR__; // fallback
 
 // 讀取 metadata
 $metaJson = file_get_contents(__DIR__ . '/exercises.json');
@@ -13,11 +12,12 @@ if (!isset($newCssName)) {
     $newCssName = 'main.css'; // 預設值
 }
 
+$webRoot = '/PHP-Exercises/'; // 根目錄路徑
 // 設定 css 路徑
-$cssRealPath = rtrim($exerciseDir, '/') . '/css/' . $newCssName;
-$cssUrlPath = '../css/' . $newCssName; // 對瀏覽器路徑（index.php 位置相對於 css）
-$allCssRealPath = __DIR__ . '/css/all.css';
-$allCssUrlPath = '../../../css/all.css';
+$cssRealPath =  __DIR__ . '/assets/css/' . $newCssName;
+$cssUrlPath = $webRoot . 'assets/css/' . $newCssName;
+$allCssRealPath = __DIR__ . '/assets/css/all.css';
+$allCssUrlPath = $webRoot . 'assets/css/all.css';
 
 if (file_exists($cssRealPath)) {
     $cssVer = filemtime($cssRealPath);
