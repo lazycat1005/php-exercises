@@ -1,6 +1,6 @@
 <?php
+$newCssName = '97removeSpaces.css'; // 添加此行
 $metaKey = "removeSpaces";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 
