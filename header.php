@@ -9,9 +9,13 @@ $metaArr = json_decode($metaJson, true);
 $title = $metaArr[$metaKey]['title'] ?? '';
 $desc = $metaArr[$metaKey]['description'] ?? '';
 
+if (!isset($newCssName)) {
+    $newCssName = 'main.css'; // 預設值
+}
+
 // 設定 css 路徑
-$cssRealPath = rtrim($exerciseDir, '/') . '/css/main.css';
-$cssUrlPath = '../css/main.css'; // 對瀏覽器路徑（index.php 位置相對於 css）
+$cssRealPath = rtrim($exerciseDir, '/') . '/css/' . $newCssName;
+$cssUrlPath = '../css/' . $newCssName; // 對瀏覽器路徑（index.php 位置相對於 css）
 $allCssRealPath = __DIR__ . '/css/all.css';
 $allCssUrlPath = '../../../css/all.css';
 
