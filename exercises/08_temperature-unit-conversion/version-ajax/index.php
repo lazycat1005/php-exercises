@@ -1,6 +1,6 @@
 <?php
+$newCssName = '08temperature.css';
 $metaKey = "temperature";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 

@@ -1,6 +1,6 @@
 <?php
+$newCssName = '94fileMerger.css'; // 添加此行
 $metaKey = "mergeFiles";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 

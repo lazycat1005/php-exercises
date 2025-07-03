@@ -1,6 +1,6 @@
 <?php
+$newCssName = '47multiplicationTable.css'; // 添加此行
 $metaKey = "multiplication-table";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 require_once '../../../lib/MultiplicationTableHelper.php';
 

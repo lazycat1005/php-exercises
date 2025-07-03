@@ -1,11 +1,6 @@
 <?php
-// 顯示所有錯誤，方便除錯
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-
+$newCssName = '08temperature.css'; // 添加此行
 $metaKey = "temperature";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 

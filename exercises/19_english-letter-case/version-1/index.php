@@ -1,6 +1,6 @@
 <?php
+$newCssName = '19englishLetters.css';
 $metaKey = "English-letters";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 

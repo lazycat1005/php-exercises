@@ -1,6 +1,6 @@
 <?php
+$newCssName = '27leapYear.css'; // 添加此行
 $metaKey = "leap-years";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 

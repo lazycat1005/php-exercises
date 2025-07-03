@@ -1,0 +1,135 @@
+#ajaxVersion.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+@media (max-width: 767px) {
+  #ajaxVersion.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 10px;
+  }
+}
+@media (max-width: 560px) {
+  #ajaxVersion.container {
+    width: 100%;
+    max-width: 430px;
+    padding: 10px;
+  }
+}
+#ajaxVersion.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#ajaxVersion.container #temperatureConversion {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+@media (max-width: 560px) {
+  #ajaxVersion.container #temperatureConversion {
+    flex-direction: column;
+  }
+}
+@media (max-width: 560px) {
+  #ajaxVersion.container #temperatureConversion .celsius,
+  #ajaxVersion.container #temperatureConversion .fahrenheit {
+    margin: 10px 0;
+  }
+}
+#ajaxVersion.container #temperatureConversion .celsius input,
+#ajaxVersion.container #temperatureConversion .fahrenheit input {
+  padding: 5px;
+  border-radius: 5px;
+}
+#ajaxVersion.container #temperatureConversion .celsius label,
+#ajaxVersion.container #temperatureConversion .fahrenheit label {
+  font-size: 18px;
+}
+#ajaxVersion.container #temperatureConversion .celsius label {
+  color: #0c0;
+}
+#ajaxVersion.container #temperatureConversion .fahrenheit label {
+  color: #007bff;
+}
+#ajaxVersion.container .messageText {
+  text-align: center;
+}
+#ajaxVersion.container .messageText p {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #f00;
+}
+
+#phpVersion.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+@media (max-width: 767px) {
+  #phpVersion.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 10px;
+  }
+}
+@media (max-width: 560px) {
+  #phpVersion.container {
+    width: 100%;
+    max-width: 430px;
+    padding: 10px;
+  }
+}
+#phpVersion.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#phpVersion.container #temperatureConversion {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0.3px 0.3px 10px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 560px) {
+  #phpVersion.container #temperatureConversion {
+    flex-direction: column;
+  }
+}
+@media (max-width: 560px) {
+  #phpVersion.container #temperatureConversion .celsius,
+  #phpVersion.container #temperatureConversion .fahrenheit {
+    margin: 10px 0;
+  }
+}
+#phpVersion.container #temperatureConversion .celsius input,
+#phpVersion.container #temperatureConversion .fahrenheit input {
+  padding: 5px;
+  border-radius: 5px;
+}
+#phpVersion.container #temperatureConversion .celsius label,
+#phpVersion.container #temperatureConversion .fahrenheit label {
+  font-size: 18px;
+}
+#phpVersion.container #temperatureConversion .celsius label {
+  color: #0c0;
+}
+#phpVersion.container #temperatureConversion .fahrenheit label {
+  color: #007bff;
+}
+#phpVersion.container .messageText {
+  text-align: center;
+}
+#phpVersion.container .messageText p {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #f00;
+}
+
+/*# sourceMappingURL=08temperature.css.map */
