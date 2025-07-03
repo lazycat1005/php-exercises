@@ -89,6 +89,8 @@ include '../../../header.php';
 
     <a class="fixedBtn" href="../../../index.php">Back</a>
 
+    <!-- 引入jQuery1.12.4 -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./app.js"></script>
 </body>
 

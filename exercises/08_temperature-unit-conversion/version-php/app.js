@@ -1,34 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const celsiusInput = document.querySelector('input[name="celsius"]');
-  const fahrenheitInput = document.querySelector('input[name="fahrenheit"]');
-  const toCelsiusBtn = document.querySelector('button[value="toCelsius"]');
-  const toFahrenheitBtn = document.querySelector(
-    'button[value="toFahrenheit"]'
-  );
+$(function () {
+  const $celsiusInput = $('input[name="celsius"]');
+  const $fahrenheitInput = $('input[name="fahrenheit"]');
+  const $toCelsiusBtn = $('button[value="toCelsius"]');
+  const $toFahrenheitBtn = $('button[value="toFahrenheit"]');
+  const $clearBtn = $('#clearBtn');
+  const $messageBox = $('.messageText');
 
   // 綁定 keydown 事件
-  [celsiusInput, fahrenheitInput].forEach((input) => {
-    input.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") {
-        e.preventDefault(); // 阻止預設送出行為
-
-        // 根據哪個欄位有值來決定按哪個按鈕
-        if (this.name === "celsius" && this.value.trim() !== "") {
-          toFahrenheitBtn.click();
-        } else if (this.name === "fahrenheit" && this.value.trim() !== "") {
-          toCelsiusBtn.click();
-        }
+  $celsiusInput.add($fahrenheitInput).on('keydown', function (e) {
+    if (e.keyCode === 13) { // 13 = Enter
+      e.preventDefault();
+      // 根據哪個欄位有值來決定按哪個按鈕
+      if (this.name === 'celsius' && $.trim(this.value) !== '') {
+        $toFahrenheitBtn.click();
+      } else if (this.name === 'fahrenheit' && $.trim(this.value) !== '') {
+        $toCelsiusBtn.click();
       }
-    });
+    }
   });
 
   // 清除事件
-  const clearBtn = document.getElementById("clearBtn");
-  const messageBox = document.querySelector(".messageText");
-
-  clearBtn.addEventListener("click", () => {
-    celsiusInput.value = "";
-    fahrenheitInput.value = "";
-    messageBox.innerHTML = "";
+  $clearBtn.on('click', function () {
+    $celsiusInput.val('');
+    $fahrenheitInput.val('');
+    $messageBox.html('');
   });
 });
