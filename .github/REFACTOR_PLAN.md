@@ -136,7 +136,7 @@ PHP-Exercises/
    - 重複性極高的共用樣式 (\_common.scss)
    - 固定按鈕、導覽、表單基礎樣式等
 
-2. **\[題目編號].css** (專用樣式)
+2. **\[題目編號][題目名稱].css** (專用樣式)
    - 每個練習題目的專屬樣式
    - 統一放在 `/assets/css/` 目錄
    - 如：08temperature.css、34telephoneBill.css
