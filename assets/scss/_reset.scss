@@ -1,0 +1,22 @@
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // outline: 1px solid limegreen !important;
+  // background: rgb(0 100 0 /0.05) !important;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+ul,
+ol {
+  list-style: none;
+}
