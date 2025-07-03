@@ -1,6 +1,6 @@
 <?php
+$newCssName = '74textLength.css'; // 添加此行
 $metaKey = "textLength";
-$exerciseDir = __DIR__ . '/../';
 include '../../../header.php';
 ?>
 

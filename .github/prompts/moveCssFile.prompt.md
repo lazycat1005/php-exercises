@@ -156,6 +156,7 @@ touch assets/scss/08temperature.scss
    - 移除重複的重設樣式 (已在 `_reset.scss` 中)
    - 保留題目專屬的樣式
    - 在 `exercises\08_temperature-unit-conversion\version-ajax\index.php` 與 `exercises\08_temperature-unit-conversion\version-php\index.php` 中加入加入變數 `$newCssName ='08temperature.css'`
+   - 請刪除`$exerciseDir = __DIR__ . '/../';` 這一行
 
    ```php
    $newCssName = '08temperature.css'; // 添加此行
@@ -165,4 +166,8 @@ touch assets/scss/08temperature.scss
 
 ### Step 4: SCSS 編譯設定
 
-搬移完後不需要執行 scss 編譯指令
+搬移完後需要執行編譯指令
+
+```bash
+npm run sass-build
+```
