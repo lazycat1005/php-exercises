@@ -28,22 +28,7 @@ include '../../../header.php';
     <a class="fixedBtn" href="../../../index.php">Back</a>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('textarea').on('input', function() {
-                const text = $(this).val();
-                const charCount = text.length;
-                $('#charCount').text('字元個數: ' + charCount);
-
-                // 如果超過 100 個字，就不允許再輸入
-                if (charCount >= 100) {
-                    $(this).attr('maxlength', '100');
-                } else {
-                    $(this).removeAttr('maxlength');
-                }
-            });
-        });
-    </script>
+    <script src="./app.js"></script>
 
 </body>
 

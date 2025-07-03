@@ -28,14 +28,7 @@ include '../../../header.php';
     <a class="fixedBtn" href="../../../index.php">Back</a>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script>
-        // 當使用者輸入完且沒有專注在textarea上時，計算字元個數
-        function countChars(textarea) {
-            const text = $(textarea).val();
-            const charCount = text.length;
-            $('#charCount').text('字元個數: ' + charCount);
-        }
-    </script>
+    <script src="./app.js"></script>
 </body>
 
 </html>
