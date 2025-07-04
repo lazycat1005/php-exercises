@@ -10,8 +10,8 @@
 
 #### 保持現有的雙檔案載入策略
 
-- `/assets/js/common.js` - 共用功能檔案
-- `/assets/js/[題目編號][題目名稱].js` - 題目專用檔案
+- `/PHP-Exercises/assets/js/common.js` - 共用功能檔案
+- `/PHP-Exercises/assets/js/[題目編號][題目名稱].js` - 題目專用檔案
 
 #### 新增檔案
 

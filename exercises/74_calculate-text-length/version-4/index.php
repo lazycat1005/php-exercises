@@ -28,7 +28,7 @@ include '../../../header.php';
     <a class="fixedBtn" href="../../../index.php">Back</a>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="/PHP-Exercises/assets/js/74textLength.js"></script>
 
 </body>
 
