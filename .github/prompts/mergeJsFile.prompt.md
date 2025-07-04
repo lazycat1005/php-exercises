@@ -1,3 +1,7 @@
+---
+mode: agent
+---
+
 # JavaScript 檔案合併指南
 
 ## 目標
