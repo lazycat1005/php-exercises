@@ -2,6 +2,14 @@
 $newCssName = '19englishLetters.css';
 $metaKey = "English-letters";
 include '../../../header.php';
+
+// 新增：條件式引入控制器
+$useController = false;
+if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
+    require_once '../../../app/controller/19EnglishLettersController.php';
+    $controller = new EnglishLettersController();
+    $useController = true;
+}
 ?>
 
 <body>
@@ -20,21 +28,30 @@ include '../../../header.php';
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['charInput'])) {
                 $char = $_GET['charInput'];
-
-                if (strlen($char) !== 1) {
-                    echo "<p>請輸入單一字元。</p>";
-                } else {
-                    $singleChar = mb_substr($char, 0, 1, "UTF-8");
-                    $ascii = ord($singleChar);
-                    if ($ascii >= 65 && $ascii <= 90) {
-                        echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 大寫英文字母</p>";
-                    } elseif ($ascii >= 97 && $ascii <= 122) {
-                        echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 小寫英文字母</p>";
-                    } elseif ($ascii >= 48 && $ascii <= 57) {
-                        echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 數字</p>";
+                if ($useController) {
+                    $result = $controller->analyzeCharacter($char, 'both');
+                    if ($result['success']) {
+                        $data = $result['data'];
+                        echo "<p>字元: " . htmlspecialchars($data['char']) . "，ASCII碼: {$data['ascii']}，類型: {$data['type']}</p>";
                     } else {
-                        echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 其他字元</p>";
+                        echo "<p>{$result['message']}</p>";
                     }
+                } else {
+                    // if (strlen($char) !== 1) {
+                    //     echo "<p>請輸入單一字元。</p>";
+                    // } else {
+                    //     $singleChar = mb_substr($char, 0, 1, "UTF-8");
+                    //     $ascii = ord($singleChar);
+                    //     if ($ascii >= 65 && $ascii <= 90) {
+                    //         echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 大寫英文字母</p>";
+                    //     } elseif ($ascii >= 97 && $ascii <= 122) {
+                    //         echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 小寫英文字母</p>";
+                    //     } elseif ($ascii >= 48 && $ascii <= 57) {
+                    //         echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 數字</p>";
+                    //     } else {
+                    //         echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 其他字元</p>";
+                    //     }
+                    // }
                 }
             }
             ?>

@@ -2,10 +2,7 @@
 $newCssName = '47multiplicationTable.css';
 $metaKey = "multiplication-table";
 include '../../../header.php';
-require_once '../../../lib/MultiplicationTableHelper.php';
-
-use Lib\MultiplicationTableHelper;
-
+require_once '../../../app/helper/47MultiplicationTableHelper.php';
 ?>
 
 <body>
@@ -19,35 +16,16 @@ use Lib\MultiplicationTableHelper;
                 $colsPerRow = 3;
                 $rows = 3;
                 $tablesPerCell = 5;
-
-                // 使用物件取得預設表格
-                $tableNumbers = MultiplicationTableHelper::parseTableInput('9');
-
-                for ($row = 0; $row < $rows; $row++) {
-                    echo "<tr>";
-                    for ($col = 0; $col < $colsPerRow; $col++) {
-                        echo "<td>";
-                        echo "<table class='inner'>";
-                        // 9 列
-                        for ($i = 1; $i <= 9; $i++) {
-                            echo "<tr>";
-                            $base = $row * $colsPerRow + $col + 1;
-                            if ($base <= 9) {
-                                $result = $base * $i;
-                                echo "<td>{$base} × {$i} = {$result}</td>";
-                            } else {
-                                echo "<td>&nbsp;</td>";
-                            }
-                            for ($empty = 1; $empty < $tablesPerCell; $empty++) {
-                                echo "<td>&nbsp;</td>";
-                            }
-                            echo "</tr>";
-                        }
-                        echo "</table>";
-                        echo "</td>";
-                    }
-                    echo "</tr>";
+                $controllerPath = '../../../app/controller/47MultiplicationTableController.php';
+                if (file_exists($controllerPath)) {
+                    require_once $controllerPath;
+                    $controller = new MultiplicationTableController();
+                    $result = $controller->generateTable('1~9');
+                    $tableNumbers = $result['numbers'];
+                } else {
+                    // $tableNumbers = range(1, 9);
                 }
+                echo MultiplicationTableHelper::renderMultiplicationTable($tableNumbers, $colsPerRow, $rows, $tablesPerCell);
                 ?>
             </table>
         </section>

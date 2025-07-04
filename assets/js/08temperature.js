@@ -29,7 +29,7 @@ $(document).ready(function () {
           return;
         }
         $.ajax({
-          url: "./php/convert.php",
+          url: "/PHP-Exercises/app/ajax/temperature.php",
           type: "POST",
           data: {
             temperature: inputVal,

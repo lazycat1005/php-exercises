@@ -2,9 +2,7 @@
 $newCssName = '47multiplicationTable.css'; // 添加此行
 $metaKey = "multiplication-table";
 include '../../../header.php';
-require_once '../../../lib/MultiplicationTableHelper.php';
-
-use Lib\MultiplicationTableHelper;
+require_once '../../../app/helper/47MultiplicationTableHelper.php';
 ?>
 
 <body>
@@ -29,48 +27,29 @@ use Lib\MultiplicationTableHelper;
                 $colsPerRow = 3;
                 $rows = 3;
                 $tablesPerCell = 5;
-
                 $input = isset($_GET['tableCount']) ? $_GET['tableCount'] : '9';
                 $showError = false;
-                if (isset($_GET['tableCount']) && !MultiplicationTableHelper::isValidInput($input)) {
-                    $showError = true;
-                    echo "<script>window.inputErrorMsg = '請勿輸入文字、科學符號、運算符號、小數點或超過9的數字';</script>";
+                $controllerPath = '../../../app/controller/47MultiplicationTableController.php';
+                if (file_exists($controllerPath)) {
+                    require_once $controllerPath;
+                    $controller = new MultiplicationTableController();
+                    $result = $controller->generateTable($input);
+                    $showError = !$result['success'];
+                    $tableNumbers = $result['numbers'];
                 } else {
-                    echo "<script>window.inputErrorMsg = '';</script>";
+                    // if (isset($_GET['tableCount']) && !preg_match('/^[0-9,，~\- ]+$/u', $input)) {
+                    //     $showError = true;
+                    //     echo "<script>window.inputErrorMsg = '請勿輸入文字、科學符號、運算符號、小數點或超過9的數字';</script>";
+                    // } else {
+                    //     echo "<script>window.inputErrorMsg = '';</script>";
+                    // }
+                    // $tableNumbers = (!$showError) ? range(1, 9) : [];
                 }
 
-                $tableNumbers = (!$showError) ? MultiplicationTableHelper::parseTableInput($input) : [];
                 if (empty($tableNumbers) && !$showError) {
                     $tableNumbers = [9];
                 }
-
-                $maxTable = !empty($tableNumbers) ? max($tableNumbers) : 9;
-                $tableIndex = 0;
-                for ($row = 0; $row < $rows; $row++) {
-                    echo "<tr>";
-                    for ($col = 0; $col < $colsPerRow; $col++) {
-                        echo "<td>";
-                        echo "<table class='inner'>";
-                        for ($i = 1; $i <= 9; $i++) {
-                            echo "<tr>";
-                            $baseIndex = $row * $colsPerRow + $col;
-                            if (isset($tableNumbers[$baseIndex])) {
-                                $base = $tableNumbers[$baseIndex];
-                                $result = $base * $i;
-                                echo "<td>{$base} × {$i} = {$result}</td>";
-                            } else {
-                                echo "<td>&nbsp;</td>";
-                            }
-                            for ($empty = 1; $empty < $tablesPerCell; $empty++) {
-                                echo "<td>&nbsp;</td>";
-                            }
-                            echo "</tr>";
-                        }
-                        echo "</table>";
-                        echo "</td>";
-                    }
-                    echo "</tr>";
-                }
+                echo MultiplicationTableHelper::renderMultiplicationTable($tableNumbers, $colsPerRow, $rows, $tablesPerCell);
                 ?>
             </table>
             <?php if ($showError): ?>

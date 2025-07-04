@@ -27,39 +27,50 @@ include '../../../header.php';
             </form>
 
             <?php
-            //驗證使用者的檔案是否為純txt檔案，若是由其他檔案改副檔名而來的txt檔案，則不予合併，合併成新txt檔案後提供下載鏈結給使用者
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if (isset($_FILES['file1']) && isset($_FILES['file2'])) {
-                    $file1 = $_FILES['file1'];
-                    $file2 = $_FILES['file2'];
-
-                    // 檢查檔案是否為txt格式
-                    if ($file1['type'] === 'text/plain' && $file2['type'] === 'text/plain') {
-                        // 讀取檔案內容
-                        $content1 = file_get_contents($file1['tmp_name']);
-                        $content2 = file_get_contents($file2['tmp_name']);
-
-                        // 合併內容
-                        $mergedContent = $content1 . "\n" . $content2;
-
-                        // 儲存合併後的檔案
-                        $mergedFileName = 'merged_file.txt';
-                        file_put_contents($mergedFileName, $mergedContent);
-
-                        // 提供下載鏈結
-                        echo "<div class='file-merger__result file-merger__result--success'>";
-                        echo "<p>檔案合併成功！<a href='$mergedFileName' download>點此下載合併後的檔案</a></p>";
-                        echo "</div>";
+            // 驗證使用者的檔案是否為純txt檔案，若是由其他檔案改副檔名而來的txt檔案，則不予合併，合併成新txt檔案後提供下載鏈結給使用者
+            $controllerPath = '../../../app/controller/94FileMergerController.php';
+            if (file_exists($controllerPath)) {
+                require_once $controllerPath;
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if (isset($_FILES['file1']) && isset($_FILES['file2'])) {
+                        $controller = new FileMergerController();
+                        $result = $controller->mergeFiles($_FILES['file1'], $_FILES['file2']);
+                        echo $result['html'];
                     } else {
-                        echo "<div class='file-merger__result file-merger__result--error'>";
-                        echo "<p>請上傳純文字檔案（.txt）！</p>";
-                        echo "</div>";
+                        echo "<div class='file-merger__result file-merger__result--error'><p>請選擇兩個檔案進行合併。</p></div>";
                     }
-                } else {
-                    echo "<div class='file-merger__result file-merger__result--error'>";
-                    echo "<p>請選擇兩個檔案進行合併。</p>";
-                    echo "</div>";
                 }
+            } else {
+                // fallback 原有邏輯
+                // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                //     if (isset($_FILES['file1']) && isset($_FILES['file2'])) {
+                //         $file1 = $_FILES['file1'];
+                //         $file2 = $_FILES['file2'];
+                //         // 檢查檔案是否為txt格式
+                //         if ($file1['type'] === 'text/plain' && $file2['type'] === 'text/plain') {
+                //             // 讀取檔案內容
+                //             $content1 = file_get_contents($file1['tmp_name']);
+                //             $content2 = file_get_contents($file2['tmp_name']);
+                //             // 合併內容
+                //             $mergedContent = $content1 . "\n" . $content2;
+                //             // 儲存合併後的檔案
+                //             $mergedFileName = 'merged_file.txt';
+                //             file_put_contents($mergedFileName, $mergedContent);
+                //             // 提供下載鏈結
+                //             echo "<div class='file-merger__result file-merger__result--success'>";
+                //             echo "<p>檔案合併成功！<a href='$mergedFileName' download>點此下載合併後的檔案</a></p>";
+                //             echo "</div>";
+                //         } else {
+                //             echo "<div class='file-merger__result file-merger__result--error'>";
+                //             echo "<p>請上傳純文字檔案（.txt）！</p>";
+                //             echo "</div>";
+                //         }
+                //     } else {
+                //         echo "<div class='file-merger__result file-merger__result--error'>";
+                //         echo "<p>請選擇兩個檔案進行合併。</p>";
+                //         echo "</div>";
+                //     }
+                // }
             }
             ?>
         </main>

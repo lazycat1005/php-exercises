@@ -22,7 +22,6 @@ include '../../../header.php';
 
     <!-- 引入jQuery1.12.4 -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="/PHP-Exercises/assets/js/common.js"></script>
     <script src="/PHP-Exercises/assets/js/97removeSpaces.js"></script>
 </body>
 

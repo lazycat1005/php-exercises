@@ -21,18 +21,28 @@ include '../../../header.php';
 
             <div class="text-length__result">
                 <?php
-                // 先驗證使用者無惡意注入攻擊後才計算字元個數
-                if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['text'])) {
-                    $text = trim($_GET['text']);
-                    if ($text === '') {
-                        echo '<p style="color:red;">請輸入文字</p>';
-                    } elseif (mb_strlen($text) > 1000) {
-                        echo '<p style="color:red;">字數不可超過 1000 字</p>';
-                    } else {
-                        $safeText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
-                        $charCount = mb_strlen($text);
-                        echo "<p>字元個數: $charCount</p>";
+                $controllerPath = '../../../app/controller/74TextLengthController.php';
+                if (file_exists($controllerPath)) {
+                    require_once $controllerPath;
+                    if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['text'])) {
+                        $controller = new TextLengthController();
+                        $result = $controller->calculateTextLength(trim($_GET['text']), 1000);
+                        echo $result['html'];
                     }
+                } else {
+                    // fallback 原有邏輯
+                    // if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['text'])) {
+                    //     $text = trim($_GET['text']);
+                    //     if ($text === '') {
+                    //         echo '<p style="color:red;">請輸入文字</p>';
+                    //     } elseif (mb_strlen($text) > 1000) {
+                    //         echo '<p style="color:red;">字數不可超過 1000 字</p>';
+                    //     } else {
+                    //         $safeText = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+                    //         $charCount = mb_strlen($text);
+                    //         echo "<p>字元個數: $charCount</p>";
+                    //     }
+                    // }
                 }
                 ?>
             </div>

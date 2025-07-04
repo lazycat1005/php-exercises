@@ -2,6 +2,14 @@
 $newCssName = '19englishLetters.css'; // 添加此行
 $metaKey = "English-letters";
 include '../../../header.php';
+
+// 新增：條件式引入控制器
+$useController = false;
+if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
+    require_once '../../../app/controller/19EnglishLettersController.php';
+    $controller = new EnglishLettersController();
+    $useController = true;
+}
 ?>
 
 <body>
@@ -21,16 +29,26 @@ include '../../../header.php';
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['charInput'])) {
                 $char = $_GET['charInput'];
-                // 驗證，如果不是英文字母，返回警告
-                if (!preg_match('/^[A-Za-z]$/', $char)) {
-                    echo "<p>請輸入英文字母 (A-Z, a-z)。</p>";
-                }
-                if (strlen($char) !== 1) {
-                    echo "<p>請輸入單一字元。</p>";
+                if ($useController) {
+                    $result = $controller->analyzeCharacter($char, 'both');
+                    if ($result['success']) {
+                        $data = $result['data'];
+                        echo "<p>字元: " . htmlspecialchars($data['char']) . "，ASCII碼: {$data['ascii']}，類型: {$data['type']}</p>";
+                    } else {
+                        echo "<p>{$result['message']}</p>";
+                    }
                 } else {
-                    //不管使用者輸入大寫或小寫字母，一率轉換成大寫字母並輸出到畫面上
-                    $upperChar = strtoupper($char);
-                    echo "<p>轉換成大寫字母：<strong>{$upperChar}</strong></p>";
+                    // // 驗證，如果不是英文字母，返回警告
+                    // if (!preg_match('/^[A-Za-z]$/', $char)) {
+                    //     echo "<p>請輸入英文字母 (A-Z, a-z)。</p>";
+                    // }
+                    // if (strlen($char) !== 1) {
+                    //     echo "<p>請輸入單一字元。</p>";
+                    // } else {
+                    //     //不管使用者輸入大寫或小寫字母，一率轉換成大寫字母並輸出到畫面上
+                    //     $upperChar = strtoupper($char);
+                    //     echo "<p>轉換成大寫字母：<strong>{$upperChar}</strong></p>";
+                    // }
                 }
             }
             ?>

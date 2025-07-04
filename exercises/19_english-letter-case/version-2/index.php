@@ -2,6 +2,14 @@
 $newCssName = '19englishLetters.css'; // 添加此行
 $metaKey = "English-letters";
 include '../../../header.php';
+
+// 新增：條件式引入控制器
+$useController = false;
+if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
+    require_once '../../../app/controller/19EnglishLettersController.php';
+    $controller = new EnglishLettersController();
+    $useController = true;
+}
 ?>
 
 <body>
@@ -19,19 +27,29 @@ include '../../../header.php';
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['charInput'])) {
                 $char = $_GET['charInput'];
-                // 驗證，如果不是大寫字母，返回警告
-                if (!preg_match('/^[A-Z]$/', $char)) {
-                    echo "<p>請輸入大寫英文字母 (A-Z)。</p>";
-                }
-
-                if (strlen($char) !== 1) {
-                    echo "<p>請輸入單一字元。</p>";
-                } else {
-                    $singleChar = mb_substr($char, 0, 1, "UTF-8");
-                    $ascii = ord($singleChar);
-                    if ($ascii >= 65 && $ascii <= 90) {
-                        echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 大寫英文字母</p>";
+                if ($useController) {
+                    $result = $controller->analyzeCharacter($char, 'upper');
+                    if ($result['success']) {
+                        $data = $result['data'];
+                        echo "<p>字元: " . htmlspecialchars($data['char']) . "，ASCII碼: {$data['ascii']}，類型: {$data['type']}</p>";
+                    } else {
+                        echo "<p>{$result['message']}</p>";
                     }
+                } else {
+                    // // 驗證，如果不是大寫字母，返回警告
+                    // if (!preg_match('/^[A-Z]$/', $char)) {
+                    //     echo "<p>請輸入大寫英文字母 (A-Z)。</p>";
+                    // }
+
+                    // if (strlen($char) !== 1) {
+                    //     echo "<p>請輸入單一字元。</p>";
+                    // } else {
+                    //     $singleChar = mb_substr($char, 0, 1, "UTF-8");
+                    //     $ascii = ord($singleChar);
+                    //     if ($ascii >= 65 && $ascii <= 90) {
+                    //         echo "<p>字元: " . htmlspecialchars($singleChar) . "，ASCII碼: $ascii" . "類型: 大寫英文字母</p>";
+                    //     }
+                    // }
                 }
             }
             ?>

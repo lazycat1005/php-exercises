@@ -14,10 +14,24 @@ include '../../../header.php';
         <?php
         $inputString = '';
         $filteredString = '';
-
-        if (isset($_GET['inputString'])) {
-            $inputString = $_GET['inputString'];
-            $filteredString = preg_replace('/\s+/', '', $inputString);
+        $controllerPath = '../../../app/controller/97RemoveSpacesController.php';
+        if (file_exists($controllerPath)) {
+            require_once $controllerPath;
+            if (isset($_GET['inputString'])) {
+                $inputString = $_GET['inputString'];
+                $controller = new RemoveSpacesController();
+                $result = $controller->removeSpaces($inputString);
+                $filteredString = $result['filtered'];
+                if (!$result['success']) {
+                    echo $result['html'];
+                }
+            }
+        } else {
+            // fallback 原有邏輯
+            // if (isset($_GET['inputString'])) {
+            //     $inputString = $_GET['inputString'];
+            //     $filteredString = preg_replace('/\s+/', '', $inputString);
+            // }
         }
         ?>
 

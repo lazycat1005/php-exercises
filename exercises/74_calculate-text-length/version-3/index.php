@@ -21,16 +21,25 @@ include '../../../header.php';
 
             <div class="text-length__result">
                 <?php
-                // 先驗證使用者無惡意注入攻擊後才計算字元個數
-                if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['text'])) {
-                    $text = htmlspecialchars($_GET['text'], ENT_QUOTES, 'UTF-8'); // 防止 XSS 攻擊
-                    $charCount = mb_strlen($text);
-
-                    if ($charCount > 100) {
-                        echo "<p style='color: red;'>字元個數超過限制！請輸入不超過 100 個字。</p>";
-                    } else {
-                        echo "<p>字元個數: $charCount</p>";
+                $controllerPath = '../../../app/controller/74TextLengthController.php';
+                if (file_exists($controllerPath)) {
+                    require_once $controllerPath;
+                    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['text'])) {
+                        $controller = new TextLengthController();
+                        $result = $controller->calculateTextLength($_GET['text'], 100);
+                        echo $result['html'];
                     }
+                } else {
+                    // fallback 原有邏輯
+                    // if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['text'])) {
+                    //     $text = htmlspecialchars($_GET['text'], ENT_QUOTES, 'UTF-8'); // 防止 XSS 攻擊
+                    //     $charCount = mb_strlen($text);
+                    //     if ($charCount > 100) {
+                    //         echo "<p style='color: red;'>字元個數超過限制！請輸入不超過 100 個字。</p>";
+                    //     } else {
+                    //         echo "<p>字元個數: $charCount</p>";
+                    //     }
+                    // }
                 }
                 ?>
             </div>
