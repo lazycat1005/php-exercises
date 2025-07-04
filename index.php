@@ -18,9 +18,8 @@
 
         <section class="exercisesCards">
             <?php
-            // 讀取 JSON 檔案
-            $json = file_get_contents(__DIR__ . '/exercises.json');
-            $exercises = json_decode($json, true);
+            // 讀取 PHP 陣列設定檔
+            $exercises = require __DIR__ . '/app/config/exercises.php';
 
             // 顯示所有題目
             foreach ($exercises as $exercise) {

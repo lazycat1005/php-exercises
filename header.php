@@ -2,9 +2,8 @@
 // 檔案載入前需設定 $metaKey 與 $exerciseDir
 if (!isset($metaKey)) $metaKey = "temperature";
 
-// 讀取 metadata
-$metaJson = file_get_contents(__DIR__ . '/exercises.json');
-$metaArr = json_decode($metaJson, true);
+// 讀取 metadata，改為讀取 PHP 設定檔
+$metaArr = require __DIR__ . '/app/config/exercises.php';
 $title = $metaArr[$metaKey]['title'] ?? '';
 $desc = $metaArr[$metaKey]['description'] ?? '';
 
