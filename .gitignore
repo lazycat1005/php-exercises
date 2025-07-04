@@ -1,0 +1,28 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Compiled CSS/SCSS maps
+assets/css/*.map
+
+# PHPStorm
+*.iml
+
+# Composer vendor
+/vendor/
+
+# Environment files
+.env
+.env.*

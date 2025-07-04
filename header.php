@@ -1,5 +1,5 @@
 <?php
-// 檔案載入前需設定 $metaKey 與 $exerciseDir
+// 檔案載入前需設定 $metaKey
 if (!isset($metaKey)) $metaKey = "temperature";
 
 // 讀取 metadata，改為讀取 PHP 設定檔
