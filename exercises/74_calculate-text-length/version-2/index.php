@@ -15,7 +15,7 @@ include '../../../header.php';
         <!-- 主結構 -->
         <main>
             <form class="text-length__form">
-                <textarea name="text" rows="10" cols="30" placeholder="請在此輸入文字..." onblur="countChars(this)"></textarea>
+                <textarea name="text" rows="10" cols="30" placeholder="請在此輸入文字..." onblur="text74CountChars(this)"></textarea>
             </form>
 
             <div class="text-length__result">

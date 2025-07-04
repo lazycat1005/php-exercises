@@ -9,7 +9,7 @@
     <link rel="icon" sizes="192x192" href="#">
     <title>PHP 練習題</title>
     <meta name="description" content="PHP 練習題">
-    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./assets/css/all.css">
 </head>
 
 <body>

@@ -96,6 +96,7 @@ function validateTemp08Input() { ... }
 1. 更新每個題目頁面的 JS 引用
 2. 確保載入順序正確（common.js 先載入）
 3. 測試所有功能正常運作
+4. 需要在路徑上添加 `/PHP-Exercises/` 前綴，以確保正確載入。
 
 ### 4. 具體執行計畫
 

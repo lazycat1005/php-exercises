@@ -3,8 +3,8 @@
 
 $(document).ready(function () {
   // version-4: 實時顯示字元數並限制最大 100 字
-  if ($("textarea").length && $("#charCount").length) {
-    $("textarea").on("input", function () {
+  if ($("#version4").length) {
+    $("#version4").on("input", function () {
       const text = $(this).val();
       const charCount = text.length;
       $("#charCount").text("字元個數: " + charCount);
