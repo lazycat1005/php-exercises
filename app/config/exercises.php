@@ -70,4 +70,19 @@ return [
             'js' => './exercises/97_remove-spaces/version-js/',
         ],
     ],
+    'lotteryApp' => [
+        'title' => '樂透彩模擬APP',
+        'description' => '隨機產生樂透號碼，並顯示結果。',
+        'links' => [
+            'php' => './exercises/04_lottery-app/version-php/'
+        ],
+    ],
+    'guessNumber' => [
+        'title' => '猜數字遊戲',
+        'description' => '使用者猜測1~100的隨機數字，並提供提示。',
+        'links' => [
+            'version-php' => './exercises/53_guess_number/version-php/',
+            'version-js' => './exercises/53_guess_number/version-js/',
+        ],
+    ]
 ];
