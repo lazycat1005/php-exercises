@@ -189,7 +189,7 @@ include '../../../header.php';
 
     <!-- 載入 jQuery 與專用 JS -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="app.js"></script>
+    <script src="/PHP-Exercises/assets/js/04lotteryApp.js"></script>
 </body>
 
 </html>

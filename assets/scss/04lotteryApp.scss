@@ -37,7 +37,6 @@ legend {
   font-weight: bold;
 }
 
-// 選號區塊 7x6 格狀排列
 .lotto-numbers {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -158,14 +157,6 @@ button[disabled] {
   #drawResultArea {
     font-size: 1.8rem;
     margin-top: 0.5rem;
-  }
-  .draw-main {
-    color: #dc2626;
-    font-weight: bold;
-  }
-  .draw-special {
-    color: #2563eb;
-    font-weight: bold;
   }
 }
 
