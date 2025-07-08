@@ -1,8 +1,6 @@
 <?php
-$newCssName = '34telephoneBill.css'; //添加此行
-$metaKey = "telephone";
-$jsFileName = '34telephoneBill.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
 ?>
 
 
@@ -34,4 +32,7 @@ include '../../../header.php';
     </section>
 </main>
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '34telephoneBill.js';
+include '../../../footer.php';
+?>

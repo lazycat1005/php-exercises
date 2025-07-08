@@ -1,7 +1,6 @@
 <?php
-$newCssName = '19englishLetters.css';
-$metaKey = "English-letters";
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('English-letters', '19englishLetters.css');
 
 // 新增：條件式引入控制器
 $useController = false;

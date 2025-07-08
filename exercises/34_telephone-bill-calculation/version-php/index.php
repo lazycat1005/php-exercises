@@ -1,7 +1,6 @@
 <?php
-$newCssName = '34telephoneBill.css'; //添加此行
-$metaKey = "telephone";
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
 ?>
 
 <main id="phpVersion" class="container">

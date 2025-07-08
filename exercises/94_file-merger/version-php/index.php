@@ -1,7 +1,6 @@
 <?php
-$newCssName = '94fileMerger.css'; // 添加此行
-$metaKey = "mergeFiles";
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('mergeFiles', '94fileMerger.css');
 ?>
 
 

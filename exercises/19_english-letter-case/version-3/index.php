@@ -1,8 +1,6 @@
 <?php
-$newCssName = '19englishLetters.css';
-$metaKey = "English-letters";
-$jsFileName = '19englishLetters.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('English-letters', '19englishLetters.css');
 
 // 新增：條件式引入控制器
 $useController = false;
@@ -44,4 +42,7 @@ if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
 </div>
 
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '19englishLetters.js';
+include '../../../footer.php';
+?>

@@ -1,8 +1,6 @@
 <?php
-$newCssName = '97removeSpaces.css';
-$metaKey = "removeSpaces";
-$jsFileName = '97removeSpaces.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
 ?>
 
 
@@ -20,4 +18,7 @@ include '../../../header.php';
     </main>
 </div>
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '97removeSpaces.js';
+include '../../../footer.php';
+?>

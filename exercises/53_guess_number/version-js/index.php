@@ -1,8 +1,6 @@
 <?php
-$newCssName = '53guessNumber.css';
-$metaKey = "guessNumber";
-$jsFileName = '53guessNumber.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('guessNumber', '53guessNumber.css');
 ?>
 
 
@@ -28,4 +26,7 @@ include '../../../header.php';
     <span id="guessedNumbers"></span>
 </div>
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '53guessNumber.js';
+include '../../../footer.php';
+?>

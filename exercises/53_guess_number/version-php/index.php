@@ -1,9 +1,8 @@
 <?php session_start(); ?>
 
 <?php
-$newCssName = '53guessNumber.css';
-$metaKey = "guessNumber";
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('guessNumber', '53guessNumber.css');
 ?>
 
 <?php

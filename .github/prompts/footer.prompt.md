@@ -6,7 +6,7 @@ mode: agent
 
 ## 概述
 
-本指南旨在重構 exercises 資料夾內各個 index.php 檔案的 footer 部分，將重複的程式碼抽出成獨立的 `footer.php` 檔案，類似於現有的 `header.php` 的模式。
+本指南旨在重構 exercises 資料夾內各個不同版本資料夾中的 index.php 檔案的 footer 部分，將重複的程式碼抽出成獨立的 `footer.php` 檔案，類似於現有的 `header.php` 的模式。
 
 ## 目標
 
@@ -33,11 +33,9 @@ mode: agent
 
 #### 若要修改的 index.php 檔案中有專屬的 JavaScript 檔案，則引入，沒有則只引入 jQuery
 
-````php
-
 ```html
 <script src="/PHP-Exercises/assets/js/[題目編號][題目名稱].js"></script>
-````
+```
 
 ### 4. HTML 結束標籤
 
@@ -58,7 +56,6 @@ mode: agent
 
 - 透過設定變數 `$jsFileName` 來決定是否引入專屬 JS 檔案
 - 如果未設定 `$jsFileName`，則不引入專屬 JS 檔案
-- 最簡易的判斷基礎是察看檔案中有無兩個以上的 script 標籤，而非只看程式碼內部的邏輯來決定，這樣會誤判，不是寫了 php 邏輯就不會引入專屬的 Javascript 檔案。
 
 2. **版本號管理**
 
@@ -103,14 +100,13 @@ if (isset($jsFileName) && !empty($jsFileName)) {
 
 ### 在每個不同版本的子資料夾 index.php 檔案中的修改
 
-1. **在檔案開頭設定變數**（緊接在 header 引入之後）
+1. **在檔案中設定變數**
 
 ```php
 <?php
-$newCssName = '[題目編號][題目名稱].css';
-$metaKey = "[metadata-key]";
 $jsFileName = '[題目編號][題目名稱].js'; // 需視版本差異新增此行
-include '../../../header.php';
+include '../../../footer.php';
+?>
 ```
 
 2. **移除原有 footer 部分**
@@ -131,7 +127,6 @@ include '../../../header.php';
 1. **該版本的 index.php 沒有引入 JavaScript 檔案的練習**
 
 - 不設定 `$jsFileName` 變數
-- 或設定為空字串：`$jsFileName = '';`
 
 2. **不同版本的處理**
 
@@ -188,7 +183,7 @@ include '../../../header.php';
 
 ## 範例
 
-### 以 97_remove-spaces 為例，該資料夾下有兩個子資料夾，每個子資料夾中皆有一個 index.php
+### 以 97_remove-spaces 資料夾為例，該資料夾下有兩個子資料夾，每個子資料夾中皆有一個 index.php
 
 #### version-js/index.php 的 footer 部分為
 
@@ -217,13 +212,9 @@ include '../../../header.php';
 
 ```php
 <?php
-$newCssName = '[題目編號][題目名稱].css';
-$metaKey = "[metadata-key]";
 $jsFileName = '97removeSpaces.js';
-include '../../../header.php';
+include '../../../footer.php';
 ?>
-
-<?php include '../../../footer.php'; ?>
 ```
 
 #### version-php/index.php 的 footer 部分為

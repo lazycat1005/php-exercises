@@ -1,8 +1,6 @@
 <?php
-$newCssName = '74textLength.css'; // 添加此行
-$metaKey = "textLength";
-$jsFileName = '74textLength.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('textLength', '74textLength.css');
 ?>
 
 <div class="text-length__container">
@@ -24,4 +22,7 @@ include '../../../header.php';
     </main>
 </div>
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '74textLength.js';
+include '../../../footer.php';
+?>

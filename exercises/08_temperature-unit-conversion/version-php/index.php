@@ -1,8 +1,6 @@
 <?php
-$newCssName = '08temperature.css';
-$metaKey = "temperature";
-$jsFileName = '08temperature.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('temperature', '08temperature.css');
 
 // 新增：條件式引入控制器
 $useController = false;
@@ -82,4 +80,7 @@ if (file_exists('../../../app/controller/08TemperatureController.php')) {
     </div>
 </div>
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '08temperature.js';
+include '../../../footer.php';
+?>

@@ -1,7 +1,6 @@
 <?php
-$newCssName = '27leapYear.css'; // 添加此行
-$metaKey = "leap-years";
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('leap-years', '27leapYear.css');
 ?>
 
 

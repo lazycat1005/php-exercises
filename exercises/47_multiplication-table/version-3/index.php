@@ -1,8 +1,6 @@
 <?php
-$newCssName = '47multiplicationTable.css';
-$metaKey = "multiplication-table";
-$jsFileName = '47multiplicationTable.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('multiplication-table', '47multiplicationTable.css');
 require_once '../../../app/helper/47MultiplicationTableHelper.php';
 ?>
 
@@ -50,4 +48,7 @@ require_once '../../../app/helper/47MultiplicationTableHelper.php';
     </section>
 </main>
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '47multiplicationTable.js';
+include '../../../footer.php';
+?>

@@ -1,7 +1,6 @@
 <?php
-$newCssName = '97removeSpaces.css'; // 添加此行
-$metaKey = "removeSpaces";
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
 ?>
 
 

@@ -1,11 +1,8 @@
 <?php session_start(); ?>
 
 <?php
-// 設定專用 CSS 檔名與 meta key
-$newCssName = '04lotteryApp.css';
-$metaKey = "guessNumber";
-$jsFileName = '04lotteryApp.js';
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('guessNumber', '04lotteryApp.css');
 ?>
 
 
@@ -185,4 +182,7 @@ include '../../../header.php';
     <?php endif; ?>
 </main>
 
-<?php include '../../../footer.php'; ?>
+<?php
+$jsFileName = '04lotteryApp.js';
+include '../../../footer.php';
+?>

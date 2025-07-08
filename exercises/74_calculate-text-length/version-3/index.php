@@ -1,7 +1,6 @@
 <?php
-$newCssName = '74textLength.css'; // 添加此行
-$metaKey = "textLength";
-include '../../../header.php';
+require_once '../../../app/helper/HtmlHelper.php';
+HtmlHelper::renderHeader('textLength', '74textLength.css');
 ?>
 
 
