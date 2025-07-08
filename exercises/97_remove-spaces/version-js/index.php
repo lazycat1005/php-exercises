@@ -18,7 +18,4 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
     </main>
 </div>
 
-<?php
-$jsFileName = '97removeSpaces.js';
-include '../../../footer.php';
-?>
+<?php HtmlHelper::renderFooter('97removeSpaces.js'); ?>

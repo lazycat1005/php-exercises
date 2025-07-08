@@ -37,4 +37,4 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
     </main>
 </div>
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>
