@@ -58,6 +58,7 @@ mode: agent
 
 - 透過設定變數 `$jsFileName` 來決定是否引入專屬 JS 檔案
 - 如果未設定 `$jsFileName`，則不引入專屬 JS 檔案
+- 最簡易的判斷基礎是察看檔案中有無兩個以上的 script 標籤，而非只看程式碼內部的邏輯來決定，這樣會誤判，不是寫了 php 邏輯就不會引入專屬的 Javascript 檔案。
 
 2. **版本號管理**
 
@@ -223,7 +224,6 @@ include '../../../header.php';
 ?>
 
 <?php include '../../../footer.php'; ?>
-
 ```
 
 #### version-php/index.php 的 footer 部分為
