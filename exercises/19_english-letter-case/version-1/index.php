@@ -42,4 +42,4 @@ if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
 </div>
 
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>

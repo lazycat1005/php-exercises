@@ -182,7 +182,4 @@ HtmlHelper::renderHeader('guessNumber', '04lotteryApp.css');
     <?php endif; ?>
 </main>
 
-<?php
-$jsFileName = '04lotteryApp.js';
-include '../../../footer.php';
-?>
+<?php HtmlHelper::renderFooter('04lotteryApp.js'); ?>

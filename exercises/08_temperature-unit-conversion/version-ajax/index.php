@@ -26,7 +26,4 @@ HtmlHelper::renderHeader('temperature', '08temperature.css');
     </form>
 </main>
 
-<?php
-$jsFileName = '08temperature.js';
-include '../../../footer.php';
-?>
+<?php HtmlHelper::renderFooter('08temperature.js'); ?>

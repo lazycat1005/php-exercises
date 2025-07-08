@@ -44,4 +44,4 @@ HtmlHelper::renderHeader('mergeFiles', '94fileMerger.css');
     </main>
 </div>
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>

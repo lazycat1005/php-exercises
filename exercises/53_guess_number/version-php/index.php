@@ -73,4 +73,4 @@ if (!isset($_SESSION['answer']) || $_SESSION['guessed'] || $_SESSION['revealed']
     </div>
 <?php endif; ?>
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>

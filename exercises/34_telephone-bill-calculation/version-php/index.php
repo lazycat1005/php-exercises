@@ -38,4 +38,4 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
     </section>
 </main>
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>

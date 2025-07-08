@@ -48,7 +48,4 @@ require_once '../../../app/helper/47MultiplicationTableHelper.php';
     </section>
 </main>
 
-<?php
-$jsFileName = '47multiplicationTable.js';
-include '../../../footer.php';
-?>
+<?php HtmlHelper::renderFooter('47multiplicationTable.js'); ?>

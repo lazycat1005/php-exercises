@@ -39,7 +39,4 @@ if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
     </div>
 </div>
 
-<?php
-$jsFileName = '19englishLetters.js';
-include '../../../footer.php';
-?>
+<?php HtmlHelper::renderFooter('19englishLetters.js'); ?>

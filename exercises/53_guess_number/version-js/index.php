@@ -26,7 +26,4 @@ HtmlHelper::renderHeader('guessNumber', '53guessNumber.css');
     <span id="guessedNumbers"></span>
 </div>
 
-<?php
-$jsFileName = '53guessNumber.js';
-include '../../../footer.php';
-?>
+<?php HtmlHelper::renderFooter('53guessNumber.js'); ?>

@@ -80,7 +80,4 @@ if (file_exists('../../../app/controller/08TemperatureController.php')) {
     </div>
 </div>
 
-<?php
-$jsFileName = '08temperature.js';
-include '../../../footer.php';
-?>
+<?php HtmlHelper::renderFooter('08temperature.js'); ?>

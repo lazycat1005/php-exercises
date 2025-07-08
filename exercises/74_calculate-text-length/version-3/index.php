@@ -33,4 +33,4 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
     </main>
 </div>
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>

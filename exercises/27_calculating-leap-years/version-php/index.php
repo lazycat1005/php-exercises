@@ -30,4 +30,4 @@ HtmlHelper::renderHeader('leap-years', '27leapYear.css');
     </section>
 </main>
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>

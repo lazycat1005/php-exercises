@@ -28,4 +28,4 @@ require_once '../../../app/helper/47MultiplicationTableHelper.php';
     </section>
 </main>
 
-<?php include '../../../footer.php'; ?>
+<?php HtmlHelper::renderFooter(); ?>
