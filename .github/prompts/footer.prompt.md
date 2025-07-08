@@ -31,7 +31,7 @@ mode: agent
 
 ### 3. 專屬 JavaScript 檔案引入（有條件的）
 
-#### 若修改的 index.php 檔案有專屬的 JavaScript 檔案，則引入，沒有則只寫入 jQuery
+#### 若要修改的 index.php 檔案中有專屬的 JavaScript 檔案，則引入，沒有則只引入 jQuery
 
 ````php
 
@@ -127,7 +127,7 @@ include '../../../header.php';
 
 ### 特殊情況處理
 
-1. **該版本的 index.php 沒有專屬 JavaScript 檔案的練習**
+1. **該版本的 index.php 沒有引入 JavaScript 檔案的練習**
 
 - 不設定 `$jsFileName` 變數
 - 或設定為空字串：`$jsFileName = '';`
@@ -210,7 +210,7 @@ include '../../../header.php';
 </html>
 ```
 
-### 那麼在修改後的 footer.php 中，這兩個檔案的 footer 部分將會變成：
+### 那麼修改後的 index.php 中，這兩個檔案的 footer 部分將會變成：
 
 #### version-js/index.php 的 footer 部分為
 
