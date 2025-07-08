@@ -42,10 +42,9 @@ include '../../../header.php';
                 <button type="submit">送出</button>
             </form>
         </main>
-
-        <a class="fixedBtn" href="../../../index.php">Back</a>
     </div>
 
+    <a class="fixedBtn" href="../../../index.php">Back</a>
 </body>
 
 </html>

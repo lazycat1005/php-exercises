@@ -30,7 +30,6 @@ include '../../../header.php';
     <!-- 返回首頁按鈕 -->
     <a class="fixedBtn" href="../../../index.php">Back</a>
 
-
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="/PHP-Exercises/assets/js/53guessNumber.js"></script>
 </body>
