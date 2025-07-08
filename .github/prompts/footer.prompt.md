@@ -31,9 +31,13 @@ mode: agent
 
 ### 3. 專屬 JavaScript 檔案引入（有條件的）
 
+#### 若修改的 index.php 檔案有專屬的 JavaScript 檔案，則引入，沒有則只寫入 jQuery
+
+````php
+
 ```html
 <script src="/PHP-Exercises/assets/js/[題目編號][題目名稱].js"></script>
-```
+````
 
 ### 4. HTML 結束標籤
 
@@ -96,7 +100,7 @@ if (isset($jsFileName) && !empty($jsFileName)) {
 
 ## 各練習題目的修改規範
 
-### 在每個 index.php 檔案中的修改
+### 在每個不同版本的子資料夾 index.php 檔案中的修改
 
 1. **在檔案開頭設定變數**（緊接在 header 引入之後）
 
@@ -104,7 +108,7 @@ if (isset($jsFileName) && !empty($jsFileName)) {
 <?php
 $newCssName = '[題目編號][題目名稱].css';
 $metaKey = "[metadata-key]";
-$jsFileName = '[題目編號][題目名稱].js'; // 新增此行
+$jsFileName = '[題目編號][題目名稱].js'; // 需視版本差異新增此行
 include '../../../header.php';
 ```
 
@@ -123,7 +127,7 @@ include '../../../header.php';
 
 ### 特殊情況處理
 
-1. **沒有專屬 JavaScript 檔案的練習**
+1. **該版本的 index.php 沒有專屬 JavaScript 檔案的練習**
 
 - 不設定 `$jsFileName` 變數
 - 或設定為空字串：`$jsFileName = '';`
@@ -135,7 +139,7 @@ include '../../../header.php';
 
 ## 實作步驟
 
-### 階段一：建立 footer.php
+### 階段一：建立 footer.php (已建立)
 
 1. 創建 `/footer.php` 檔案
 2. 實作上述設計的 footer 架構
@@ -143,7 +147,7 @@ include '../../../header.php';
 
 ### 階段二：修改現有檔案
 
-1. 依序修改各練習題目的 index.php
+1. 依序修改各練習題目不同版本資料夾中的 index.php
 2. 每修改一個檔案就進行測試
 3. 確保功能正常運作
 
@@ -168,28 +172,11 @@ include '../../../header.php';
 3. **向後相容性**：不破壞現有功能
 4. **測試充分性**：每個修改都要進行功能測試
 
-## 檔案清單（需要修改的檔案）
-
-根據現有結構，需要修改的 index.php 檔案包括：
-
-1. `/exercises/08_temperature-unit-conversion/version-php/index.php`
-2. `/exercises/08_temperature-unit-conversion/version-ajax/index.php`
-3. `/exercises/19_english-letter-case/version-1/index.php`
-4. `/exercises/19_english-letter-case/version-2/index.php`
-5. `/exercises/19_english-letter-case/version-3/index.php`
-6. `/exercises/19_english-letter-case/version-4/index.php`
-7. `/exercises/27_calculating-leap-years/index.php`（如果存在）
-8. `/exercises/34_telephone-bill-calculation/index.php`（如果存在）
-9. `/exercises/47_multiplication-table/index.php`（如果存在）
-10. `/exercises/53_guess_number/index.php`（如果存在）
-11. `/exercises/74_calculate-text-length/index.php`（如果存在）
-12. `/exercises/94_file-merger/index.php`（如果存在）
-13. `/exercises/97_remove-spaces/index.php`（如果存在）
-
 ## JavaScript 檔案對應表
 
 | 練習題目                       | JavaScript 檔案名稱      |
 | ------------------------------ | ------------------------ |
+| 04_lottery-app                 | 04lotteryApp.js          |
 | 08_temperature-unit-conversion | 08temperature.js         |
 | 19_english-letter-case         | 19englishLetters.js      |
 | 34_telephone-bill-calculation  | 34telephoneBill.js       |
@@ -197,3 +184,50 @@ include '../../../header.php';
 | 53_guess_number                | 53guessNumber.js         |
 | 74_calculate-text-length       | 74textLength.js          |
 | 97_remove-spaces               | 97removeSpaces.js        |
+
+## 範例
+
+### 以 97_remove-spaces 為例，該資料夾下有兩個子資料夾，每個子資料夾中皆有一個 index.php
+
+#### version-js/index.php 的 footer 部分為
+
+```php
+<a class="fixedBtn" href="../../../index.php">Back</a>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/PHP-Exercises/assets/js/97removeSpaces.js"></script>
+</body>
+
+</html>
+```
+
+#### version-php/index.php 的 footer 部分為
+
+```php
+    <a class="fixedBtn" href="../../../index.php">Back</a>
+</body>
+
+</html>
+```
+
+### 那麼在修改後的 footer.php 中，這兩個檔案的 footer 部分將會變成：
+
+#### version-js/index.php 的 footer 部分為
+
+```php
+<?php
+$newCssName = '[題目編號][題目名稱].css';
+$metaKey = "[metadata-key]";
+$jsFileName = '97removeSpaces.js';
+include '../../../header.php';
+?>
+
+<?php include '../../../footer.php'; ?>
+
+```
+
+#### version-php/index.php 的 footer 部分為
+
+```php
+<?php include '../../../footer.php'; ?>
+```

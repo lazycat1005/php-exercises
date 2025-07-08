@@ -44,3 +44,5 @@ if (file_exists($allCssRealPath)) {
     <link rel="stylesheet" href="<?= htmlspecialchars($cssUrlPath) ?>">
     <link rel="stylesheet" href="<?= htmlspecialchars($allCssUrlPath) ?>">
 </head>
+
+<body>
