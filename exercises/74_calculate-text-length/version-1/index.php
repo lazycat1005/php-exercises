@@ -20,7 +20,7 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
 
         <div class="text-length__result">
             <?php
-            $controllerPath = '../../../app/controller/74TextLengthController.php';
+            $controllerPath = '../../../app/controller/TextLengthController.php';
 
             require_once $controllerPath;
             if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['text'])) {
