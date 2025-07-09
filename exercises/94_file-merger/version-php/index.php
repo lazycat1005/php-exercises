@@ -27,7 +27,7 @@ HtmlHelper::renderHeader('mergeFiles', '94fileMerger.css');
 
         <?php
         // 驗證使用者的檔案是否為純txt檔案，若是由其他檔案改副檔名而來的txt檔案，則不予合併，合併成新txt檔案後提供下載鏈結給使用者
-        $controllerPath = '../../../app/controller/94FileMergerController.php';
+        $controllerPath = '../../../app/controller/FileMergerController.php';
 
         require_once $controllerPath;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../validator/94FileMergerValidator.php';
+require_once __DIR__ . '/../validator/FileMergerValidator.php';
 
 class FileMergerController
 {
