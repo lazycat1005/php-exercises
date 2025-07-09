@@ -26,4 +26,17 @@ class EnglishLettersValidator
         }
         return null;
     }
+
+    /**
+     * 驗證輸入字串（非空字串）
+     * @param string $string
+     * @return string|null 錯誤訊息或 null
+     */
+    public function validateString($string)
+    {
+        if (!is_string($string) || $string === '') {
+            return '請輸入非空字串';
+        }
+        return null;
+    }
 }
