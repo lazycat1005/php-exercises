@@ -13,7 +13,7 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
     <?php
     $inputString = '';
     $filteredString = '';
-    $controllerPath = '../../../app/controller/97RemoveSpacesController.php';
+    $controllerPath = '../../../app/controller/RemoveSpacesController.php';
 
     require_once $controllerPath;
     if (isset($_GET['inputString'])) {

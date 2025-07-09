@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../validator/97RemoveSpacesValidator.php';
+require_once __DIR__ . '/../validator/RemoveSpacesValidator.php';
 
 class RemoveSpacesController
 {
