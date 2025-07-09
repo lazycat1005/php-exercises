@@ -4,8 +4,8 @@ HtmlHelper::renderHeader('temperature', '08temperature.css');
 
 // 新增：條件式引入控制器
 $useController = false;
-if (file_exists('../../../app/controller/08TemperatureController.php')) {
-    require_once '../../../app/controller/08TemperatureController.php';
+if (file_exists('../../../app/controller/TemperatureController.php')) {
+    require_once '../../../app/controller/TemperatureController.php';
     $controller = new TemperatureController();
     $useController = true;
 }

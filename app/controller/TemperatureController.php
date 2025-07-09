@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../validator/08TemperatureValidator.php';
+require_once __DIR__ . '/../validator/TemperatureValidator.php';
 
 class TemperatureController
 {
