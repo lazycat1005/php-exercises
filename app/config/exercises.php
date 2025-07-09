@@ -27,7 +27,7 @@ return [
         ],
     ],
     'englishLetters' => [
-        'title' => '英文字母轉換',
+        'title' => 'ASCII 分析英文字母',
         'description' => '將使用者輸入的英文字母轉換為大寫或小寫。',
         'links' => [
             'v-1' => './exercises/19_english-letter-case/version-1/',
