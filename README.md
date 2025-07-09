@@ -31,7 +31,6 @@ PHP-EXERCISES/
 ├── composer.json               # PHP 套件管理設定
 ├── index.php                   # 首頁
 ├── package.json                # 前端套件管理設定
-├── exercises.json              # 各 index.php 的 title、desc、與檔案鏈結
 ├── vendor/                     # Composer 產生的 PHP 套件
 └── README.md                   # 本說明文件
 ```
