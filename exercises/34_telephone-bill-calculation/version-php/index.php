@@ -25,7 +25,7 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
     <section class="result">
         <h2>這個月的電話帳單詳細為:</h2>
         <?php
-        $controllerPath = '../../../app/controller/34TelephoneBillController.php';
+        $controllerPath = '../../../app/controller/TelephoneBillController.php';
 
         require_once $controllerPath;
         if (isset($_GET['callDuration'])) {
