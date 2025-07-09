@@ -1,7 +1,11 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+use App\Controller\MultiplicationTableController;
+use App\Helper\MultiplicationTableHelper;
+
 HtmlHelper::renderHeader('multiplicationTable', '47multiplicationTable.css');
-require_once '../../../app/helper/MultiplicationTableHelper.php';
 ?>
 
 
@@ -15,9 +19,6 @@ require_once '../../../app/helper/MultiplicationTableHelper.php';
             $colsPerRow = 3;
             $rows = 3;
             $tablesPerCell = 5;
-            $controllerPath = '../../../app/controller/MultiplicationTableController.php';
-
-            require_once $controllerPath;
             $controller = new MultiplicationTableController();
             $result = $controller->generateTable('1~9');
             $tableNumbers = $result['numbers'];

@@ -1,5 +1,9 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+use App\Controller\TelephoneBillController;
+
 HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
 ?>
 
@@ -25,15 +29,11 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
     <section class="result">
         <h2>這個月的電話帳單詳細為:</h2>
         <?php
-        $controllerPath = '../../../app/controller/TelephoneBillController.php';
-
-        require_once $controllerPath;
         if (isset($_GET['callDuration'])) {
             $controller = new TelephoneBillController();
             $result = $controller->calculateBill($_GET['callDuration']);
             echo $result['html'];
         }
-
         ?>
     </section>
 </main>

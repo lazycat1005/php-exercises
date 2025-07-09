@@ -1,5 +1,9 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+use App\Controller\FileMergerController;
+
 HtmlHelper::renderHeader('mergeFiles', '94fileMerger.css');
 ?>
 
@@ -26,10 +30,7 @@ HtmlHelper::renderHeader('mergeFiles', '94fileMerger.css');
         </form>
 
         <?php
-        // 驗證使用者的檔案是否為純txt檔案，若是由其他檔案改副檔名而來的txt檔案，則不予合併，合併成新txt檔案後提供下載鏈結給使用者
-        $controllerPath = '../../../app/controller/FileMergerController.php';
 
-        require_once $controllerPath;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_FILES['file1']) && isset($_FILES['file2'])) {
                 $controller = new FileMergerController();

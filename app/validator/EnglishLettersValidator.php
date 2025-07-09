@@ -1,5 +1,7 @@
 <?php
-// app/validator/EnglishLettersValidator.php
+
+namespace App\Validator;
+
 class EnglishLettersValidator
 {
     /**

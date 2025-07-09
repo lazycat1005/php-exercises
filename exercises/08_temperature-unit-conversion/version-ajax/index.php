@@ -1,5 +1,8 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+
 HtmlHelper::renderHeader('temperature', '08temperature.css');
 ?>
 

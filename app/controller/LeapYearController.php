@@ -1,5 +1,9 @@
 <?php
-require_once __DIR__ . '/../validator/LeapYearValidator.php';
+
+namespace App\Controller;
+
+use App\Validator\LeapYearValidator;
+use DateTime;
 
 class LeapYearController
 {

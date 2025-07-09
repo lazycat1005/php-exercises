@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Helper;
+
 class MultiplicationTableHelper
 {
     /**

@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/../validator/TextLengthValidator.php';
+
+namespace App\Controller;
+
+use App\Validator\TextLengthValidator;
 
 class TextLengthController
 {

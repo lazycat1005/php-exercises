@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/../validator/RemoveSpacesValidator.php';
+
+namespace App\Controller;
+
+use App\Validator\RemoveSpacesValidator;
 
 class RemoveSpacesController
 {

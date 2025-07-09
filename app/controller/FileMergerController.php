@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/../validator/FileMergerValidator.php';
+
+namespace App\Controller;
+
+use App\Validator\FileMergerValidator;
 
 class FileMergerController
 {

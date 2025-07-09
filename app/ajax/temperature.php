@@ -1,5 +1,7 @@
 <?php
-require_once __DIR__ . '/../controller/TemperatureController.php';
+require_once '../vendor/autoload.php';
+
+use App\Controller\TemperatureController;
 
 $controller = new TemperatureController();
 $controller->handleAjaxRequest();

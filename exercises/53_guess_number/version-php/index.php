@@ -1,7 +1,9 @@
-<?php session_start(); ?>
-
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+
+session_start();
 HtmlHelper::renderHeader('guessNumber', '53guessNumber.css');
 ?>
 

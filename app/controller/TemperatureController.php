@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/../validator/TemperatureValidator.php';
+
+namespace App\Controller;
+
+use App\Validator\TemperatureValidator;
 
 class TemperatureController
 {

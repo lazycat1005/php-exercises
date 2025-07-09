@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/../validator/TelephoneBillValidator.php';
+
+namespace App\Controller;
+
+use App\Validator\TelephoneBillValidator;
 
 class TelephoneBillController
 {

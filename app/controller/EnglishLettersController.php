@@ -1,6 +1,8 @@
 <?php
-// app/controller/EnglishLettersController.php
-require_once __DIR__ . '/../validator/EnglishLettersValidator.php';
+
+namespace App\Controller;
+
+use App\Validator\EnglishLettersValidator;
 
 class EnglishLettersController
 {

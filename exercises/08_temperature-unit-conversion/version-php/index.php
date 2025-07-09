@@ -1,14 +1,16 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+use App\Controller\TemperatureController;
+
 HtmlHelper::renderHeader('temperature', '08temperature.css');
 
 // 新增：條件式引入控制器
-$useController = false;
-if (file_exists('../../../app/controller/TemperatureController.php')) {
-    require_once '../../../app/controller/TemperatureController.php';
-    $controller = new TemperatureController();
-    $useController = true;
-}
+
+$controller = new TemperatureController();
+
+
 ?>
 
 
@@ -51,28 +53,26 @@ if (file_exists('../../../app/controller/TemperatureController.php')) {
             } elseif (!$hasCelsius && !$hasFahrenheit) {
                 echo "<p>請輸入一個溫度值。</p>";
             } else {
-                if ($useController) {
-                    if ($convert === 'toFahrenheit') {
-                        $result = $controller->convertTemperature($celsius, 'C', 'F', '攝氏');
-                        if ($result['success']) {
-                            $c = floatval($celsius);
-                            $f = round($result['result'], 2);
-                            echo "<p>攝氏 {$c}°C 等於華氏 {$f}°F</p>";
-                        } else {
-                            echo "<p>{$result['message']}</p>";
-                        }
-                    } elseif ($convert === 'toCelsius') {
-                        $result = $controller->convertTemperature($fahrenheit, 'F', 'C', '華氏');
-                        if ($result['success']) {
-                            $f = floatval($fahrenheit);
-                            $c = round($result['result'], 2);
-                            echo "<p>華氏 {$f}°F 等於攝氏 {$c}°C</p>";
-                        } else {
-                            echo "<p>{$result['message']}</p>";
-                        }
+                if ($convert === 'toFahrenheit') {
+                    $result = $controller->convertTemperature($celsius, 'C', 'F', '攝氏');
+                    if ($result['success']) {
+                        $c = floatval($celsius);
+                        $f = round($result['result'], 2);
+                        echo "<p>攝氏 {$c}°C 等於華氏 {$f}°F</p>";
                     } else {
-                        echo "<p>請選擇轉換方向。</p>";
+                        echo "<p>{$result['message']}</p>";
                     }
+                } elseif ($convert === 'toCelsius') {
+                    $result = $controller->convertTemperature($fahrenheit, 'F', 'C', '華氏');
+                    if ($result['success']) {
+                        $f = floatval($fahrenheit);
+                        $c = round($result['result'], 2);
+                        echo "<p>華氏 {$f}°F 等於攝氏 {$c}°C</p>";
+                    } else {
+                        echo "<p>{$result['message']}</p>";
+                    }
+                } else {
+                    echo "<p>請選擇轉換方向。</p>";
                 }
             }
         }

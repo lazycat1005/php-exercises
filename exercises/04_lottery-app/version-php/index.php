@@ -1,8 +1,10 @@
-<?php session_start(); ?>
-
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
-HtmlHelper::renderHeader('guessNumber', '04lotteryApp.css');
+session_start();
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+
+HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
 ?>
 
 

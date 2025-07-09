@@ -1,14 +1,12 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+use App\Controller\EnglishLettersController;
+
 HtmlHelper::renderHeader('englishLetters', '19englishLetters.css');
 
-// 新增：條件式引入控制器
-$useController = false;
-if (file_exists('../../../app/controller/EnglishLettersController.php')) {
-    require_once '../../../app/controller/EnglishLettersController.php';
-    $controller = new EnglishLettersController();
-    $useController = true;
-}
+$controller = new EnglishLettersController();
 ?>
 
 <div class="container">
@@ -25,14 +23,12 @@ if (file_exists('../../../app/controller/EnglishLettersController.php')) {
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['charInput'])) {
             $char = $_GET['charInput'];
-            if ($useController) {
-                $result = $controller->analyzeCharacter($char, 'upper');
-                if ($result['success']) {
-                    $data = $result['data'];
-                    echo "<p>字元: " . htmlspecialchars($data['char']) . "，ASCII碼: {$data['ascii']}，類型: {$data['type']}</p>";
-                } else {
-                    echo "<p>{$result['message']}</p>";
-                }
+            $result = $controller->analyzeCharacter($char, 'upper');
+            if ($result['success']) {
+                $data = $result['data'];
+                echo "<p>字元: " . htmlspecialchars($data['char']) . "，ASCII碼: {$data['ascii']}，類型: {$data['type']}</p>";
+            } else {
+                echo "<p>{$result['message']}</p>";
             }
         }
         ?>

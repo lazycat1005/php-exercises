@@ -1,5 +1,9 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+use App\Controller\RemoveSpacesController;
+
 HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
 ?>
 
@@ -13,9 +17,7 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
     <?php
     $inputString = '';
     $filteredString = '';
-    $controllerPath = '../../../app/controller/RemoveSpacesController.php';
 
-    require_once $controllerPath;
     if (isset($_GET['inputString'])) {
         $inputString = $_GET['inputString'];
         $controller = new RemoveSpacesController();

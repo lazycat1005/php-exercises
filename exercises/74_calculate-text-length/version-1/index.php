@@ -1,5 +1,9 @@
 <?php
-require_once '../../../app/helper/HtmlHelper.php';
+require_once '../../../vendor/autoload.php';
+
+use App\Helper\HtmlHelper;
+use App\Controller\TextLengthController;
+
 HtmlHelper::renderHeader('textLength', '74textLength.css');
 ?>
 
@@ -20,15 +24,11 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
 
         <div class="text-length__result">
             <?php
-            $controllerPath = '../../../app/controller/TextLengthController.php';
-
-            require_once $controllerPath;
             if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['text'])) {
                 $controller = new TextLengthController();
                 $result = $controller->calculateTextLength(trim($_GET['text']), 1000);
                 echo $result['html'];
             }
-
             ?>
         </div>
     </main>
