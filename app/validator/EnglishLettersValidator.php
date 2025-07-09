@@ -1,5 +1,5 @@
 <?php
-// app/validator/19EnglishLettersValidator.php
+// app/validator/EnglishLettersValidator.php
 class EnglishLettersValidator
 {
     /**

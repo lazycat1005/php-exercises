@@ -1,6 +1,6 @@
 <?php
 require_once '../../../app/helper/HtmlHelper.php';
-HtmlHelper::renderHeader('leap-years', '27leapYear.css');
+HtmlHelper::renderHeader('leapYears', '27leapYear.css');
 ?>
 
 
@@ -19,7 +19,7 @@ HtmlHelper::renderHeader('leap-years', '27leapYear.css');
         <h2>結果:</h2>
         <?php
         // 優先使用 controller，若不存在則 fallback 原本邏輯
-        $controllerPath = '../../../app/controller/27LeapYearController.php';
+        $controllerPath = '../../../app/controller/LeapYearController.php';
         require_once $controllerPath;
         if (isset($_GET['year'])) {
             $controller = new LeapYearController();

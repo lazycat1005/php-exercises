@@ -1,11 +1,11 @@
 <?php
 require_once '../../../app/helper/HtmlHelper.php';
-HtmlHelper::renderHeader('English-letters', '19englishLetters.css');
+HtmlHelper::renderHeader('englishLetters', '19englishLetters.css');
 
 // 新增：條件式引入控制器
 $useController = false;
-if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
-    require_once '../../../app/controller/19EnglishLettersController.php';
+if (file_exists('../../../app/controller/EnglishLettersController.php')) {
+    require_once '../../../app/controller/EnglishLettersController.php';
     $controller = new EnglishLettersController();
     $useController = true;
 }
@@ -41,4 +41,4 @@ if (file_exists('../../../app/controller/19EnglishLettersController.php')) {
     </div>
 </div>
 
-<?php HtmlHelper::renderFooter('19englishLetters.js'); ?>
+<?php HtmlHelper::renderFooter(''); ?>

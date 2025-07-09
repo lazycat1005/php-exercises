@@ -1,6 +1,6 @@
 <?php
-// app/controller/19EnglishLettersController.php
-require_once __DIR__ . '/../validator/19EnglishLettersValidator.php';
+// app/controller/EnglishLettersController.php
+require_once __DIR__ . '/../validator/EnglishLettersValidator.php';
 
 class EnglishLettersController
 {

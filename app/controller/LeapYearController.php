@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../validator/27LeapYearValidator.php';
+require_once __DIR__ . '/../validator/LeapYearValidator.php';
 
 class LeapYearController
 {

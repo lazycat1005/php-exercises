@@ -19,14 +19,14 @@ return [
             'js' => './exercises/34_telephone-bill-calculation/version-js/',
         ],
     ],
-    'leap-years' => [
+    'leapYears' => [
         'title' => '閏年計算',
         'description' => '判斷給定的年份是否為閏年，並計算該年度總天數。',
         'links' => [
             'php' => './exercises/27_calculating-leap-years/version-php/',
         ],
     ],
-    'English-letters' => [
+    'englishLetters' => [
         'title' => '英文字母轉換',
         'description' => '將使用者輸入的英文字母轉換為大寫或小寫。',
         'links' => [
@@ -36,7 +36,7 @@ return [
             'v-4' => './exercises/19_english-letter-case/version-4/',
         ],
     ],
-    'multiplication-table' => [
+    'multiplicationTable' => [
         'title' => '九九乘法表',
         'description' => '生成九九乘法表，顯示從1到9的乘法結果。',
         'links' => [
