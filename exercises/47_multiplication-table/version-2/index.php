@@ -1,7 +1,7 @@
 <?php
 require_once '../../../app/helper/HtmlHelper.php';
 HtmlHelper::renderHeader('multiplication-table', '47multiplicationTable.css');
-require_once '../../../app/helper/47MultiplicationTableHelper.php';
+require_once '../../../app/helper/MultiplicationTableHelper.php';
 ?>
 
 
@@ -28,7 +28,7 @@ require_once '../../../app/helper/47MultiplicationTableHelper.php';
             $tablesPerCell = 5;
             $input = isset($_GET['tableCount']) ? $_GET['tableCount'] : '9';
             $showError = false;
-            $controllerPath = '../../../app/controller/47MultiplicationTableController.php';
+            $controllerPath = '../../../app/controller/MultiplicationTableController.php';
 
             require_once $controllerPath;
             $controller = new MultiplicationTableController();

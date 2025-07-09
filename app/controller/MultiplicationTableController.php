@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../validator/47MultiplicationTableValidator.php';
+require_once __DIR__ . '/../validator/MultiplicationTableValidator.php';
 
 class MultiplicationTableController
 {
