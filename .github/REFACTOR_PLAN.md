@@ -90,37 +90,14 @@ PHP-Exercises/
 │   └── images/               # 圖片資源(如有需要)
 ├── exercises/                # 練習題目(保持現有結構)
 │   ├── 08_temperature/       # 溫度轉換
-│   │   ├── version-php/
-│   │   ├── version-ajax/
-│   │   └── version-ai/
 │   ├── 19_english-letters/   # 英文字母轉換
-│   │   ├── version-1/
-│   │   ├── version-2/
-│   │   ├── version-3/
-│   │   └── version-4/
 │   ├── 27_leap-years/        # 閏年計算
-│   │   ├── version-php/
-│   │   └── version-ai/
 │   ├── 34_telephone-bill/    # 電話帳單
-│   │   ├── version-php/
-│   │   ├── version-js/
-│   │   └── version-ai/
 │   ├── 47_multiplication-table/ # 九九乘法表
-│   │   ├── version-1/
-│   │   ├── version-2/
-│   │   └── version-3/
 │   ├── 74_text-length/       # 文字長度計算
-│   │   ├── version-1/
-│   │   ├── version-2/
-│   │   ├── version-3/
-│   │   └── version-4/
 │   ├── 94_file-merger/       # 檔案合併
-│   │   └── version-php/
 │   └── 97_remove-spaces/     # 移除空格
-│       ├── version-js/
-│       └── version-php/
-├── index.php                 # 入口檔案
-└── .htaccess                 # Apache 設定
+└── index.php                 # 入口檔案
 ```
 
 #### 1.2 CSS 架構說明
