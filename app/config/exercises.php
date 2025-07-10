@@ -84,5 +84,12 @@ return [
             'version-php' => './exercises/53_guess_number/version-php/',
             'version-js' => './exercises/53_guess_number/version-js/',
         ],
+    ],
+    'numbersToChinese' => [
+        'title' => '數字轉中文單位',
+        'description' => '將阿拉伯數字轉換為中文單位表示法，例如「1234」轉為「一千二百三十四」。',
+        'links' => [
+            'version-php' => './exercises/29_numbers-to-chinese/version-php/',
+        ],
     ]
 ];
