@@ -2,6 +2,8 @@
 require_once '../../../vendor/autoload.php';
 
 use App\Helper\HtmlHelper;
+use App\Validator\ReceiptPrizeCheckerValidator;
+use App\Controller\ReceiptPrizeCheckerController;
 
 session_start();
 
@@ -55,61 +57,22 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
         </form>
 
         <?php
-
         $specialPrize1 = '64557267';
         $specialPrize2 = '64808075';
         $firstPrizes = ['04322277', '07903676', '98883497'];
 
-        //驗證的function
-        function checkReceipt($receipt, $specialPrize1, $specialPrize2, $firstPrizes)
-        {
-            // 只接受數字字串，3~8碼
-            if (!preg_match('/^[0-9]{3,8}$/', $receipt)) {
-                return '請輸入 3~8 位數的有效發票號碼。';
-            }
+        $error = '';
 
-            // 若剛好是 8 碼，可比對特等獎與特獎
-            if (strlen($receipt) === 8) {
-                if ($receipt === $specialPrize1) {
-                    return '特等獎1000萬';
-                }
-                if ($receipt === $specialPrize2) {
-                    return '特獎200萬';
-                }
-            }
+        $result = '';
 
-            // 比對頭獎
-            $awardLevels = [
-                8 => '頭獎20萬',
-                7 => '末7碼中4萬',
-                6 => '末6碼中1萬',
-                5 => '末5碼中4000',
-                4 => '末4碼中1000',
-                3 => '末3碼中200',
-            ];
-
-            foreach ($firstPrizes as $prize) {
-                // 從 8 碼一路比到 3 碼
-                for ($len = 8; $len >= 3; $len--) {
-                    if (strlen($receipt) >= $len) {
-                        $userTail = substr($receipt, -$len);
-                        $prizeTail = substr($prize, -$len);
-                        if ($userTail === $prizeTail) {
-                            return "{$awardLevels[$len]}";
-                        }
-                    }
-                }
-            }
-            return '沒中獎。';
-        }
-
-        ?>
-
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $input = trim($_POST['receipt'] ?? '');
-            if ($input !== '') {
-                $result = checkReceipt($input, $specialPrize1, $specialPrize2, $firstPrizes);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['receipt'])) {
+            $input = trim($_POST['receipt']);
+            $validate = ReceiptPrizeCheckerValidator::validateReceipt($input);
+            if ($validate !== true) {
+                $error = $validate;
+            } else {
+                $controller = new ReceiptPrizeCheckerController($specialPrize1, $specialPrize2, $firstPrizes);
+                $result = $controller->checkReceipt($input);
                 // 儲存紀錄到 session
                 $_SESSION['logs'][] = [
                     'number' => $input,
@@ -118,7 +81,11 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
             }
         }
         ?>
-
+        <?php if (!empty($error)): ?>
+            <div class="error" style="color:red;"> <?= htmlspecialchars($error) ?> </div>
+        <?php elseif (!empty($result)): ?>
+            <div class="result"> <?= htmlspecialchars($result) ?> </div>
+        <?php endif; ?>
     </section>
 
     <section>
@@ -127,12 +94,14 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
             <button type="submit" name="clear_logs" value="1">清空紀錄</button>
         </form>
 
-        <?php foreach (array_reverse($_SESSION['logs']) as $log): ?>
-            <div class="log">
-                <h4>號碼：<?= htmlspecialchars($log['number']) ?></h4>
-                <p><?= htmlspecialchars($log['result']) ?></p>
-            </div>
-        <?php endforeach; ?>
+        <?php if (!empty($_SESSION['logs'])): ?>
+            <?php foreach (array_reverse($_SESSION['logs']) as $log): ?>
+                <div class="log">
+                    <h4>號碼：<?= htmlspecialchars($log['number']) ?></h4>
+                    <p><?= htmlspecialchars($log['result']) ?></p>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </section>
 
 </main>
