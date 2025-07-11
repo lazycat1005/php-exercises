@@ -91,5 +91,12 @@ return [
         'links' => [
             'version-php' => './exercises/29_numbers-to-chinese/version-php/',
         ],
+    ],
+    'perpetualCalendar' => [
+        'title' => '萬年曆產生器',
+        'description' => '讓使用者輸入西元年與月份，印出該月份的月曆。',
+        'links' => [
+            'version-php' => './exercises/84_perpetual-calendar/version-php/',
+        ],
     ]
 ];
