@@ -2,6 +2,7 @@
 require_once '../../../vendor/autoload.php';
 
 use App\Helper\HtmlHelper;
+use App\Controller\PerpetualCalendarController;
 
 HtmlHelper::renderHeader('perpetualCalendar', '84perpetualCalendar.css');
 ?>
@@ -18,7 +19,7 @@ HtmlHelper::renderHeader('perpetualCalendar', '84perpetualCalendar.css');
     <button type="submit">生成月曆</button>
 </form>
 <!-- 接著生成一個7*1的表格，表頭為日、一、二、三、四、五、六 -->
-<table border="1">
+<table>
     <tr>
         <th>日</th>
         <th>一</th>
@@ -29,70 +30,9 @@ HtmlHelper::renderHeader('perpetualCalendar', '84perpetualCalendar.css');
         <th>六</th>
     </tr>
     <?php
-    function generateCalendar($year, $month)
-    {
-        // 獲取該月的第一天是星期幾
-        $firstDayOfMonth = mktime(0, 0, 0, $month, 1, $year);
-        $firstWeekday = date('w', $firstDayOfMonth);
-
-        // 獲取該月的天數
-        $daysInMonth = date('t', $firstDayOfMonth);
-
-        // 計算當月的第一個日期
-        $currentDay = 1;
-
-        // 開始生成表格行
-        echo '<tr>';
-
-        // 填充前面的空白格子
-        for ($i = 0; $i < $firstWeekday; $i++) {
-            echo '<td></td>';
-        }
-
-        // 填充當月的日期
-        for ($day = 1; $day <= $daysInMonth; $day++) {
-            echo '<td>' . $day . '</td>';
-
-            // 當到達星期六時，換行
-            if (($day + $firstWeekday) % 7 == 0) {
-                echo '</tr><tr>';
-            }
-        }
-
-        // 填充後面的空白格子
-        while (($daysInMonth + $firstWeekday) % 7 != 0) {
-            echo '<td></td>';
-            $daysInMonth++;
-        }
-
-        echo '</tr>';
-    }
-
-    function isValidPositiveInteger($value)
-    {
-        return is_numeric($value) && ctype_digit($value) && intval($value) > 0;
-    }
-
-    if (isset($_GET['year']) && isset($_GET['month'])) {
-        $year = intval($_GET['year']);
-        $month = intval($_GET['month']);
-
-        if (isset($_GET['year']) && isset($_GET['month'])) {
-            $year = $_GET['year'];
-            $month = $_GET['month'];
-
-            // 確認輸入的年與月是否有效，只能為正整數，不能為負數、科學記號或小數、字串...
-            if (
-                isValidPositiveInteger($year) && isValidPositiveInteger($month) &&
-                intval($year) > 0 && intval($month) >= 1 && intval($month) <= 12
-            ) {
-                generateCalendar(intval($year), intval($month));
-            } else {
-                echo '<tr><td colspan="7">請輸入有效的年與月。</td></tr>';
-            }
-        }
-    }
+    // 呼叫 Controller 處理 GET 請求與產生日曆
+    echo PerpetualCalendarController::handle($_GET['year'] ?? null, $_GET['month'] ?? null);
     ?>
 </table>
 
-<?php HtmlHelper::renderFooter('74textLength.js'); ?>
+<?php HtmlHelper::renderFooter(''); ?>

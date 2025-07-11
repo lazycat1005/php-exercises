@@ -1,6 +1,4 @@
 <?php
-// exercises.php
-// 練習題目設定檔，原本為 JSON 格式，現改為 PHP 多維陣列
 
 return [
     'temperature' => [
@@ -81,8 +79,8 @@ return [
         'title' => '猜數字遊戲',
         'description' => '使用者猜測1~100的隨機數字，並提供提示。',
         'links' => [
-            'version-php' => './exercises/53_guess_number/version-php/',
-            'version-js' => './exercises/53_guess_number/version-js/',
+            'version-php' => './exercises/53_guess-number/version-php/',
+            'version-js' => './exercises/53_guess-number/version-js/',
         ],
     ],
     'numbersToChinese' => [
@@ -98,5 +96,27 @@ return [
         'links' => [
             'version-php' => './exercises/84_perpetual-calendar/version-php/',
         ],
-    ]
+    ],
+    "receiptPrizeChecker" => [
+        'title' => '發票對獎',
+        'description' => '使用者輸入發票號碼，檢查是否中獎。',
+        'links' => [
+            'version-php' => './exercises/03_receipt-prize-checker/version-php/',
+        ],
+    ],
+    "takeAwayGame" => [
+        'title' => '取火柴遊戲',
+        'description' => '一個簡單的取火柴遊戲，玩家可以選擇取走1到3根火柴。',
+        'links' => [
+            'version-js' => './exercises/54_take-away-game/version-js/',
+        ],
+    ],
+    "constellations" => [
+        'title' => '星座與生肖',
+        'description' => '根據使用者輸入的生日，顯示對應的星座和生肖。',
+        'links' => [
+            'version-php' => './exercises/33_constellations/version-php/',
+            'version-js' => './exercises/33_constellations/version-js/',
+        ],
+    ],
 ];

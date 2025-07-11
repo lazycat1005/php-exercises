@@ -1,0 +1,76 @@
+#matchsticks {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.matchstick {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #ffb300;
+  border: 2px solid #b8860b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.4s cubic-bezier(0.4, 2, 0.6, 1), opacity 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  user-select: none;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.matchstick.selected {
+  background: #e57373;
+  box-shadow: 0 0 0 4px #ffcdd2;
+}
+
+.matchstick.removed {
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+main {
+  max-width: 40rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fffbe7;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: #b8860b;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+header p {
+  text-align: center;
+  color: #666;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  background: #ffb300;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 2.4rem;
+  font-size: 1.6rem;
+  margin: 0 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  background: #e57373;
+  box-shadow: 0 0 0 4px #ffcdd2;
+}
+
+/*# sourceMappingURL=54takeAwayGame.css.map */
