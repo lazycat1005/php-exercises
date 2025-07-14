@@ -4,6 +4,20 @@ namespace App\Helper;
 
 class HtmlHelper
 {
+    public static function getWebRoot(): string
+    {
+        // 取得目前 script 路徑
+        $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+        // 尋找 /PHP-Exercises/ 在路徑中的位置
+        $pos = strpos($scriptName, '/PHP-Exercises/');
+        if ($pos !== false) {
+            // 回傳 /PHP-Exercises/ 及其後方路徑
+            return substr($scriptName, 0, strpos($scriptName, '/PHP-Exercises/') + strlen('/PHP-Exercises/'));
+        }
+        // fallback: 根目錄
+        return '/PHP-Exercises/';
+    }
+
     /**
      * 輸出 HTML header 區塊
      * @param string $metaKey metadata key，預設 temperature
@@ -16,7 +30,8 @@ class HtmlHelper
         $title = $metaArr[$metaKey]['title'] ?? '';
         $desc = $metaArr[$metaKey]['description'] ?? '';
 
-        $webRoot = '/PHP-Exercises/'; // 根目錄路徑
+        // $webRoot = '/PHP-Exercises/'; // 根目錄路徑
+        $webRoot = self::getWebRoot();
         // 設定 css 路徑
         $cssRealPath =  __DIR__ . '/../../assets/css/' . $newCssName;
         $cssUrlPath = $webRoot . 'assets/css/' . $newCssName;
@@ -59,7 +74,9 @@ class HtmlHelper
     public static function renderFooter(string $jsFileName = '')
     {
         // 設定Web根目錄路徑
-        $webRoot = '/PHP-Exercises/';
+        // $webRoot = '/PHP-Exercises/';
+        $webRoot = self::getWebRoot();
+
 
         // 處理專屬JavaScript檔案引入
         $jsScriptTag = '';
