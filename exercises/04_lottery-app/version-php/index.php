@@ -4,6 +4,7 @@ require_once '../../../vendor/autoload.php';
 
 use App\Helper\HtmlHelper;
 
+// 載入頁首與樣式
 HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
 ?>
 
@@ -20,19 +21,21 @@ HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
     $alertMsg = '';
     $drawResult = null;
 
-    // 初始化 session 紀錄
+    // 初始化 session 紀錄（若尚未存在則建立）
     if (!isset($_SESSION['lottery_records'])) {
         $_SESSION['lottery_records'] = [];
     }
 
+    // 標記是否已開獎
     if (!isset($_SESSION['drawn'])) {
         $_SESSION['drawn'] = false;
     }
 
     // 表單送出處理
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // 處理清除所有紀錄
         if (isset($_POST['clear']) && $_POST['clear'] === '1') {
-            // 清除所有紀錄與開獎狀態
+            // 清除所有下注紀錄與開獎狀態
             $_SESSION['lottery_records'] = [];
             $_SESSION['drawn'] = false;
             unset($_SESSION['draw_result']);
@@ -41,13 +44,16 @@ HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
         } elseif (isset($_POST['draw'])) {
             // 開獎流程
             if (!empty($_SESSION['lottery_records']) && !$_SESSION['drawn']) {
+                // 建立 1~42 號碼池並隨機排序
                 $pool = range(1, 42);
                 shuffle($pool);
+                // 取前 6 個為主號
                 $mainNumbers = array_slice($pool, 0, 6);
                 sort($mainNumbers, SORT_NUMERIC);
-                // 取出剩下的號碼作為特別號
+                // 剩下的第一個作為特別號
                 $remaining = array_diff($pool, $mainNumbers);
                 $specialNumber = array_shift($remaining);
+                // 儲存開獎結果到 session
                 $_SESSION['draw_result'] = [
                     'main' => $mainNumbers,
                     'special' => $specialNumber
@@ -64,6 +70,7 @@ HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
             } elseif (count($numbers) !== count(array_unique($numbers))) {
                 $alertMsg = '選號有重複，請重新選擇！';
             } else {
+                // 驗證通過，排序並存入 session
                 sort($numbers, SORT_NUMERIC);
                 $_SESSION['lottery_records'][] = [
                     'time' => date('Y-m-d H:i:s'),
@@ -103,6 +110,7 @@ HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
                     <label class="lotto-label">
                         <input type="checkbox" name="numbers[]" value="<?php echo $i; ?>"
                             <?php
+                            // 若有選取則勾選，若已開獎則禁用
                             if (!empty($numbers) && in_array($i, $numbers)) echo 'checked';
                             if ($_SESSION['drawn']) echo ' disabled';
                             ?>> <?php echo $i; ?>
@@ -126,6 +134,7 @@ HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
         <input type="hidden" name="draw" value="1">
         <button type="submit" id="drawBtn"
             <?php
+            // 若已開獎或無下注紀錄則禁用
             if ($_SESSION['drawn'] || empty($_SESSION['lottery_records'])) echo 'disabled class="btn-draw-disabled"';
             else echo 'class="btn-draw"';
             ?>>開獎</button>

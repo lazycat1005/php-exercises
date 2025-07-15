@@ -26,7 +26,7 @@ $controller = new EnglishLettersController();
             $string = $_GET['charInput'];
             $result = $controller->analyzeString($string);
             if ($result['success']) {
-                echo '<ul style="margin-top:1.2rem;">';
+                echo '<ul style="margin-top:1rem;">';
                 foreach ($result['data'] as $item) {
                     $char = htmlspecialchars($item['char']);
                     $ascii = $item['ascii'] !== null ? $item['ascii'] : '-';

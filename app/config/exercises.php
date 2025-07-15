@@ -119,4 +119,14 @@ return [
             'version-js' => './exercises/33_constellations/version-js/',
         ],
     ],
+    "binary" => [
+        'title' => '計算多少個1',
+        'description' => '將使用者輸入的二進位數字轉換為十進位數字，並計算其中有多少個1。',
+        'links' => [
+            'version-php-1' => './exercises/96_binary/version-php-1/',
+            'version-php-2' => './exercises/96_binary/version-php-2/',
+            'version-js-1' => './exercises/96_binary/version-js-1/',
+            'version-js-2' => './exercises/96_binary/version-js-2/',
+        ],
+    ]
 ];
