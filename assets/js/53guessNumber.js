@@ -3,6 +3,8 @@ let guessed = false;
 let revealed = false;
 let guessedNumbers = [];
 
+// 重置遊戲狀態
+// 生成新的隨機數，重置猜測狀態和已猜測數字列表
 function resetGame() {
   answer = Math.floor(Math.random() * 100) + 1;
   guessed = false;
@@ -16,6 +18,8 @@ function resetGame() {
   $("#guessedNumbers").text("");
 }
 
+// 結束遊戲並顯示結果
+// 顯示結束訊息，禁用相關按鈕
 function endGame(msg) {
   $("#message").text(msg);
   $("#btnStart").prop("disabled", false);
@@ -24,10 +28,14 @@ function endGame(msg) {
   $("#btnSubmit").prop("disabled", true);
 }
 
+// 更新已猜測的數字列表
+// 將已猜測的數字顯示在頁面上
 function updateGuessedNumbers() {
   $("#guessedNumbers").text(guessedNumbers.join(", "));
 }
 
+// 當頁面載入時，初始化遊戲
+// 綁定按鈕事件，設置初始狀態
 $(function () {
   $("#btnStart").on("click", function () {
     resetGame();
