@@ -30,7 +30,7 @@ HtmlHelper::renderHeader('mergeFiles', '94fileMerger.css');
         </form>
 
         <?php
-
+        // 處理表單提交
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_FILES['file1']) && isset($_FILES['file2'])) {
                 $controller = new FileMergerController();
@@ -40,7 +40,6 @@ HtmlHelper::renderHeader('mergeFiles', '94fileMerger.css');
                 echo "<div class='file-merger__result file-merger__result--error'><p>請選擇兩個檔案進行合併。</p></div>";
             }
         }
-
         ?>
     </main>
 </div>

@@ -1,5 +1,5 @@
 // 08 溫度單位轉換 - 合併自 version-ajax, version-php
-$(document).ready(function () {
+$(function () {
   // 判斷是否為 AJAX 版本（有 #celsius, #fahrenheit, .messageText p）
   const isAjaxVersion =
     $("#celsius").length &&

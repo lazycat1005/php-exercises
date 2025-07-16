@@ -18,7 +18,7 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
     <!-- 主結構 -->
     <main>
         <form class="text-length__form" method="get" action="">
-            <textarea name="text" rows="10" cols="30" placeholder="請在此輸入文字..." maxlength="100"></textarea>
+            <textarea name="text" placeholder="請在此輸入文字..." maxlength="100"></textarea>
             <button type="submit">計算字數</button>
         </form>
 

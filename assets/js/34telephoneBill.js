@@ -1,5 +1,5 @@
 // 34 電話費計算 - 合併自 version-js
-$(document).ready(function () {
+$(function () {
   const billHistory = [];
 
   $("form").on("submit", function (event) {

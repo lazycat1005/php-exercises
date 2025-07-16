@@ -21,4 +21,5 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
     </main>
 </div>
 
+
 <?php HtmlHelper::renderFooter('97removeSpaces.js'); ?>

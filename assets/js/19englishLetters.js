@@ -1,5 +1,5 @@
 // 19 英文字母大小寫驗證 - 合併自 version-2, version-4
-$(document).ready(function () {
+$(function () {
   $("#charInput").on("keypress", function (e) {
     const charCode = e.which || e.keyCode;
     // version-4: 允許 A-Z, a-z

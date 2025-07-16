@@ -40,21 +40,19 @@ function divideByTwoRecursively(value) {
 // 處理 Form2 的提交
 function handleSubmit(event) {
   event.preventDefault();
-  const inputValue = document.getElementById("binaryInput").value;
+  const inputValue = $("#binaryInput").val();
   try {
     const { binaryStr, onesCount } = decimalToBinaryAndCountOnes(inputValue);
-    document.getElementById(
-      "result"
-    ).innerHTML = `二進位：${binaryStr}<br>1 的個數：${onesCount}`;
+    $("#result").html(`二進位：${binaryStr}<br>1 的個數：${onesCount}`);
   } catch (error) {
-    document.getElementById("result").innerHTML = error.message;
+    $("#result").html(error.message);
   }
 }
 
 // 處理 Form1 的提交
-function handleDivideByTwoSubmit(event) {
-  event.preventDefault();
-  const inputValue = document.getElementById("binaryInput").value;
+function handleDivideByTwoSubmit(e) {
+  e.preventDefault();
+  const inputValue = $("#binaryInput").val();
   try {
     const result = divideByTwoRecursively(inputValue);
     let output = "<h3>除以 2 的結果：</h3><ul>";
@@ -70,19 +68,21 @@ function handleDivideByTwoSubmit(event) {
     // 計算二進位中有多少個1
     const onesCount = binaryStr.split("").filter((c) => c === "1").length;
     output += `<div>1 的個數：${onesCount}</div>`;
-    document.getElementById("result").innerHTML = output;
+    $("#result").html(output);
   } catch (error) {
-    document.getElementById("result").innerHTML = error.message;
+    $("#result").html(error.message);
   }
 }
 
 // 綁定表單事件（加上判斷）
-const form1 = document.getElementById("binaryForm1");
-if (form1) {
-  form1.addEventListener("submit", handleDivideByTwoSubmit);
-}
+$(function () {
+  const $form1 = $("#binaryForm1");
+  if ($form1.length) {
+    $form1.on("submit", handleDivideByTwoSubmit);
+  }
 
-const form2 = document.getElementById("binaryForm2");
-if (form2) {
-  form2.addEventListener("submit", handleSubmit);
-}
+  const $form2 = $("#binaryForm2");
+  if ($form2.length) {
+    $form2.on("submit", handleSubmit);
+  }
+});

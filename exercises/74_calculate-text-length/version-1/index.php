@@ -34,4 +34,4 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
     </main>
 </div>
 
-<?php HtmlHelper::renderFooter('74textLength.js'); ?>
+<?php HtmlHelper::renderFooter(); ?>

@@ -16,7 +16,7 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
     <!-- 主結構 -->
     <main>
         <form class="text-length__form" method="get" action="">
-            <textarea id="version4" name="text" rows="10" cols="30" placeholder="請在此輸入文字..." maxlength="100"></textarea>
+            <textarea id="version4" name="text" placeholder="請在此輸入文字..." maxlength="100"></textarea>
         </form>
 
         <div class="text-length__result">
