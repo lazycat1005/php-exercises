@@ -12,6 +12,7 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
         <h1>移除字串中的空格</h1>
         <p>給予一個輸入框，onblur 後用 JQuery 清除字串裡所有的空格，然後取代原本輸入框內的值，並提示"字串已更動"</p>
     </header>
+
     <main class="remove-spaces__main">
         <form id="inputForm">
             <label for="inputString">請輸入字串：</label>

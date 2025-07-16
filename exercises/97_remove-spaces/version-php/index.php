@@ -17,7 +17,7 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
     <?php
     $inputString = '';
     $filteredString = '';
-
+    // 檢查是否有提交的字串
     if (isset($_GET['inputString'])) {
         $inputString = $_GET['inputString'];
         $controller = new RemoveSpacesController();
@@ -27,7 +27,6 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
             echo $result['html'];
         }
     }
-
     ?>
 
     <main class="remove-spaces__main">
