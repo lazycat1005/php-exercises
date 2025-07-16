@@ -128,5 +128,13 @@ return [
             'version-js-1' => './exercises/96_binary/version-js-1/',
             'version-js-2' => './exercises/96_binary/version-js-2/',
         ],
-    ]
+    ],
+    "customAddition" => [
+        'title' => '自訂加法',
+        'description' => '實現一個自訂的加法功能，允許使用者輸入兩個數字並計算其和。',
+        'links' => [
+            'version-php' => './exercises/69_custom-addition/version-php/',
+            'version-js' => './exercises/69_custom-addition/version-js/',
+        ],
+    ],
 ];
