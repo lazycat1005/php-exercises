@@ -6,15 +6,23 @@ class HtmlHelper
 {
     public static function getWebRoot(): string
     {
-        // 取得目前 script 路徑
         $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
-        // 尋找 /PHP-Exercises/ 在路徑中的位置
-        $pos = strpos($scriptName, '/PHP-Exercises/');
-        if ($pos !== false) {
-            // 回傳 /PHP-Exercises/ 及其後方路徑
-            return substr($scriptName, 0, strpos($scriptName, '/PHP-Exercises/') + strlen('/PHP-Exercises/'));
+        if (!empty($scriptName)) {
+            $pathInfo = pathinfo($scriptName);
+            $dir = $pathInfo['dirname'] ?? '';
+            $segments = explode('/', trim($dir, '/'));
+            $rootSegments = [];
+
+            foreach ($segments as $segment) {
+                $rootSegments[] = $segment;
+                $testPath = $_SERVER['DOCUMENT_ROOT'] . '/' . implode('/', $rootSegments) . '/assets';
+                if (is_dir($testPath)) {
+                    return '/' . implode('/', $rootSegments) . '/';
+                }
+            }
         }
-        // fallback: 根目錄
+
+        // 最終 fallback
         return '/PHP-Exercises/';
     }
 

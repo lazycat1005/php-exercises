@@ -121,7 +121,6 @@ HtmlHelper::renderHeader('randomNumberProbability', '');
             return $results; // 回傳每個亂數值的出現次數
         }
 
-
         //處理表單
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['min']) && isset($_GET['max']) && isset($_GET['step'])) {
             $min = $_GET['min'];
