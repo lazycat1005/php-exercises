@@ -4,26 +4,24 @@ namespace App\Helper;
 
 class HtmlHelper
 {
+    /**
+     * 獲取網站根目錄路徑
+     * @return string 網站根目錄路徑
+     * @throws \Exception 如果無法確定根目錄路徑，則拋出異常
+     */
     public static function getWebRoot(): string
     {
         $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+        // 例如 $_SERVER['SCRIPT_NAME'] = /git/php-exercises/exercises/08_temperature-unit-conversion/version-ajax/index.php
         if (!empty($scriptName)) {
-            $pathInfo = pathinfo($scriptName);
-            $dir = $pathInfo['dirname'] ?? '';
-            $segments = explode('/', trim($dir, '/'));
-            $rootSegments = [];
-
-            foreach ($segments as $segment) {
-                $rootSegments[] = $segment;
-                $testPath = $_SERVER['DOCUMENT_ROOT'] . '/' . implode('/', $rootSegments) . '/assets';
-                if (is_dir($testPath)) {
-                    return '/' . implode('/', $rootSegments) . '/';
-                }
+            //找到 exercises 之前的目錄字串 例如 /git/php-exercises/
+            preg_match('/^(.*?\/)exercises\//', $scriptName, $matches);
+            if (isset($matches[1])) {
+                // echo $matches[1];
+                return  $matches[1];
             }
         }
-
-        // 最終 fallback
-        return '/PHP-Exercises/';
+        throw new \Exception('無法確定網站根目錄路徑。確認網址在 exercises 目錄下');
     }
 
     /**
