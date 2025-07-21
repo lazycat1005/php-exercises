@@ -4,7 +4,15 @@ require_once '../../../vendor/autoload.php';
 use App\Helper\HtmlHelper;
 
 HtmlHelper::renderHeader('temperature', '08temperature.css');
+
+// 取得網站根目錄路徑，供 JavaScript 使用
+$webRoot = HtmlHelper::getWebRoot();
 ?>
+
+<script>
+    // 設定全域變數供 AJAX 使用
+    window.webRoot = '<?= htmlspecialchars($webRoot) ?>';
+</script>
 
 
 <main id="ajaxVersion" class="container">

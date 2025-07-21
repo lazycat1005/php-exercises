@@ -29,7 +29,7 @@ $(function () {
           return;
         }
         $.ajax({
-          url: "/PHP-Exercises/app/ajax/temperature.php",
+          url: (window.webRoot || "") + "ajax/temperature.php",
           type: "POST",
           data: {
             temperature: inputVal,
