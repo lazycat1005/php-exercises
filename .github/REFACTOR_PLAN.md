@@ -150,7 +150,7 @@ echo HtmlHelper::renderFooter($jsFiles);
 
 #### 1.4 JSON 路徑管理
 
-將 `exercises.json` 移到 `/app/config/` 目錄，保持現有的 JSON 結構：
+將 `exercises.json` 移到 `/config/` 目錄，保持現有的 JSON 結構：
 
 ```json
 {
@@ -195,7 +195,7 @@ echo HtmlHelper::renderFooter($jsFiles);
 #### 2.1 檔案遷移階段
 
 1. **建立新的目錄結構**
-2. **遷移 exercises.json 到 app/config/**
+2. **遷移 exercises.json 到 config/**
 3. **整合所有練習題目的 CSS 到 assets/css/**
 4. **整合所有練習題目的 JS 到 assets/js/**
 

@@ -19,7 +19,7 @@
   },
   "autoload-dev": {
     "files": [
-      "app/config/exercises.php"
+      "config/exercises.php"
     ]
   },
   "config": {

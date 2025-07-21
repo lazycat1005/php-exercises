@@ -32,7 +32,7 @@ class HtmlHelper
     public static function renderHeader(string $metaKey = 'temperature', string $newCssName = 'main.css')
     {
         // 讀取 metadata，改為讀取 PHP 設定檔
-        $metaArr = require __DIR__ . '/../config/exercises.php';
+        $metaArr = require __DIR__ . '/../../config/exercises.php';
         $title = $metaArr[$metaKey]['title'] ?? '';
         $desc = $metaArr[$metaKey]['description'] ?? '';
 

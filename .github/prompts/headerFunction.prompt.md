@@ -118,4 +118,4 @@ HtmlHelper::renderHeader('telephoneBill', '34telephoneBill.css');
 1. **路徑調整**：確保 `require_once` 的路徑正確指向 `HtmlHelper.php`
 2. **參數對應**：第一個參數是原本的 `$metaKey`中所存放的字串，第二個參數是 CSS 檔名
 3. **CSS 檔名**：確保 CSS 檔名與實際檔案名稱一致
-4. **metadata 鍵值**：確保 metaKey 在 `app/config/exercises.php` 中有對應的設定
+4. **metadata 鍵值**：確保 metaKey 在 `config/exercises.php` 中有對應的設定

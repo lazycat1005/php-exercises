@@ -19,7 +19,7 @@
         <section class="exercisesCards">
             <?php
             // 讀取 PHP 陣列設定檔
-            $exercises = require __DIR__ . '/app/config/exercises.php';
+            $exercises = require __DIR__ . '/config/exercises.php';
 
             // 顯示所有題目
             foreach ($exercises as $exercise) {
