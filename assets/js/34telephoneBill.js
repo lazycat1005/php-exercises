@@ -1,6 +1,6 @@
 // 34 電話費計算 - 合併自 version-js
 $(function () {
-  const billHistory = [];
+  let billHistory = {};
 
   $("form").on("submit", function (event) {
     event.preventDefault();
@@ -28,31 +28,36 @@ $(function () {
     $("section h2 span").text(` ${billAmount} 元`);
 
     // 更新紀錄（保留最多12筆）
-    billHistory.push(
-      `通話時長: ${callDuration} 分鐘, 電話費: ${billAmount} 元`
-    );
-    if (billHistory.length > 12) {
-      billHistory.shift();
+    let timestamp = Date.now();
+    billHistory[timestamp] = {
+      callDuration,
+      billAmount,
+    };
+    // 只保留最新 12 筆
+    let keys = Object.keys(billHistory);
+    if (keys.length > 12) {
+      delete billHistory[keys[0]];
     }
 
     // 顯示紀錄
-    const historyList = $("<ol></ol>");
-    billHistory.forEach(function (item) {
-      const listItem = $("<li></li>").text(item);
-      historyList.append(listItem);
+    let $historyList = $("<ol></ol>");
+    Object.values(billHistory).forEach(function (item) {
+      let $listItem = $("<li></li>").text(
+        `通話時長: ${item.callDuration} 分鐘, 電話費: ${item.billAmount} 元`
+      );
+      $historyList.append($listItem);
     });
-    $("section h4").html(historyList);
+    $("section h4").html($historyList);
 
     // 顯示總金額（四捨五入）
     let total = 0;
-    billHistory.forEach(function (item) {
-      const match = item.match(/電話費: ([\d.]+) 元/);
-      if (match) {
-        total += parseFloat(match[1]);
-      }
+    Object.values(billHistory).forEach(function (item) {
+      total += item.billAmount;
     });
     total = Math.round(total);
-    const summary = `<div>共 ${billHistory.length} 期帳單，金額一共是: ${total} 元</div>`;
+    const summary = `<div>共 ${
+      Object.keys(billHistory).length
+    } 期帳單，金額一共是: ${total} 元</div>`;
     $("section h3").html(summary);
 
     // 清空輸入欄位

@@ -8,12 +8,12 @@ $(function () {
 
   if (isAjaxVersion) {
     // AJAX 版本
-    const errorMessage = $(".messageText p");
+    let errorMessage = $(".messageText p");
     $("#celsius, #fahrenheit").on("input", function () {
       const $this = $(this);
-      const otherInput =
+      let otherInput =
         $this.attr("id") === "celsius" ? "#fahrenheit" : "#celsius";
-      const inputVal = $this.val();
+      let inputVal = $this.val();
       if (inputVal !== "") {
         $(otherInput).prop("disabled", true);
       } else {
@@ -37,9 +37,9 @@ $(function () {
           },
           success: function (data) {
             try {
-              const result = typeof data === "string" ? JSON.parse(data) : data;
+              let result = typeof data === "string" ? JSON.parse(data) : data;
               if (result.success) {
-                const targetValue =
+                let targetValue =
                   $this.attr("id") === "celsius"
                     ? result.fahrenheit
                     : result.celsius;
