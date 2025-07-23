@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['clear_history'])) {
     exit;
 }
 
-HtmlHelper::renderHeader('receiptPrizeChecker', '');
+HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
 ?>
 
 <header>
