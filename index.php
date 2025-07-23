@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
     <link rel="icon" sizes="192x192" href="#">
     <title>PHP 練習題</title>
     <meta name="description" content="PHP 練習題">
