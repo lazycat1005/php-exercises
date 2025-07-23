@@ -4,16 +4,12 @@ namespace App\Validator;
 
 class ReceiptPrizeCheckerValidator
 {
-    /**
-     * 驗證發票號碼格式 (3~8位數字)
-     * @param string $receipt
-     * @return bool|string 通過回傳 true，否則回傳錯誤訊息
-     */
-    public static function validateReceipt(string $receipt)
+    //驗證函數(使用正則表達式)，使用者可輸入3~8位數字，但不可含有字串與浮點數、正負號，若驗證失敗返回false
+    public static function validateReceipt($receipt)
     {
-        if (!preg_match('/^[0-9]{3,8}$/', $receipt)) {
-            return '請輸入 3~8 位數的有效發票號碼。';
+        if (preg_match('/^\d{3,8}$/', $receipt)) {
+            return true;
         }
-        return true;
+        return false;
     }
 }

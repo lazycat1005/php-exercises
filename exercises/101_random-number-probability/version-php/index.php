@@ -55,7 +55,6 @@ HtmlHelper::renderHeader('randomNumberProbability', '');
             return true;
         }
 
-
         //建立一個function，將驗證過的兩個數值轉為字串，並分析兩數值的小數點位數，並回傳小數點位數
         function getDecimalPlaces($min, $max)
         {
