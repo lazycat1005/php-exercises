@@ -82,6 +82,10 @@ form {
 }
 .messageText {
   margin-top: 2rem;
+  .errorMessage {
+    font-size: 2rem;
+    color: #d32f2f;
+  }
   .current-result {
     background: #e3f2fd;
     border: 1px solid #1976d2;

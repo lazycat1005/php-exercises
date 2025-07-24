@@ -54,7 +54,7 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
         </div>
     </section>
 
-    <form method="get">
+    <form class="receiptForm" method="get">
         <label for="receipt">請輸入發票號碼：</label>
         <input type="number" id="receipt" name="receipt" required>
         <button type="submit">查詢</button>
@@ -65,6 +65,7 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
     </form>
 
     <div class="messageText">
+        <p class="errorMessage"></p>
         <?php
 
         // 顯示這次查詢結果
@@ -113,4 +114,4 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
     </div>
 </main>
 
-<?php HtmlHelper::renderFooter(); ?>
+<?php HtmlHelper::renderFooter("03receiptPrizeChecker.js"); ?>
