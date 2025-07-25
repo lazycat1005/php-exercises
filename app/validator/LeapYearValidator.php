@@ -31,19 +31,3 @@ class LeapYearValidator
         return $this->errorMsg;
     }
 }
-
-function validate($someInput)
-{
-    if ($someInput) {
-        // 這裡可以放入驗證邏輯
-        return true;
-    } else {
-        // 如果驗證失敗，返回錯誤訊息
-        return false;
-    }
-}
-
-function getErrorMsg()
-{
-    return $this->errorMsg;
-}
