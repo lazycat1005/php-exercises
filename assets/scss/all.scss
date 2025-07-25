@@ -5,17 +5,17 @@
 
 //返回首頁的固定按鈕
 .fixedBtn {
-  font-size: 1.6rem;
-  width: 5rem;
-  height: 5rem;
+  font-size: 16px;
+  width: 50px;
+  height: 50px;
   display: grid;
   place-items: center;
   position: fixed;
-  bottom: 5rem;
-  right: 2rem;
+  bottom: 50px;
+  right: 20px;
   background-color: #007bff;
   color: white;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 50%;
   text-decoration: none;
   box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
@@ -26,21 +26,21 @@
 
 //only for indexPage
 main#indexPage {
-  max-width: 90rem;
+  max-width: 900px;
   margin: 0 auto;
   @media (max-width: 900px) {
     width: 100%;
-    padding: 1rem;
+    padding: 10px;
   }
   h1 {
     text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.4rem;
+    margin-bottom: 30px;
+    font-size: 24px;
   }
   .exercisesCards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 20px;
     @media (max-width: 900px) {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -51,21 +51,21 @@ main#indexPage {
       border: 1px solid #000;
       border-radius: 10px;
       box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
-      padding: 2rem;
+      padding: 20px;
       h2 {
-        margin-bottom: 1rem;
-        font-size: 2.2rem;
+        margin-bottom: 10px;
+        font-size: 22px;
       }
       li {
-        margin-bottom: 1rem;
+        margin-bottom: 10px;
         a {
-          font-size: 1.6rem;
+          font-size: 16px;
           display: block;
           color: #fff;
           background-color: #089;
           box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
-          padding: 0.5rem 1rem;
-          border-radius: 1rem;
+          padding: 8px 16px;
+          border-radius: 10px;
           text-align: center;
           &:hover {
             background-color: darken($color: #089, $amount: 10);

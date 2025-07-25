@@ -1,39 +1,39 @@
 .text-length__container {
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 20px auto;
+  padding: 20px;
   background: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 .text-length__header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 .text-length__header h1 {
   color: #2c3e50;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 24px;
+  margin-bottom: 4px;
 }
 .text-length__header p {
   color: #6c757d;
-  font-size: 1.1rem;
+  font-size: 16px;
   line-height: 1.6;
 }
 .text-length__form {
   background: white;
-  padding: 2rem;
+  padding: 20px;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+  margin-bottom: 16px;
 }
 .text-length__form textarea {
   width: 100%;
   min-height: 200px;
-  padding: 1rem;
+  padding: 10px;
   border: 2px solid #e9ecef;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 16px;
   font-family: inherit;
   resize: vertical;
   transition: border-color 0.3s ease;
@@ -50,11 +50,11 @@
   background: #007bff;
   color: white;
   border: none;
-  padding: 0.75rem 2rem;
+  padding: 8px 20px;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 10px;
   transition: background-color 0.3s ease;
 }
 .text-length__form button:hover {
@@ -65,14 +65,14 @@
 }
 .text-length__result {
   background: white;
-  padding: 1.5rem;
+  padding: 16px;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 .text-length__result p {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 16px;
 }
 .text-length__result p#charCount {
   font-weight: 600;
@@ -82,14 +82,14 @@
 .text-length__result p[style*="color: red"] {
   color: #dc3545 !important;
   font-weight: 600;
-  padding: 0.75rem;
+  padding: 12px;
   background: #f8d7da;
   border: 1px solid #f5c6cb;
   border-radius: 4px;
 }
 .text-length__char-count {
   background: #e8f5e8;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 4px;
   border-left: 4px solid #28a745;
   font-weight: 600;
@@ -97,36 +97,15 @@
 }
 @media (max-width: 768px) {
   .text-length__container {
-    margin: 1rem;
-    padding: 1rem;
+    margin: 10px;
+    padding: 1px;
   }
   .text-length__header h1 {
-    font-size: 2rem;
+    font-size: 20px;
   }
   .text-length__form {
-    padding: 1rem;
+    padding: 10px;
   }
-}
-
-.fixedBtn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: #6c757d;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-.fixedBtn:hover {
-  background: #5a6268;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  color: white;
 }
 
 /*# sourceMappingURL=74textLength.css.map */

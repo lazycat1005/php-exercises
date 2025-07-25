@@ -12,12 +12,11 @@
 }
 .file-merger__header h1 {
   color: #333;
-  font-size: 2.4rem;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 .file-merger__header p {
   color: #666;
-  font-size: 1.6rem;
   line-height: 1.5;
 }
 .file-merger__form {
@@ -59,7 +58,6 @@
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
