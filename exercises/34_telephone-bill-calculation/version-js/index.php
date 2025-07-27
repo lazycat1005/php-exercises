@@ -10,6 +10,7 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
 <main id="jsVersion" class="container">
     <section class="introduction">
         <h1>電話費計算器</h1>
+        <p>計算金額四捨五入後為該月應繳費用</p>
         <ul>
             <li>600 分鐘以下每分鐘 0.5 元</li>
             <li>600~1200 分鐘電話費以 9 折計算</li>
@@ -21,17 +22,16 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
     <form>
         <fieldset id="telephoneBillCalculation">
             <label for="callDuration">通話時長（分鐘）:</label>
-            <input type="number" id="callDuration" name="callDuration" step="any" min="0" max="44640" required>
+            <input type="number" id="callDuration" name="callDuration" step="1" min="0" max="44640" required>
 
             <button type="submit">計算電話費</button>
         </fieldset>
     </form>
 
-    <section class="result">
+    <section class="result" style="display:none;">
         <h2>這個月的應繳金額為:<span></span></h2>
         <h3></h3>
         <h4></h4>
-
     </section>
 </main>
 

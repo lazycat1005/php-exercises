@@ -20,13 +20,13 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
     <form action="" method="get">
         <fieldset id="telephoneBillCalculation">
             <label for="callDuration">通話時長（分鐘）:</label>
-            <input type="number" id="callDuration" name="callDuration" step="any" min="0" max="44640" required>
+            <input type="number" id="callDuration" name="callDuration" step="1" min="0" max="44640" required>
 
             <button type="submit">計算電話費</button>
         </fieldset>
     </form>
 
-    <section class="result">
+    <section class="result" style="display:<?php echo isset($_GET['callDuration']) ? 'block' : 'none'; ?>;">
         <h2>這個月的電話帳單詳細為:</h2>
         <?php
         if (isset($_GET['callDuration'])) {
@@ -35,6 +35,7 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
             echo $result['html'];
         }
         ?>
+        <p>計算金額四捨五入後為該月應繳費用</p>
     </section>
 </main>
 

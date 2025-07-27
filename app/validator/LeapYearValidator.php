@@ -7,27 +7,34 @@ class LeapYearValidator
     /**
      * 驗證年份是否合法
      * @param mixed $year
-     * @return string|null 錯誤訊息或 null
+     * @return bool 是否通過驗證
      */
-
-    private $errorMsg = null;
-
     public function validateYear($year)
     {
-        // 若是用...$args 就要寫 [$year] = $args;
         if (!is_numeric($year) || intval($year) != $year) {
-            $this->errorMsg = '請輸入有效的整數年份。';
             return false;
         }
         $year = intval($year);
         if ($year < 1 || $year > 3000) {
-            $this->errorMsg = '請輸入有效的年份 (1-3000)。';
             return false;
         }
         return true;
     }
-    public function getErrorMsg()
+
+    /**
+     * 取得年份驗證錯誤訊息
+     * @param mixed $year
+     * @return string|null 錯誤訊息或 null
+     */
+    public function getErrorMessage($year)
     {
-        return $this->errorMsg;
+        if (!is_numeric($year) || intval($year) != $year) {
+            return '請輸入有效的整數年份。';
+        }
+        $year = intval($year);
+        if ($year < 1 || $year > 3000) {
+            return '請輸入有效的年份 (1-3000)。';
+        }
+        return null;
     }
 }

@@ -11,8 +11,8 @@ class TelephoneBillValidator
      */
     public function validateDuration($duration)
     {
-        if (!is_numeric($duration) || $duration < 0 || preg_match('/e/i', $duration)) {
-            return '請輸入有效的通話時長。';
+        if (!is_numeric($duration) || $duration < 0 || preg_match('/e/i', $duration) || strpos($duration, '.') !== false) {
+            return '請輸入有效的通話時長（僅限整數）。';
         }
         if ($duration > 44640) {
             return '通話時長過長，請輸入合理數值。';

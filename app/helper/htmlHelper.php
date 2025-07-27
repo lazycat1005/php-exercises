@@ -32,16 +32,15 @@ class HtmlHelper
     public static function renderHeader(string $metaKey = 'temperature', string $newCssName = 'main.css')
     {
         // 讀取 metadata，改為讀取 PHP 設定檔
-        $metaArr = require __DIR__ . '/../../config/exercises.php';
+        $webRoot = self::getWebRoot();
+        $metaArr = require $_SERVER['DOCUMENT_ROOT'] . $webRoot . 'config/exercises.php';
         $title = $metaArr[$metaKey]['title'] ?? '';
         $desc = $metaArr[$metaKey]['description'] ?? '';
 
-        // $webRoot = '/PHP-Exercises/'; // 根目錄路徑
-        $webRoot = self::getWebRoot();
         // 設定 css 路徑
-        $cssRealPath =  __DIR__ . '/../../assets/css/' . $newCssName;
+        $cssRealPath = $_SERVER['DOCUMENT_ROOT'] . $webRoot . 'assets/css/' . $newCssName;
         $cssUrlPath = $webRoot . 'assets/css/' . $newCssName;
-        $allCssRealPath = __DIR__ . '/../../assets/css/all.css';
+        $allCssRealPath = $_SERVER['DOCUMENT_ROOT'] . $webRoot . 'assets/css/all.css';
         $allCssUrlPath = $webRoot . 'assets/css/all.css';
 
         if (file_exists($cssRealPath)) {
@@ -80,14 +79,12 @@ class HtmlHelper
     public static function renderFooter(string $jsFileName = '')
     {
         // 設定Web根目錄路徑
-        // $webRoot = '/PHP-Exercises/';
         $webRoot = self::getWebRoot();
-
 
         // 處理專屬JavaScript檔案引入
         $jsScriptTag = '';
         if (!empty($jsFileName)) {
-            $jsRealPath = __DIR__ . '/../../assets/js/' . $jsFileName;
+            $jsRealPath = $_SERVER['DOCUMENT_ROOT'] . $webRoot . 'assets/js/' . $jsFileName;
             $jsUrlPath = $webRoot . 'assets/js/' . $jsFileName;
 
             if (file_exists($jsRealPath)) {
@@ -97,7 +94,7 @@ class HtmlHelper
             }
         }
         ?>
-            <a class="fixedBtn" href="../../../index.php">Back</a>
+            <a class="fixedBtn" href="<?= htmlspecialchars($webRoot) ?>index.php">Back</a>
             <!-- 引入jQuery1.12.4 -->
             <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
             <?= $jsScriptTag ?>

@@ -5,25 +5,20 @@ namespace App\Validator;
 class EnglishLettersValidator
 {
     /**
-     * 驗證輸入字元
-     * @param string $char
-     * @param string $mode 'upper' 僅大寫, 'both' 大小寫皆可
+     * 驗證英文字母輸入（字串，大小寫皆可）
+     * @param string $input
      * @return string|null 錯誤訊息或 null
      */
-    public function validateCharacter($char, $mode = 'both')
+    public function validateEnglishInput($input)
     {
-        if (mb_strlen($char) !== 1) {
-            return '請輸入單一英文字母';
+        if (!is_string($input) || $input === '') {
+            return '請輸入英文字串';
         }
-        if ($mode === 'upper') {
-            if (!ctype_upper($char)) {
-                return '僅允許大寫英文字母';
-            }
-        } else {
-            if (!ctype_alpha($char)) {
-                return '僅允許英文字母';
-            }
+
+        if (!preg_match('/^[A-Za-z]+$/', $input)) {
+            return '只能輸入英文字母';
         }
+
         return null;
     }
 

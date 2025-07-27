@@ -17,26 +17,26 @@ class LeapYearController
     /**
      * 計算閏年與天數
      * @param int|string $year
-     * @return array [success, html]
+     * @return array
      */
     public function calculateLeapYear($year)
     {
-        $error = $this->validator->validateYear($year);
-        if ($error) {
+        if (!$this->validator->validateYear($year)) {
             return [
                 'success' => false,
-                'html' => "<p>{$error}</p>"
+                'error' => $this->validator->getErrorMessage($year)
             ];
         }
+
         $year = intval($year);
         $date = new DateTime("$year-01-01");
         $isLeap = $date->format('L') ? true : false;
         $days = $isLeap ? 366 : 365;
-        $isLeapText = $isLeap ? '是' : '否';
-        $html = "<p>年份: $year</p>\n<p>總天數: $days 天</p>\n<p>是否為閏年: $isLeapText</p>";
+
         return [
-            'success' => true,
-            'html' => $html
+            'year' => $year,
+            'days' => $days,
+            'isLeap' => $isLeap
         ];
     }
 }

@@ -14,13 +14,13 @@ class EnglishLettersController
     }
 
     /**
-     * @param string $char 單一字元
-     * @param string $mode 模式: 'upper' 僅大寫, 'both' 大小寫皆可
+     * 分析字串並自動轉換為大寫
+     * @param string $input 輸入的字串
      * @return array [success, message, data]
      */
-    public function analyzeCharacter($char, $mode = 'both')
+    public function analyzeAndConvertToUpper($input)
     {
-        $error = $this->validator->validateCharacter($char, $mode);
+        $error = $this->validator->validateEnglishInput($input);
         if ($error) {
             return [
                 'success' => false,
@@ -28,15 +28,26 @@ class EnglishLettersController
                 'data' => null
             ];
         }
-        $ascii = ord($char);
-        $type = (ctype_upper($char)) ? '大寫' : '小寫';
+
+        $upperInput = strtoupper($input);
+        $characters = [];
+
+        for ($i = 0; $i < strlen($upperInput); $i++) {
+            $char = $upperInput[$i];
+            $characters[] = [
+                'char' => $char,
+                'ascii' => ord($char)
+            ];
+        }
+
         return [
             'success' => true,
             'message' => '分析成功',
             'data' => [
-                'char' => $char,
-                'ascii' => $ascii,
-                'type' => $type
+                'original' => $input,
+                'converted' => $upperInput,
+                'length' => strlen($upperInput),
+                'characters' => $characters
             ]
         ];
     }

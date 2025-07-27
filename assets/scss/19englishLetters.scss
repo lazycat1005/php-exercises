@@ -98,4 +98,76 @@ button:active {
 /* Result area */
 #result {
   background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#result ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#result li {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: "Courier New", monospace;
+  transition: transform 0.2s ease;
+}
+
+#result li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#result li:last-child {
+  margin-bottom: 0;
+}
+
+#result p {
+  padding: 15px;
+  margin: 0;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* 錯誤提示樣式 */
+input.error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
+}
+
+.error-message {
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: none;
+}
+
+.error-message.error {
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  border: 1px solid #fecaca;
+}
+
+.error-message.success {
+  color: #22c55e;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.error-message.error:before {
+  content: "⚠ ";
+  font-weight: bold;
+}
+
+.error-message.success:before {
+  content: "✓ ";
+  font-weight: bold;
 }

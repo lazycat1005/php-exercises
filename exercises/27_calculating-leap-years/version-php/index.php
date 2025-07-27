@@ -19,16 +19,30 @@ HtmlHelper::renderHeader('leapYears', '27leapYear.css');
         </fieldset>
     </form>
 
-    <section class="result">
-        <h2>結果:</h2>
-        <?php
-        if (isset($_GET['year'])) {
+    <?php
+
+    use App\Validator\LeapYearValidator;
+
+    if (isset($_GET['year'])) {
+        $year = $_GET['year'];
+        $validator = new LeapYearValidator();
+        if (!$validator->validateYear($year)) {
+            echo '<section class="result">';
+            echo '<h2>結果:</h2>';
+            echo '<p>' . htmlspecialchars($validator->getErrorMessage($year)) . '</p>';
+            echo '</section>';
+        } else {
             $controller = new LeapYearController();
-            $result = $controller->calculateLeapYear($_GET['year']);
-            echo $result['html'];
+            $result = $controller->calculateLeapYear($year);
+            echo '<section class="result">';
+            echo '<h2>結果:</h2>';
+            echo '<p>年份: ' . htmlspecialchars($result['year']) . '</p>';
+            echo '<p>總天數: ' . htmlspecialchars($result['days']) . ' 天</p>';
+            echo '<p>是否為閏年: ' . ($result['isLeap'] ? '是' : '否') . '</p>';
+            echo '</section>';
         }
-        ?>
-    </section>
+    }
+    ?>
 </main>
 
 <?php HtmlHelper::renderFooter(); ?>
