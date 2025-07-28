@@ -21,10 +21,18 @@ header {
   padding: 20px;
 }
 
+form {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to right, #4f7cd1, #b0c1ee);
+}
+
 label {
   font-size: 20px;
   font-weight: bold;
-  color: #333;
+  color: #fff;
 }
 
 input {
@@ -32,6 +40,7 @@ input {
   border-radius: 8px;
   font-size: 20px;
   padding: 4px;
+  margin: 0 8px;
   text-align: center;
   &:focus {
     outline: 2px solid #1976d2;
@@ -41,7 +50,7 @@ input {
 button {
   background: #1976d2;
   color: #fff;
-  padding: 12px;
+  padding: 8px;
   border: none;
   border-radius: 8px;
   font-size: 18px;

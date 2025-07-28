@@ -9,11 +9,13 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
 
 <header>
     <h1>電話費計算器</h1>
-    <p>計算金額四捨五入後為該月應繳費用</p>
+    <p>輸入分鐘數(無法輸入小數)計算電話費</p>
 </header>
 
-<main id="phpVersion" class="container">
+<main class="container">
+
     <section class="introduction">
+        <h2>計算規則</h2>
         <ul>
             <li>600 分鐘以下每分鐘 0.5 元</li>
             <li>600~1200 分鐘電話費以 9 折計算</li>
@@ -37,7 +39,6 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
             echo $result['html'];
         }
         ?>
-        <p>計算金額四捨五入後為該月應繳費用</p>
     </section>
 </main>
 

@@ -2,10 +2,6 @@ form {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border-radius: 10px;
-  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
-  padding: 20px 0;
-  background: linear-gradient(to bottom right, #c5c5c5, #a5a5a5);
   @media (max-width: 560px) {
     flex-direction: column;
   }
@@ -14,22 +10,12 @@ form {
     @media (max-width: 560px) {
       margin: 10px 0;
       text-align: center;
-      label {
+    }
+    label {
+      @media (max-width: 560px) {
         margin-bottom: 28px;
       }
     }
-  }
-}
-
-.celsius {
-  label {
-    color: #04c21f;
-  }
-}
-
-.fahrenheit {
-  label {
-    color: #1976d2;
   }
 }
 
