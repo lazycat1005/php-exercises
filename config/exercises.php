@@ -142,6 +142,7 @@ return [
         'description' => '使用者輸入最小值、最大值和間隔，計算在1萬次迴圈中每個數字出現的機率。',
         'links' => [
             'version-php' => './exercises/101_random-number-probability/version-php/',
+            'version-js' => './exercises/101_random-number-probability/version-js/',
         ],
     ],
 ];
