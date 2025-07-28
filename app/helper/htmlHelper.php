@@ -81,6 +81,17 @@ class HtmlHelper
         // 設定Web根目錄路徑
         $webRoot = self::getWebRoot();
 
+        // 處理共用 JavaScript 檔案引入
+        $commonJsPath = $_SERVER['DOCUMENT_ROOT'] . $webRoot . 'assets/js/common.js';
+        $commonJsUrlPath = $webRoot . 'assets/js/common.js';
+        $commonJsScriptTag = '';
+
+        if (file_exists($commonJsPath)) {
+            $commonJsVer = filemtime($commonJsPath);
+            $commonJsUrlPath .= '?v=' . $commonJsVer;
+            $commonJsScriptTag = '<script src="' . htmlspecialchars($commonJsUrlPath) . '"></script>';
+        }
+
         // 處理專屬JavaScript檔案引入
         $jsScriptTag = '';
         if (!empty($jsFileName)) {
@@ -97,6 +108,7 @@ class HtmlHelper
             <a class="fixedBtn" href="<?= htmlspecialchars($webRoot) ?>index.php">Back</a>
             <!-- 引入jQuery1.12.4 -->
             <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+            <?= $commonJsScriptTag ?>
             <?= $jsScriptTag ?>
         </body>
 

@@ -1,136 +1,82 @@
-//AJAX - version
-#ajaxVersion.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-
-  @media (max-width: 767px) {
-    width: 100%;
-    max-width: 700px;
-    padding: 10px;
-  }
-
+form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px 0;
+  background: linear-gradient(to bottom right, #c5c5c5, #a5a5a5);
   @media (max-width: 560px) {
-    width: 100%;
-    max-width: 430px;
-    padding: 10px;
+    flex-direction: column;
   }
-
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  #temperatureConversion {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 20px;
-    box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+  .celsius,
+  .fahrenheit {
     @media (max-width: 560px) {
-      flex-direction: column;
-    }
-    .celsius,
-    .fahrenheit {
-      @media (max-width: 560px) {
-        margin: 10px 0;
-      }
-      input {
-        padding: 5px;
-        border-radius: 5px;
-      }
+      margin: 10px 0;
+      text-align: center;
       label {
-        font-size: 18px;
+        margin-bottom: 28px;
       }
-    }
-
-    .celsius {
-      label {
-        color: #0c0;
-      }
-    }
-
-    .fahrenheit {
-      label {
-        color: #007bff;
-      }
-    }
-  }
-
-  .messageText {
-    text-align: center;
-    p {
-      font-size: 24px;
-      margin-top: 20px;
-      color: #f00;
     }
   }
 }
 
-//PHP - version
-#phpVersion.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  @media (max-width: 767px) {
-    width: 100%;
-    max-width: 700px;
-    padding: 10px;
+.celsius {
+  label {
+    color: #04c21f;
   }
-  @media (max-width: 560px) {
-    width: 100%;
-    max-width: 430px;
-    padding: 10px;
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  #temperatureConversion {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0.3px 0.3px 10px rgba(0, 0, 0, 0.3);
-    @media (max-width: 560px) {
-      flex-direction: column;
-    }
-    .celsius,
-    .fahrenheit {
-      @media (max-width: 560px) {
-        margin: 10px 0;
-      }
-      input {
-        padding: 5px;
-        border-radius: 5px;
-      }
-      label {
-        font-size: 18px;
-      }
-    }
+}
 
-    .celsius {
-      label {
-        color: #0c0;
-      }
-    }
+.fahrenheit {
+  label {
+    color: #1976d2;
+  }
+}
 
-    .fahrenheit {
-      label {
-        color: #007bff;
-      }
+.buttons {
+  display: flex;
+  align-items: center;
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
+  button {
+    margin: 0 8px;
+    @media (max-width: 450px) {
+      margin: 8px 0;
     }
   }
-
-  .messageText {
-    text-align: center;
-    p {
-      font-size: 24px;
-      margin-top: 20px;
-      color: #f00;
+  #convertToFahrenheit {
+    background: #04c21f;
+    color: #fff;
+    &:hover {
+      background: #03b020;
     }
+  }
+  #clearBtn {
+    background: #fff;
+    color: #000;
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+.resultSection {
+  text-align: center;
+  .errorText {
+    border-radius: 8px;
+    background: #f00;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+  .successText {
+    border-radius: 8px;
+    background: #04c21f;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #fff;
   }
 }

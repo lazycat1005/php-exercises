@@ -6,12 +6,12 @@ use App\Helper\HtmlHelper;
 HtmlHelper::renderHeader('customAddition', '');
 ?>
 
-<main>
-    <header>
-        <h1>自訂加法</h1>
-        <p> 用 PHP 自己寫浮點數的"加法" (乘法不用)，將浮點數換為整數計算後，再補回小數點(可對照印出 PHP 內建函式 bcadd 的結果比對是否一致)</p>
-    </header>
+<header>
+    <h1>自訂加法</h1>
+    <p> 用 PHP 自己寫浮點數的"加法" (乘法不用)，將浮點數換為整數計算後，再補回小數點(可對照印出 PHP 內建函式 bcadd 的結果比對是否一致)</p>
+</header>
 
+<main>
     <form id="additionForm" method="get">
         <label for="number1">第一個數字：</label>
         <input type="number" id="number1" name="number1" required step="any">
@@ -22,8 +22,7 @@ HtmlHelper::renderHeader('customAddition', '');
         <button type="submit">計算和</button>
     </form>
 
-    <div id="result">
-
+    <section id="result">
         <?php
         //寫一個驗證使用者輸入的函數，驗證使用者所輸入的兩個資料只能是數字或浮點數，不能為字元或含有科學符號(如:1e2)
         function validateInput($input1, $input2)
@@ -102,8 +101,7 @@ HtmlHelper::renderHeader('customAddition', '');
         }
 
         ?>
-
-    </div>
+    </section>
 </main>
 
 

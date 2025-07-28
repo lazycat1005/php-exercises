@@ -1,135 +1,87 @@
-#ajaxVersion.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-@media (max-width: 767px) {
-  #ajaxVersion.container {
-    width: 100%;
-    max-width: 700px;
-    padding: 10px;
-  }
-}
-@media (max-width: 560px) {
-  #ajaxVersion.container {
-    width: 100%;
-    max-width: 430px;
-    padding: 10px;
-  }
-}
-#ajaxVersion.container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-#ajaxVersion.container #temperatureConversion {
+form {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
-  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px 0;
+  background: linear-gradient(to bottom right, #c5c5c5, #a5a5a5);
 }
 @media (max-width: 560px) {
-  #ajaxVersion.container #temperatureConversion {
+  form {
     flex-direction: column;
   }
 }
 @media (max-width: 560px) {
-  #ajaxVersion.container #temperatureConversion .celsius,
-  #ajaxVersion.container #temperatureConversion .fahrenheit {
+  form .celsius,
+  form .fahrenheit {
     margin: 10px 0;
+    text-align: center;
   }
-}
-#ajaxVersion.container #temperatureConversion .celsius input,
-#ajaxVersion.container #temperatureConversion .fahrenheit input {
-  padding: 5px;
-  border-radius: 5px;
-}
-#ajaxVersion.container #temperatureConversion .celsius label,
-#ajaxVersion.container #temperatureConversion .fahrenheit label {
-  font-size: 18px;
-}
-#ajaxVersion.container #temperatureConversion .celsius label {
-  color: #0c0;
-}
-#ajaxVersion.container #temperatureConversion .fahrenheit label {
-  color: #007bff;
-}
-#ajaxVersion.container .messageText {
-  text-align: center;
-}
-#ajaxVersion.container .messageText p {
-  font-size: 24px;
-  margin-top: 20px;
-  color: #f00;
+  form .celsius label,
+  form .fahrenheit label {
+    margin-bottom: 28px;
+  }
 }
 
-#phpVersion.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+.celsius label {
+  color: #04c21f;
 }
-@media (max-width: 767px) {
-  #phpVersion.container {
-    width: 100%;
-    max-width: 700px;
-    padding: 10px;
-  }
+
+.fahrenheit label {
+  color: #1976d2;
 }
-@media (max-width: 560px) {
-  #phpVersion.container {
-    width: 100%;
-    max-width: 430px;
-    padding: 10px;
-  }
-}
-#phpVersion.container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-#phpVersion.container #temperatureConversion {
+
+.buttons {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0.3px 0.3px 10px rgba(0, 0, 0, 0.3);
 }
-@media (max-width: 560px) {
-  #phpVersion.container #temperatureConversion {
+@media (max-width: 450px) {
+  .buttons {
     flex-direction: column;
   }
 }
-@media (max-width: 560px) {
-  #phpVersion.container #temperatureConversion .celsius,
-  #phpVersion.container #temperatureConversion .fahrenheit {
-    margin: 10px 0;
+.buttons button {
+  margin: 0 8px;
+}
+@media (max-width: 450px) {
+  .buttons button {
+    margin: 8px 0;
   }
 }
-#phpVersion.container #temperatureConversion .celsius input,
-#phpVersion.container #temperatureConversion .fahrenheit input {
-  padding: 5px;
-  border-radius: 5px;
+.buttons #convertToFahrenheit {
+  background: #04c21f;
+  color: #fff;
 }
-#phpVersion.container #temperatureConversion .celsius label,
-#phpVersion.container #temperatureConversion .fahrenheit label {
-  font-size: 18px;
+.buttons #convertToFahrenheit:hover {
+  background: #03b020;
 }
-#phpVersion.container #temperatureConversion .celsius label {
-  color: #0c0;
+.buttons #clearBtn {
+  background: #fff;
+  color: #000;
 }
-#phpVersion.container #temperatureConversion .fahrenheit label {
-  color: #007bff;
+.buttons #clearBtn:hover {
+  background: #f0f0f0;
 }
-#phpVersion.container .messageText {
+
+.resultSection {
   text-align: center;
 }
-#phpVersion.container .messageText p {
+.resultSection .errorText {
+  border-radius: 8px;
+  background: #f00;
   font-size: 24px;
   margin-top: 20px;
-  color: #f00;
+  font-weight: bold;
+  color: #fff;
+}
+.resultSection .successText {
+  border-radius: 8px;
+  background: #04c21f;
+  font-size: 24px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #fff;
 }
 
 /*# sourceMappingURL=08temperature.css.map */

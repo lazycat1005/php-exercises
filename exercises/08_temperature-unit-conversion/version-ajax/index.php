@@ -11,30 +11,30 @@ $webRoot = HtmlHelper::getWebRoot();
 
 <script>
     // 設定全域變數供 AJAX 使用
-    window.webRoot = '<?= htmlspecialchars($webRoot) ?>';
+    window.webRoot = '<?php echo htmlspecialchars($webRoot); ?>';
 </script>
 
+<header>
+    <h1>溫度單位轉換</h1>
+    <p>請輸入攝氏或華氏溫度，系統將自動轉換並顯示結果。</p>
+</header>
 
 <main id="ajaxVersion" class="container">
-    <h1>溫度單位轉換</h1>
-
     <form>
-        <fieldset id="temperatureConversion">
-            <div class="celsius">
-                <label for="celsius">攝氏溫度 (°C):</label>
-                <input type="number" id="celsius" name="celsius" required>
-            </div>
+        <div class="celsius">
+            <label for="celsius">攝氏溫度 (°C):</label>
+            <input type="number" id="celsius" name="celsius" required>
+        </div>
 
-            <div class="fahrenheit">
-                <label for="fahrenheit">華氏溫度 (°F):</label>
-                <input type="number" id="fahrenheit" name="fahrenheit" required>
-            </div>
-        </fieldset>
-
-        <div class="messageText">
-            <p></p>
+        <div class="fahrenheit">
+            <label for="fahrenheit">華氏溫度 (°F):</label>
+            <input type="number" id="fahrenheit" name="fahrenheit" required>
         </div>
     </form>
+
+    <section class="resultSection">
+        <p class="messageText"></p>
+    </section>
 </main>
 
-<?php HtmlHelper::renderFooter('08temperature.js'); ?>
+<?php HtmlHelper::renderFooter('08temperatureAjax.js'); ?>

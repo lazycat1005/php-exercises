@@ -11,6 +11,7 @@ HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
 
 <header>
     <h1>樂透APP</h1>
+    <p>請設計一樂透亂數選號程式，由 1~42 中選出 6 個不重覆的數字組合並輸出</p>
 </header>
 
 <main>

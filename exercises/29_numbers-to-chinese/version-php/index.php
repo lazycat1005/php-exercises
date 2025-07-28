@@ -9,17 +9,19 @@ use App\Validator\NumberToChineseValidator;
 HtmlHelper::renderHeader('numbersToChinese', '29numbersToChinese.css');
 ?>
 
-<div class="container">
-    <h1>轉換數字為中文單位</h1>
+<header>
+    <h1>數字轉中文單位</h1>
+    <p>給予一個輸入框，送出後 PHP 會將數字轉換為中文單位，並顯示在頁面上。</p>
+</header>
+
+<main class="container">
     <form id="numberForm" action="" method="GET">
-        <fieldset>
-            <label for="numberInput">請輸入數字:</label>
-            <input type="number" id="numberInput" name="numberInput" max="9999999" min="0" step="1" required>
-            <button type="submit">轉換</button>
-        </fieldset>
+        <label for="numberInput">請輸入數字:</label>
+        <input type="number" id="numberInput" name="numberInput" max="9999999" min="0" step="1" required>
+        <button type="submit">轉換</button>
     </form>
 
-    <div id="result">
+    <section id="result">
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['numberInput'])) {
             $number = $_GET['numberInput'];
@@ -31,7 +33,7 @@ HtmlHelper::renderHeader('numbersToChinese', '29numbersToChinese.css');
             }
         }
         ?>
-    </div>
-</div>
+    </section>
+</main>
 
 <?php HtmlHelper::renderFooter(''); ?>

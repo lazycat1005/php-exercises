@@ -29,7 +29,7 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
 </header>
 
 <main>
-    <section>
+    <section class="prizeNumbers">
         <div>
             <h2>本期特獎號碼為(1000萬)</h2>
             <ul>
@@ -64,10 +64,10 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
         <button type="submit" name="clear_history" value="1">清除紀錄</button>
     </form>
 
-    <div class="messageText">
+    <section class="messageText">
         <p class="errorMessage"></p>
-        <?php
 
+        <?php
         // 顯示這次查詢結果
         function displayCurrentResult($result)
         {
@@ -111,7 +111,7 @@ HtmlHelper::renderHeader('receiptPrizeChecker', '03receiptPrizeChecker.css');
         displayHistory();
 
         ?>
-    </div>
+    </section>
 </main>
 
 <?php HtmlHelper::renderFooter("03receiptPrizeChecker.js"); ?>

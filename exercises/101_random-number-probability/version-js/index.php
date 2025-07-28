@@ -6,13 +6,12 @@ use App\Helper\HtmlHelper;
 HtmlHelper::renderHeader('randomNumberProbability', '');
 ?>
 
+<header>
+    <h1>取得某兩數(含)間的亂數值，須限制數字位數</h1>
+    <p>用 PHP 與 JS 取得亂數值某兩數(含)間，且可指定取得間隔 (例如1、0.01、0.1)，若未指定間隔就是看兩數的小數位數誰小且寫完後用 for 迴圈執行1萬次，印出測試機率資料，驗證機率有平均出現</p>
+</header>
 
 <main>
-    <header>
-        <h1>取得某兩數(含)間的亂數值，須限制數字位數</h1>
-        <p>用 PHP 與 JS 取得亂數值某兩數(含)間，且可指定取得間隔 (例如1、0.01、0.1)，若未指定間隔就是看兩數的小數位數誰小且寫完後用 for 迴圈執行1萬次，印出測試機率資料，驗證機率有平均出現</p>
-    </header>
-
     <form method="get">
         <label for="min">最小值:</label>
         <input type="number" id="min" name="min" step="any"
@@ -36,6 +35,5 @@ HtmlHelper::renderHeader('randomNumberProbability', '');
         <div id="result"></div>
     </section>
 </main>
-
 
 <?php HtmlHelper::renderFooter("101randomNumberProbability.js"); ?>

@@ -6,12 +6,12 @@ use App\Helper\HtmlHelper;
 HtmlHelper::renderHeader('binary', '');
 ?>
 
-<main>
-    <header>
-        <h1>計算多少個1</h1>
-        <p>用 JS 寫，將 10 進位開始除 2 的遞迴，計算階層與餘數</p>
-    </header>
+<header>
+    <h1>計算多少個1</h1>
+    <p>用 JS 寫，將 10 進位開始除 2 的遞迴，計算階層與餘數</p>
+</header>
 
+<main>
     <form id="binaryForm2">
         <label for="binaryInput">請輸入數字：</label>
         <input type="number" id="binaryInput" name="binaryInput" placeholder="十進位數字，如35、124、215..." min="1" max="256" step="1" required>

@@ -9,17 +9,20 @@ HtmlHelper::renderHeader('englishLetters', '19englishLetters.css');
 $controller = new EnglishLettersController();
 ?>
 
-<div class="container">
+<header>
+    <h1>判斷字串的ASCII</h1>
+    <p>請輸入字串，系統將顯示每個字元的ASCII碼及其類型（大寫、小寫、數字或其他）</p>
+</header>
+
+<main class="container">
     <h1>判斷字串的ASCII</h1>
     <form id="charForm" action="" method="GET">
-        <fieldset>
-            <label for="charInput">請輸入英文字串:</label>
-            <input type="text" id="charInput" name="charInput" placeholder="請輸入英文字串" pattern="[A-Z]+" data-allow-lower="false" autocomplete="off" required>
-            <button type="submit">判斷</button>
-        </fieldset>
+        <label for="charInput">請輸入英文字串:</label>
+        <input type="text" id="charInput" name="charInput" placeholder="請輸入英文字串" pattern="[A-Z]+" data-allow-lower="false" autocomplete="off" required>
+        <button type="submit">判斷</button>
     </form>
 
-    <div id="result">
+    <section id="result">
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['charInput'])) {
             $string = $_GET['charInput'];
@@ -38,7 +41,9 @@ $controller = new EnglishLettersController();
             }
         }
         ?>
-    </div>
-</div>
+    </section>
+</main>
+
 <script src="../../../assets/js/common.js"></script>
+
 <?php HtmlHelper::renderFooter('19englishLetters.js'); ?>

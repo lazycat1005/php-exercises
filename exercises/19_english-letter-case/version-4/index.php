@@ -7,22 +7,21 @@ use App\Controller\EnglishLettersController;
 HtmlHelper::renderHeader('englishLetters', '19englishLetters.css');
 
 $controller = new EnglishLettersController();
-
 ?>
 
-<div class="container">
+<header>
     <h1>判斷英文字母的大小寫</h1>
-    <form id="charForm" action="" method="GET">
-        <fieldset>
-            <label for="charInput">請輸入英文字串:</label>
-            <!-- 使用HTML5的輸入框判斷使用者輸入的字串，並只允許輸入英文字母 -->
-            <input type="text" id="charInput" name="charInput" pattern="[A-Za-z]+" required autocomplete="off" />
+    <p>請輸入字串，系統將顯示每個字元的ASCII碼及其類型（大寫、小寫、數字或其他）</p>
+</header>
 
-            <button type="submit">判斷</button>
-        </fieldset>
+<main class="container">
+    <form id="charForm" action="" method="GET">
+        <label for="charInput">請輸入英文字串:</label>
+        <input type="text" id="charInput" name="charInput" pattern="[A-Za-z]+" required autocomplete="off" />
+        <button type="submit">判斷</button>
     </form>
 
-    <div id="result">
+    <section id="result">
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['charInput'])) {
             $input = $_GET['charInput'];
@@ -42,7 +41,7 @@ $controller = new EnglishLettersController();
             }
         }
         ?>
-    </div>
-</div>
+    </section>
+</main>
 
 <?php HtmlHelper::renderFooter('19englishLetters.js'); ?>

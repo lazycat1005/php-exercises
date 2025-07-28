@@ -7,12 +7,12 @@ use App\Controller\BinaryController;
 HtmlHelper::renderHeader('binary', '');
 ?>
 
-<main>
-    <header>
-        <h1>計算多少個1</h1>
-        <p>將 10 進位轉 2 進位，再切割字串計算</p>
-    </header>
+<header>
+    <h1>計算多少個1</h1>
+    <p>將 10 進位轉 2 進位，再切割字串計算</p>
+</header>
 
+<main>
     <form method="get">
         <label for="binary-input">請輸入數字：</label>
         <input type="number" id="binary-input" name="binary-input" placeholder="十進位數字，如35、124、215..." min="1" max="256" step="1" required>

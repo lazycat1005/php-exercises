@@ -54,25 +54,28 @@ if (!isset($_SESSION['answer']) || $_SESSION['guessed'] || $_SESSION['revealed']
 }
 ?>
 
-<h1>猜數字遊戲 (1~100)</h1>
+<header>
+    <h1>猜數字遊戲 (1~100)</h1>
+    <p>點擊 [開始] 產生隨機數字，然後猜測這個數字。你可以在猜測後點擊 [公布答案] 來查看正確答案。</p>
+</header>
 
-<form method="post">
-    <button type="submit" name="start" <?= $disabledStart ?>>開始</button>
-    <button type="submit" name="reveal" <?= $disabledReveal ?>>公布答案</button>
-</form>
-
-<div class="input-box">
+<main>
     <form method="post">
+        <button type="submit" name="start" <?= $disabledStart ?>>開始</button>
+        <button type="submit" name="reveal" <?= $disabledReveal ?>>公布答案</button>
+    </form>
+
+    <form method="post" class="input-box">
         <label for="guess">你的猜測：</label>
         <input type="number" id="guess" name="guess" min="1" max="100" required <?= $disabledGuess ?>>
         <button type="submit" name="submit" <?= $disabledGuess ?>>送出</button>
     </form>
-</div>
 
-<?php if ($message): ?>
-    <div id="message">
-        <strong><?= htmlspecialchars($message) ?></strong>
-    </div>
-<?php endif; ?>
+    <?php if ($message): ?>
+        <section id="message">
+            <strong><?= htmlspecialchars($message) ?></strong>
+        </section>
+    <?php endif; ?>
+</main>
 
 <?php HtmlHelper::renderFooter(); ?>

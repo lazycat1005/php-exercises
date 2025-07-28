@@ -1,6 +1,3 @@
-body {
-  background: #f9fafb;
-}
 main {
   max-width: 480px;
   margin: 20px auto;
@@ -10,19 +7,6 @@ main {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
 }
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
-  h1 {
-    font-size: 26px;
-    color: #1976d2;
-    margin-bottom: 4px;
-  }
-  p {
-    color: #757575;
-    font-size: 18px;
-  }
-}
 section {
   display: flex;
   flex-wrap: wrap;
@@ -50,6 +34,7 @@ section {
     }
   }
 }
+
 form {
   display: flex;
   align-items: center;
@@ -80,6 +65,7 @@ form {
     }
   }
 }
+
 .messageText {
   margin-top: 20px;
   .errorMessage {
