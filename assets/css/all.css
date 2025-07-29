@@ -64,6 +64,17 @@ input:focus {
   outline: 2px solid #1976d2;
 }
 
+select {
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 4px;
+  margin: 0 8px;
+}
+select:focus {
+  outline: 2px solid #1976d2;
+}
+
 button {
   background: #1976d2;
   color: #fff;

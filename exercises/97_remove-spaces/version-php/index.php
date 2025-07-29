@@ -7,12 +7,12 @@ use App\Controller\RemoveSpacesController;
 HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
 ?>
 
-<header class="remove-spaces__header">
+<header>
     <h1>PHP 練習題：移除字串中的空格</h1>
     <p>給予一個輸入框，送出後 PHP 會清除字串裡所有的空格，然後過濾後的字串重新顯示再輸入框內</p>
 </header>
 
-<main class="remove-spaces__main">
+<main class="container">
     <?php
     $inputString = '';
     $filteredString = '';

@@ -43,9 +43,9 @@ function handleSubmit(event) {
   const inputValue = $("#binaryInput").val();
   try {
     const { binaryStr, onesCount } = decimalToBinaryAndCountOnes(inputValue);
-    $("#result").html(`二進位：${binaryStr}<br>1 的個數：${onesCount}`);
+    $("#resultSection").html(`二進位：${binaryStr}<br>1 的個數：${onesCount}`);
   } catch (error) {
-    $("#result").html(error.message);
+    $("#resultSection").html(error.message);
   }
 }
 
@@ -55,22 +55,24 @@ function handleDivideByTwoSubmit(e) {
   const inputValue = $("#binaryInput").val();
   try {
     const result = divideByTwoRecursively(inputValue);
-    let output = "<h3>除以 2 的結果：</h3><ul>";
+    let output = "<h2>計算結果：</h2>";
+    output +=
+      "<table><thead><tr><th>層級</th><th>商</th><th>餘數</th></tr></thead><tbody>";
     const remainders = [];
     result.forEach((item) => {
-      output += `<li>層級 ${item.level}：商 ${item.quotient}，餘數 ${item.remainder}</li>`;
+      output += `<tr><td>${item.level}</td><td>${item.quotient}</td><td>${item.remainder}</td></tr>`;
       remainders.push(item.remainder);
     });
-    output += "</ul>";
+    output += "</tbody></table>";
     // 倒序顯示餘數，組成二進位
     const binaryStr = remainders.reverse().join("");
     output += `<div>倒序餘數（二進位）：${binaryStr}</div>`;
     // 計算二進位中有多少個1
     const onesCount = binaryStr.split("").filter((c) => c === "1").length;
     output += `<div>1 的個數：${onesCount}</div>`;
-    $("#result").html(output);
+    $("#resultSection").html(output);
   } catch (error) {
-    $("#result").html(error.message);
+    $("#resultSection").html(error.message);
   }
 }
 

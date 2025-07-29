@@ -105,10 +105,11 @@ document.querySelector("form").addEventListener("submit", function (event) {
   const results = getRandomNumber(min, max, step);
 
   // 顯示結果
-  let resultHtml = "<table><tr><th>亂數值</th><th>出現次數</th></tr>";
+  let resultHtml =
+    "<h2>結果</h2><table><tr><th>亂數值</th><th>出現次數</th></tr>";
   for (const [value, count] of Object.entries(results)) {
     resultHtml += `<tr><td>${value}</td><td>${count}</td></tr>`;
   }
   resultHtml += "</table>";
-  document.getElementById("result").innerHTML = resultHtml;
+  document.getElementsByClassName("resultSection")[0].innerHTML = resultHtml;
 });

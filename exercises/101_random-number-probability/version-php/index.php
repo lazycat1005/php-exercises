@@ -3,7 +3,7 @@ require_once '../../../vendor/autoload.php';
 
 use App\Helper\HtmlHelper;
 
-HtmlHelper::renderHeader('randomNumberProbability', '');
+HtmlHelper::renderHeader('randomNumberProbability', '101randomNumberProbability.css');
 ?>
 
 <header>
@@ -11,7 +11,7 @@ HtmlHelper::renderHeader('randomNumberProbability', '');
     <p>用 PHP 與 JS 取得亂數值某兩數(含)間，且可指定取得間隔 (例如1、0.01、0.1)，若未指定間隔就是看兩數的小數位數誰小且寫完後用 for 迴圈執行1萬次，印出測試機率資料，驗證機率有平均出現</p>
 </header>
 
-<main>
+<main class="container">
     <form method="get">
         <label for="min">最小值:</label>
         <input type="number" id="min" name="min" step="any"
@@ -30,8 +30,7 @@ HtmlHelper::renderHeader('randomNumberProbability', '');
         <button type="submit">取得亂數</button>
     </form>
 
-    <section>
-        <h2>結果</h2>
+    <section class="resultSection">
         <?php
         //建立驗證的function，驗證使用者輸入的兩個數值有效的值，規則是不可為字元或含有字串、科學記號(如1e6)
         function validateInput($min, $max)
@@ -131,6 +130,7 @@ HtmlHelper::renderHeader('randomNumberProbability', '');
                 $results = getRandomNumber($min, $max, $step);
 
                 //印出結果
+                echo "<h2>結果</h2>";
                 echo "<table>";
                 echo "<tr><th>亂數值</th><th>出現次數</th></tr>";
                 foreach ($results as $value => $count) {

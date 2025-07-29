@@ -25,7 +25,7 @@ class FileMergerController
         if ($error) {
             return [
                 'success' => false,
-                'html' => "<div class='file-merger__result file-merger__result--error'><p>{$error}</p></div>"
+                'html' => "<div class='mergeResult error'><p>{$error}</p></div>"
             ];
         }
         $content1 = file_get_contents($file1['tmp_name']);
@@ -33,7 +33,7 @@ class FileMergerController
         $mergedContent = $content1 . "\n" . $content2;
         $mergedFileName = 'merged_file.txt';
         file_put_contents($mergedFileName, $mergedContent);
-        $html = "<div class='file-merger__result file-merger__result--success'><p>檔案合併成功！<a href='$mergedFileName' download>點此下載合併後的檔案</a></p></div>";
+        $html = "<div class='mergeResult success'><p>檔案合併成功！<a href='$mergedFileName' download>點此下載合併後的檔案</a></p></div>";
         return [
             'success' => true,
             'html' => $html

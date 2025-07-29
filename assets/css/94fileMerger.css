@@ -1,57 +1,42 @@
-.file-merger__container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.file-merger__header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.file-merger__header h1 {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-.file-merger__header p {
-  color: #666;
-  line-height: 1.5;
-}
-.file-merger__form {
+.mergeForm {
   background: white;
   padding: 30px;
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
 }
-.file-merger__field {
+
+.fileField {
   margin-bottom: 20px;
 }
-.file-merger__field label {
+.fileField label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
   color: #333;
+  font-size: 16px;
 }
-.file-merger__field input[type=file] {
+.fileField input[type=file] {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 2px dashed #ddd;
   border-radius: 4px;
   background-color: #fafafa;
   cursor: pointer;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 14px;
 }
-.file-merger__field input[type=file]:hover {
+.fileField input[type=file]:hover {
   border-color: #007bff;
+  background-color: #f0f8ff;
 }
-.file-merger__field input[type=file]:focus {
+.fileField input[type=file]:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
-.file-merger__submit-btn {
+
+.submitBtn {
   width: 100%;
   padding: 12px 20px;
   background-color: #007bff;
@@ -59,28 +44,49 @@
   border: none;
   border-radius: 4px;
   font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
-.file-merger__submit-btn:hover {
+.submitBtn:hover {
   background-color: #0056b3;
+  transform: translateY(-1px);
 }
-.file-merger__submit-btn:active {
+.submitBtn:active {
   transform: translateY(1px);
 }
-.file-merger__result {
+.submitBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.mergeResult {
   margin-top: 30px;
   padding: 20px;
   border-radius: 6px;
+  border: 1px solid;
 }
-.file-merger__result--success {
+.mergeResult.success {
   background-color: #d4edda;
-  border: 1px solid #c3e6cb;
+  border-color: #c3e6cb;
   color: #155724;
 }
-.file-merger__result--success a {
+.mergeResult.success a {
   color: #0c5460;
   text-decoration: none;
+  font-weight: 600;
+}
+.mergeResult.success a:hover {
+  text-decoration: underline;
+}
+.mergeResult.error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+.mergeResult p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 /*# sourceMappingURL=94fileMerger.css.map */

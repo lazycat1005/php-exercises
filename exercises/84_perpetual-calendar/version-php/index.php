@@ -12,7 +12,7 @@ HtmlHelper::renderHeader('perpetualCalendar', '84perpetualCalendar.css');
     <p>這是一個可以生成指定年份和月份的萬年曆的工具。</p>
 </header>
 
-<main>
+<main class="container">
     <!-- 先生成可供使用者輸入年分與月份的輸入框，方法採用get -->
     <form method="get" action="">
         <label for="year">西元年：</label>

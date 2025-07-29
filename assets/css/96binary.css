@@ -1,0 +1,33 @@
+#binaryInput {
+  width: 100%;
+  max-width: 450px;
+}
+
+#resultSection {
+  text-align: center;
+}
+#resultSection h2 {
+  margin-bottom: 20px;
+}
+#resultSection h3 {
+  margin-bottom: 20px;
+}
+#resultSection p {
+  margin-bottom: 8px;
+}
+#resultSection table {
+  width: 100%;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+#resultSection table th,
+#resultSection table td {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+#resultSection table th {
+  background-color: #f2f2f2;
+}
+
+/*# sourceMappingURL=96binary.css.map */
