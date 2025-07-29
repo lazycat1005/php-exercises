@@ -1,4 +1,9 @@
-//寫一個驗證使用者輸入的函數，驗證使用者所輸入的兩個資料只能是數字或浮點數，不能為字元或含有科學符號(如:1e2)
+/**
+ * 驗證使用者輸入的函數，驗證使用者所輸入的兩個資料只能是數字或浮點數，不能為字元或含有科學符號(如:1e2)
+ * @param {string} input1 - 第一個輸入值
+ * @param {string} input2 - 第二個輸入值
+ * @returns {boolean} - 驗證結果
+ */
 function validateInput(input1, input2) {
   const regex = /^-?\d+(\.\d+)?$/;
   if (!regex.test(input1) || !regex.test(input2)) {
@@ -6,7 +11,13 @@ function validateInput(input1, input2) {
   }
   return true;
 }
-//將經validateInput()驗證過後的兩個數字轉為字串並分析每個數字的小數位數
+
+/**
+ * 將經validateInput()驗證過後的兩個數字轉為字串並分析每個數字的小數位數
+ * @param {number} input1 - 第一個數字
+ * @param {number} input2 - 第二個數字
+ * @returns {Array} - [str1, str2, decimalPlaces1, decimalPlaces2]
+ */
 function convertToString(input1, input2) {
   const str1 = input1.toString();
   const str2 = input2.toString();
@@ -16,7 +27,15 @@ function convertToString(input1, input2) {
 
   return [str1, str2, decimalPlaces1, decimalPlaces2];
 }
-//比較$decimalPlaces1和$decimalPlaces2的位數，找出最大位數n，並將$input1和$input2各自乘以10^n
+
+/**
+ * 比較$decimalPlaces1和$decimalPlaces2的位數，找出最大位數n，並將$input1和$input2各自乘以10^n
+ * @param {string} str1 - 第一個數字字串
+ * @param {string} str2 - 第二個數字字串
+ * @param {number} decimalPlaces1 - 第一個數字的小數位數
+ * @param {number} decimalPlaces2 - 第二個數字的小數位數
+ * @returns {Array} - [adjusted1, adjusted2, maxDecimalPlaces]
+ */
 function adjustForDecimalPlaces(str1, str2, decimalPlaces1, decimalPlaces2) {
   const maxDecimalPlaces = Math.max(decimalPlaces1, decimalPlaces2);
 
@@ -40,7 +59,15 @@ function adjustForDecimalPlaces(str1, str2, decimalPlaces1, decimalPlaces2) {
   return [adjusted1, adjusted2, maxDecimalPlaces];
 }
 
-// 將計算的結果與JS的 .toFixed() 函數的結果進行"==="比對，並輸出true或false
+/**
+ * 將計算的結果與JS的 .toFixed() 函數的結果進行"==="比對，並輸出true或false
+ * @param {string} originalStr1 - 原始數字字串1
+ * @param {string} originalStr2 - 原始數字字串2
+ * @param {number} adjusted1 - 調整後的整數1
+ * @param {number} adjusted2 - 調整後的整數2
+ * @param {number} maxDecimalPlaces - 最大小數位數
+ * @returns {string} - 比對結果
+ */
 function compareWithToFixed(
   originalStr1,
   originalStr2,
@@ -55,11 +82,92 @@ function compareWithToFixed(
   return toFixedResult === calculatedResult ? "true" : "false";
 }
 
-//計算兩個整數的和，然後將結果除以10^n，並將小數點補回去
+/**
+ * 計算兩個整數的和，然後將結果除以10^n，並將小數點補回去
+ * @param {number} adjusted1 - 調整後的第一個整數
+ * @param {number} adjusted2 - 調整後的第二個整數
+ * @param {number} maxDecimalPlaces - 最大小數位數
+ * @returns {string} - 計算結果
+ */
 function calculateSum(adjusted1, adjusted2, maxDecimalPlaces) {
   const sum = adjusted1 + adjusted2;
   const result = sum / Math.pow(10, maxDecimalPlaces); //如果$sun是"12345"和"10"的和，則結果為"12355"，然後除以10^2(即100)，結果為"123.55"
   return result.toFixed(maxDecimalPlaces);
+}
+
+/**
+ * 處理計算流程的主要函數
+ * @param {string} number1Raw - 原始輸入值1
+ * @param {string} number2Raw - 原始輸入值2
+ * @returns {Object} - 包含結果和比對結果的物件
+ */
+function processCalculation(number1Raw, number2Raw) {
+  const number1 = parseFloat(number1Raw);
+  const number2 = parseFloat(number2Raw);
+
+  const [str1, str2, decimalPlaces1, decimalPlaces2] = convertToString(
+    number1,
+    number2
+  );
+
+  const [adjusted1, adjusted2, maxDecimalPlaces] = adjustForDecimalPlaces(
+    str1,
+    str2,
+    decimalPlaces1,
+    decimalPlaces2
+  );
+
+  const result = calculateSum(adjusted1, adjusted2, maxDecimalPlaces);
+  const comparisonResult = compareWithToFixed(
+    str1,
+    str2,
+    adjusted1,
+    adjusted2,
+    maxDecimalPlaces
+  );
+
+  return { result, comparisonResult };
+}
+
+/**
+ * 顯示計算成功結果
+ * @param {string} result - 計算結果
+ * @param {string} comparisonResult - 比對結果
+ */
+function displaySuccessResult(result, comparisonResult) {
+  const $resultElement = document.getElementById("result");
+  $resultElement.innerHTML = `
+        <p>計算結果: ${result}</p>
+        <p>與 JS 的 .toFixed() 函數結果比對: ${comparisonResult}</p>
+    `;
+  $resultElement.className = "success";
+}
+
+/**
+ * 顯示錯誤訊息
+ */
+function displayErrorMessage() {
+  const $resultElement = document.getElementById("result");
+  $resultElement.innerHTML = "<p>請輸入有效的數字。</p>";
+  $resultElement.className = "error";
+}
+
+/**
+ * 處理表單提交事件
+ */
+function handleFormSubmit() {
+  const $number1Raw = document.getElementById("number1").value;
+  const $number2Raw = document.getElementById("number2").value;
+
+  if (validateInput($number1Raw, $number2Raw)) {
+    const { result, comparisonResult } = processCalculation(
+      $number1Raw,
+      $number2Raw
+    );
+    displaySuccessResult(result, comparisonResult);
+  } else {
+    displayErrorMessage();
+  }
 }
 
 // 處理表單提交
@@ -67,39 +175,5 @@ document
   .getElementById("additionForm")
   .addEventListener("submit", function (event) {
     event.preventDefault(); // 防止表單提交
-
-    const number1Raw = document.getElementById("number1").value;
-    const number2Raw = document.getElementById("number2").value;
-
-    if (validateInput(number1Raw, number2Raw)) {
-      const number1 = parseFloat(number1Raw);
-      const number2 = parseFloat(number2Raw);
-      const [str1, str2, decimalPlaces1, decimalPlaces2] = convertToString(
-        number1,
-        number2
-      );
-      const [adjusted1, adjusted2, maxDecimalPlaces] = adjustForDecimalPlaces(
-        str1,
-        str2,
-        decimalPlaces1,
-        decimalPlaces2
-      );
-      const result = calculateSum(adjusted1, adjusted2, maxDecimalPlaces);
-      const comparisonResult = compareWithToFixed(
-        str1,
-        str2,
-        adjusted1,
-        adjusted2,
-        maxDecimalPlaces
-      );
-
-      document.getElementById("result").innerHTML = `
-            <p>計算結果: ${result}</p>
-            <p>與 JS 的 .toFixed() 函數結果比對: ${comparisonResult}</p>
-        `;
-      document.getElementById("result").className = "success";
-    } else {
-      document.getElementById("result").innerHTML = "<p>請輸入有效的數字。</p>";
-      document.getElementById("result").className = "error";
-    }
+    handleFormSubmit();
   });
