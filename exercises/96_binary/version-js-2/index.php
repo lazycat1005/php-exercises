@@ -13,8 +13,10 @@ HtmlHelper::renderHeader('binary', '96binary.css');
 
 <main class="container">
     <form id="binaryForm2">
-        <label for="binaryInput">請輸入數字：</label>
-        <input type="number" id="binaryInput" name="binaryInput" placeholder="十進位數字，如35、124、215..." min="1" max="256" step="1" required>
+        <div>
+            <label for="binaryInput">請輸入數字：</label>
+            <input type="number" id="binaryInput" name="binaryInput" placeholder="十進位數字，如35、124、215..." min="1" max="256" step="1" required>
+        </div>
         <button type="submit">計算</button>
     </form>
 

@@ -16,8 +16,10 @@ HtmlHelper::renderHeader('numbersToChinese', '29numbersToChinese.css');
 
 <main class="container">
     <form id="numberForm" action="" method="GET">
-        <label for="numberInput">請輸入數字:</label>
-        <input type="number" id="numberInput" name="numberInput" max="9999999" min="0" step="1" required>
+        <div>
+            <label for="numberInput">請輸入數字:</label>
+            <input type="number" id="numberInput" name="numberInput" max="9999999" min="0" step="1" required>
+        </div>
         <button type="submit">轉換</button>
     </form>
 

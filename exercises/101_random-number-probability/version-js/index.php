@@ -13,19 +13,25 @@ HtmlHelper::renderHeader('randomNumberProbability', '101randomNumberProbability.
 
 <main class="container">
     <form method="get">
-        <label for="min">最小值:</label>
-        <input type="number" id="min" name="min" step="any"
-            required>
-        <label for="max">最大值:</label>
-        <input type="number" id="max" name="max" step="any"
-            required>
-        <label for="step">間隔:</label>
-        <select name="step" id="step">
-            <option value="不指定">不指定</option>
-            <option value="1">1</option>
-            <option value="0.01">0.01</option>
-            <option value="0.1">0.1</option>
-        </select>
+        <div>
+            <label for="min">最小值:</label>
+            <input type="number" id="min" name="min" step="any"
+                required>
+        </div>
+        <div>
+            <label for="max">最大值:</label>
+            <input type="number" id="max" name="max" step="any"
+                required>
+        </div>
+        <div>
+            <label for="step">間隔:</label>
+            <select name="step" id="step">
+                <option value="不指定">不指定</option>
+                <option value="1">1</option>
+                <option value="0.01">0.01</option>
+                <option value="0.1">0.1</option>
+            </select>
+        </div>
 
         <button type="submit">取得亂數</button>
     </form>

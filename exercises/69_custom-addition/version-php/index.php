@@ -13,11 +13,15 @@ HtmlHelper::renderHeader('customAddition', '69customAddition.css');
 
 <main class="container">
     <form id="additionForm" method="get">
-        <label for="number1">第一個數字：</label>
-        <input type="number" id="number1" name="number1" required step="any">
+        <div>
+            <label for="number1">第一個數字：</label>
+            <input type="number" id="number1" name="number1" required step="any">
+        </div>
 
-        <label for="number2">第二個數字：</label>
-        <input type="number" id="number2" name="number2" required step="any">
+        <div>
+            <label for="number2">第二個數字：</label>
+            <input type="number" id="number2" name="number2" required step="any">
+        </div>
 
         <button type="submit">計算和</button>
     </form>
