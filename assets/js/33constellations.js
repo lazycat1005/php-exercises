@@ -1,5 +1,5 @@
 $(function () {
-  const $form = $("#constellation-form");
+  const $form = $("#constellationForm");
   const $result = $("#result");
 
   /**

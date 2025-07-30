@@ -8,50 +8,6 @@
   font-size: 18px;
 }
 
-h1 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-  letter-spacing: 0.1em;
-}
-
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 22px;
-  font-size: 18px;
-}
-form label {
-  font-weight: 500;
-}
-form input[type=number] {
-  width: 65px;
-  padding: 4px 6px;
-  font-size: 16px;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-  outline: none;
-  transition: border 0.2s;
-}
-form input[type=number]:focus {
-  border: 1.5px solid #007bff;
-}
-form button {
-  padding: 5px 15px;
-  font-size: 17px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-form button:hover {
-  background: #0056b3;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;

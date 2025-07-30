@@ -1,71 +1,14 @@
-.addition-form {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.addition-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-}
-
-.addition-form input[type=number] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.addition-form input[type=number]:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.025);
-}
-
-.addition-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.addition-form button:hover {
-  background-color: #0056b3;
-}
-
-.addition-form button:active {
-  transform: translateY(1px);
-}
-
 #result {
   margin-top: 20px;
-  padding: 15px;
   background-color: #e9ecef;
   border-radius: 4px;
-  font-size: 16px;
-  min-height: 30px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
-
 #result p {
-  margin: 0;
+  padding: 16px;
 }
-
 #result p:first-child {
   font-weight: bold;
   color: #007bff;

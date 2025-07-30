@@ -15,7 +15,7 @@ HtmlHelper::renderHeader('takeAwayGame', '54takeAwayGame.css');
     <section>
         <div id="matchsticks"></div>
         <button id="btn-next">換人</button>
-        <button id="btn-restart">開始新遊戲</button>
+        <button id="btn-restart">重新開始</button>
     </section>
 </main>
 

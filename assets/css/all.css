@@ -21,8 +21,23 @@ body {
 
 header {
   max-width: 1200px;
-  text-align: center;
+  width: 100%;
   margin: 12px auto;
+}
+@media (max-width: 1200px) {
+  header {
+    max-width: 900px;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    max-width: 650px;
+  }
+}
+@media (max-width: 650px) {
+  header {
+    max-width: 90%;
+  }
 }
 header h1 {
   font-size: 32px;
@@ -37,6 +52,21 @@ header p {
   margin: 0 auto;
   padding: 20px;
 }
+@media (max-width: 1200px) {
+  .container {
+    max-width: 900px;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    max-width: 650px;
+  }
+}
+@media (max-width: 650px) {
+  .container {
+    max-width: 90%;
+  }
+}
 
 form {
   padding: 20px;
@@ -44,6 +74,11 @@ form {
   border-radius: 10px;
   box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
   background: linear-gradient(to right, #4f7cd1, #b0c1ee);
+  display: flex;
+  flex-direction: column;
+}
+form > div {
+  margin-bottom: 8px;
 }
 
 label {
@@ -53,11 +88,11 @@ label {
 }
 
 input {
+  width: 100%;
   border: none;
   border-radius: 8px;
   font-size: 20px;
   padding: 4px;
-  margin: 0 8px;
   text-align: center;
 }
 input:focus {
@@ -65,17 +100,19 @@ input:focus {
 }
 
 select {
+  display: block;
+  width: 100%;
   border: none;
   border-radius: 8px;
   font-size: 20px;
   padding: 4px;
-  margin: 0 8px;
 }
 select:focus {
   outline: 2px solid #1976d2;
 }
 
 button {
+  margin-top: 20px;
   background: #1976d2;
   color: #fff;
   padding: 8px;

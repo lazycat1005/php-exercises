@@ -14,12 +14,16 @@ HtmlHelper::renderHeader('perpetualCalendar', '84perpetualCalendar.css');
 
 <main class="container">
     <!-- 先生成可供使用者輸入年分與月份的輸入框，方法採用get -->
-    <form method="get" action="">
-        <label for="year">西元年：</label>
-        <input type="number" id="year" name="year" min="1" step="1" required>
+    <form method="get">
+        <div>
+            <label for="year">西元年：</label>
+            <input type="number" id="year" name="year" min="1" step="1" required>
+        </div>
 
-        <label for="month">月份：</label>
-        <input type="number" id="month" name="month" min="1" max="12" step="1" required>
+        <div>
+            <label for="month">月份：</label>
+            <input type="number" id="month" name="month" min="1" max="12" step="1" required>
+        </div>
 
         <button type="submit">生成月曆</button>
     </form>

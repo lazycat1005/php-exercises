@@ -162,7 +162,7 @@ function doPrizeCheck() {
 
     // 顯示獎項
     $(this).append(
-      `<span class="prize-label" style="margin-left:1rem;color:#d2691e;font-weight:bold;">${$prize}</span>`
+      `<span class="prize-label" style="margin-left:10px;color:#d2691e;font-weight:bold;">${$prize}</span>`
     );
   });
 }

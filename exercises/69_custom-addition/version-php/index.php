@@ -3,7 +3,7 @@ require_once '../../../vendor/autoload.php';
 
 use App\Helper\HtmlHelper;
 
-HtmlHelper::renderHeader('customAddition', '');
+HtmlHelper::renderHeader('customAddition', '69customAddition.css');
 ?>
 
 <header>
@@ -11,7 +11,7 @@ HtmlHelper::renderHeader('customAddition', '');
     <p> 用 PHP 自己寫浮點數的"加法" (乘法不用)，將浮點數換為整數計算後，再補回小數點(可對照印出 PHP 內建函式 bcadd 的結果比對是否一致)</p>
 </header>
 
-<main>
+<main class="container">
     <form id="additionForm" method="get">
         <label for="number1">第一個數字：</label>
         <input type="number" id="number1" name="number1" required step="any">
