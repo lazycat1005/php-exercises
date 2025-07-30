@@ -1,32 +1,15 @@
 .introduction {
   padding: 20px;
   border-radius: 10px;
-  background: linear-gradient(to right, #4f7cd1, #b0c1ee);
+  background: linear-gradient(to right, #323e54, #6b738a);
   box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
   h2 {
     color: #fff;
   }
-  ul {
+  p {
     color: #fff;
-    margin-left: 20px;
-    li {
-      margin-bottom: 10px;
-    }
-  }
-}
-
-form {
-  display: flex;
-  align-items: center;
-  @media (max-width: 450px) {
-    flex-direction: column;
-  }
-  input {
-    width: 250px;
-    margin: 0 20px;
-    @media (max-width: 1024px) {
-      margin: 20px 0px;
-    }
+    margin-bottom: 10px;
   }
 }
 

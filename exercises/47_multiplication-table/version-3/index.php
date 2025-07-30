@@ -3,7 +3,7 @@ require_once '../../../vendor/autoload.php';
 
 use App\Helper\HtmlHelper;
 use App\Controller\MultiplicationTableController;
-use App\Helper\MultiplicationTableHelper;
+use App\Views\MultiplicationTableHelper;
 
 HtmlHelper::renderHeader('multiplicationTable', '47multiplicationTable.css');
 ?>
@@ -16,10 +16,12 @@ HtmlHelper::renderHeader('multiplicationTable', '47multiplicationTable.css');
 
 <main>
     <form method="get" action="" id="tableForm">
-        <label for="tableCount">請輸入要產生哪些乘法表（例如：1~8、2、4,6,9、1~2,6,9）：</label>
-        <input type="text" id="tableCount" name="tableCount" autocomplete="off"
-            pattern="^[0-9,，~\- ]+$"
-            value="<?php echo isset($_GET['tableCount']) ? htmlspecialchars($_GET['tableCount']) : '9'; ?>">
+        <div>
+            <label for="tableCount">請輸入要產生哪些乘法表（例如：1~8、2、4,6,9、1~2,6,9）：</label>
+            <input type="text" id="tableCount" name="tableCount" autocomplete="off"
+                pattern="^[0-9,，~\- ]+$"
+                value="<?php echo isset($_GET['tableCount']) ? htmlspecialchars($_GET['tableCount']) : '9'; ?>">
+        </div>
         <button type="submit">產生</button>
         <span id="inputError" style="color:red;margin-left:1em;"></span>
     </form>

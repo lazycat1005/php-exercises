@@ -16,12 +16,12 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
 
 
 <main class="container">
-    <form class="text-length__form" method="get" action="">
-        <textarea name="text" placeholder="請在此輸入文字..." maxlength="100"></textarea>
+    <form method="get">
+        <div><textarea name="text" placeholder="請在此輸入文字..." maxlength="100"></textarea></div>
         <button type="submit">計算字數</button>
     </form>
 
-    <section class="text-length__result">
+    <section class="result">
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['text'])) {
             $controller = new TextLengthController();

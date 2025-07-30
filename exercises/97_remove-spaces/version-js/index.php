@@ -13,8 +13,10 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
 
 <main class="container">
     <form id="inputForm">
-        <label for="inputString">請輸入字串：</label>
-        <input type="text" id="inputString" name="inputString" required>
+        <div>
+            <label for="inputString">請輸入字串：</label>
+            <input type="text" id="inputString" name="inputString" required>
+        </div>
     </form>
 
     <section class="resultSection">

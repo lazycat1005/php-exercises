@@ -16,8 +16,10 @@ $controller = new EnglishLettersController();
 
 <main class="container">
     <form id="charForm" action="" method="GET">
-        <label for="charInput">請輸入英文字串:</label>
-        <input type="text" id="charInput" name="charInput" pattern="[A-Za-z]+" required autocomplete="off" />
+        <div>
+            <label for="charInput">請輸入英文字串:</label>
+            <input type="text" id="charInput" name="charInput" pattern="[A-Za-z]+" required autocomplete="off" />
+        </div>
         <button type="submit">判斷</button>
     </form>
 
@@ -44,4 +46,4 @@ $controller = new EnglishLettersController();
     </section>
 </main>
 
-<?php HtmlHelper::renderFooter('19englishLetters.js'); ?>
+<?php HtmlHelper::renderFooter(); ?>

@@ -15,8 +15,10 @@ HtmlHelper::renderHeader('leapYears', '27leapYear.css');
 
 <main id="phpVersion" class="container">
     <form method="GET">
-        <label for="year">請輸入年份:</label>
-        <input type="number" id="year" name="year" min="1" max="3000" step="1" required>
+        <div>
+            <label for="year">請輸入年份:</label>
+            <input type="number" id="year" name="year" min="1" max="3000" step="1" required>
+        </div>
         <button type="submit">計算是否為閏年</button>
     </form>
 

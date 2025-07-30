@@ -15,10 +15,11 @@ $controller = new EnglishLettersController();
 </header>
 
 <main class="container">
-    <h1>判斷字串的ASCII</h1>
     <form id="charForm" action="" method="GET">
-        <label for="charInput">請輸入英文字串:</label>
-        <input type="text" id="charInput" name="charInput" placeholder="請輸入英文字串" pattern="[A-Z]+" data-allow-lower="false" autocomplete="off" required>
+        <div>
+            <label for="charInput">請輸入英文字串:</label>
+            <input type="text" id="charInput" name="charInput" placeholder="請輸入英文字串" pattern="[A-Z]+" data-allow-lower="false" autocomplete="off" required>
+        </div>
         <button type="submit">判斷</button>
     </form>
 
@@ -46,4 +47,4 @@ $controller = new EnglishLettersController();
 
 <script src="../../../assets/js/common.js"></script>
 
-<?php HtmlHelper::renderFooter('19englishLetters.js'); ?>
+<?php HtmlHelper::renderFooter(); ?>

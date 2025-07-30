@@ -12,11 +12,13 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
 </header>
 
 <main class="container">
-    <form class="text-length__form">
-        <textarea name="text" placeholder="請在此輸入文字..." onblur="text74CountChars(this)"></textarea>
+
+    <form>
+        <div><textarea name="text" placeholder="請在此輸入文字..." onblur="text74CountChars(this)"></textarea></div>
     </form>
 
-    <section class="text-length__result">
+
+    <section class="result">
         <p id="charCount">字元個數: 0</p>
     </section>
 </main>

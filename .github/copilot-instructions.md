@@ -24,6 +24,7 @@
 - 請遵循 PSR-12 代碼風格指南，並且使用空格來縮排程式碼。
 - 不使用 `<?= ?>` 簡寫語法，請改為完整語法 `<?php echo ?>`。
 - ob_start(); 跟 ob_get_clean() 非必要不要使用，改用字串串接。
+- 非必要不要使用 static function ，除非是工具函式。
 
 ### jQuery (JavaScript)
 

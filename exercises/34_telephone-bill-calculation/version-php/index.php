@@ -16,16 +16,14 @@ HtmlHelper::renderHeader('telephone', '34telephoneBill.css');
 
     <section class="introduction">
         <h2>計算規則</h2>
-        <ul>
-            <li>600 分鐘以下每分鐘 0.5 元</li>
-            <li>600~1200 分鐘電話費以 9 折計算</li>
-            <li>1200 分鐘以上電話費以 79 折計算</li>
-        </ul>
+        <p>600 分鐘以下每分鐘 0.5 元，600~1200 分鐘電話費以 9 折計算，1200 分鐘以上電話費以 79 折計算</p>
     </section>
 
     <form id="telephoneBillCalculation" method="get">
-        <label for="callDuration">通話時長（分鐘）:</label>
-        <input type="number" id="callDuration" name="callDuration" step="1" min="0" max="44640" required>
+        <div>
+            <label for="callDuration">通話時長（分鐘）:</label>
+            <input type="number" id="callDuration" name="callDuration" step="1" min="0" max="44640" required>
+        </div>
 
         <button type="submit">計算電話費</button>
     </form>

@@ -119,9 +119,11 @@ HtmlHelper::renderHeader('lotteryApp', '04lotteryApp.css');
                 <?php endfor; ?>
             </div>
         </fieldset>
-        <button type="submit" class="btn-submit" <?php if ($_SESSION['drawn']) echo 'disabled'; ?>>下注</button>
-        <button type="button" id="resetNumbers" class="btn-reset" <?php if ($_SESSION['drawn']) echo 'disabled'; ?>>重選</button>
-        <button type="button" id="autoPick" class="btn-auto" <?php if ($_SESSION['drawn']) echo 'disabled'; ?>>電腦選號</button>
+        <div class="button-container">
+            <button type="submit" class="btn-submit" <?php if ($_SESSION['drawn']) echo 'disabled'; ?>>下注</button>
+            <button type="button" id="resetNumbers" class="btn-reset" <?php if ($_SESSION['drawn']) echo 'disabled'; ?>>重選</button>
+            <button type="button" id="autoPick" class="btn-auto" <?php if ($_SESSION['drawn']) echo 'disabled'; ?>>電腦選號</button>
+        </div>
     </form>
 
     <!-- 清除所有紀錄按鈕 -->

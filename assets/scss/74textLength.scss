@@ -1,133 +1,62 @@
 // 74_calculate-text-length 專用樣式
-.text-length {
-  &__container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  border: 2px solid #e9ecef;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
   }
 
-  &__header {
-    text-align: center;
-    margin-bottom: 20px;
-
-    h1 {
-      color: #2c3e50;
-      font-size: 24px;
-      margin-bottom: 4px;
-    }
-
-    p {
-      color: #6c757d;
-      font-size: 16px;
-      line-height: 1.6;
-    }
+  &::placeholder {
+    color: #adb5bd;
   }
+}
 
-  &__form {
-    background: white;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 16px;
+result {
+  background: white;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 
-    textarea {
-      width: 100%;
-      min-height: 200px;
-      padding: 10px;
-      border: 2px solid #e9ecef;
-      border-radius: 4px;
-      font-size: 16px;
-      font-family: inherit;
-      resize: vertical;
-      transition: border-color 0.3s ease;
+  p {
+    margin: 0;
+    font-size: 16px;
 
-      &:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-      }
-
-      &::placeholder {
-        color: #adb5bd;
-      }
-    }
-
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background: #0056b3;
-      }
-
-      &:active {
-        transform: translateY(1px);
-      }
-    }
-  }
-
-  &__result {
-    background: white;
-    padding: 16px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-
-    p {
-      margin: 0;
-      font-size: 16px;
-
-      &#charCount {
-        font-weight: 600;
-        color: #28a745;
-      }
-    }
-
-    // 錯誤訊息樣式
-    p[style*="color:red"],
-    p[style*="color: red"] {
-      color: #dc3545 !important;
+    &#charCount {
       font-weight: 600;
-      padding: 12px;
-      background: #f8d7da;
-      border: 1px solid #f5c6cb;
-      border-radius: 4px;
+      color: #28a745;
     }
   }
 
-  // 字數統計顯示
-  &__char-count {
-    background: #e8f5e8;
-    padding: 10px;
-    border-radius: 4px;
-    border-left: 4px solid #28a745;
+  // 錯誤訊息樣式
+  p[style*="color:red"],
+  p[style*="color: red"] {
+    color: #dc3545 !important;
     font-weight: 600;
-    color: #155724;
+    padding: 12px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
   }
+}
 
-  // 響應式設計
-  @media (max-width: 768px) {
-    &__container {
-      margin: 10px;
-      padding: 1px;
-    }
-
-    &__header h1 {
-      font-size: 20px;
-    }
-
-    &__form {
-      padding: 10px;
-    }
-  }
+// 字數統計顯示
+char-count {
+  background: #e8f5e8;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 4px solid #28a745;
+  font-weight: 600;
+  color: #155724;
 }

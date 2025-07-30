@@ -70,7 +70,6 @@ header p {
 
 form {
   padding: 20px;
-  margin: 20px 0;
   border-radius: 10px;
   box-shadow: 0.3px 0.3px 5px rgba(0, 0, 0, 0.3);
   background: linear-gradient(to right, #4f7cd1, #b0c1ee);
@@ -78,13 +77,16 @@ form {
   flex-direction: column;
 }
 form > div {
-  margin-bottom: 8px;
+  max-width: 100%;
+  width: 60%;
+  margin: 4px auto;
 }
 
 label {
   font-size: 20px;
   font-weight: bold;
   color: #fff;
+  display: block;
 }
 
 input {
@@ -112,6 +114,8 @@ select:focus {
 }
 
 button {
+  width: 60%;
+  margin: 0 auto;
   margin-top: 20px;
   background: #1976d2;
   color: #fff;

@@ -105,7 +105,7 @@ $(function () {
   const addRoundingMessage = function (calcDetail) {
     return (
       calcDetail +
-      '<br><span style="color:#007bff;font-weight:bold;">計算金額四捨五入後為該月應繳金額</span>'
+      '<span style="color:#007bff;font-weight:bold;">計算金額四捨五入後為該月應繳金額</span>'
     );
   };
 

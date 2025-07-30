@@ -1,22 +1,4 @@
-.mergeForm {
-  background: white;
-  padding: 30px;
-  border-radius: 6px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e9ecef;
-}
-
-.fileField {
-  margin-bottom: 20px;
-}
-.fileField label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
-  font-size: 16px;
-}
-.fileField input[type=file] {
+input[type=file] {
   width: 100%;
   padding: 12px;
   border: 2px dashed #ddd;
@@ -26,38 +8,14 @@
   transition: all 0.3s ease;
   font-size: 14px;
 }
-.fileField input[type=file]:hover {
+input[type=file]:hover {
   border-color: #007bff;
   background-color: #f0f8ff;
 }
-.fileField input[type=file]:focus {
+input[type=file]:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-}
-
-.submitBtn {
-  width: 100%;
-  padding: 12px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.submitBtn:hover {
-  background-color: #0056b3;
-  transform: translateY(-1px);
-}
-.submitBtn:active {
-  transform: translateY(1px);
-}
-.submitBtn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .mergeResult {

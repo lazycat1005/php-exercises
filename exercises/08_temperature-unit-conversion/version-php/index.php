@@ -24,9 +24,9 @@ $controller = new TemperatureController();
         </div>
 
         <div class="buttons">
-            <button type="submit" id="convertToCelsius" name="convert" value="toCelsius">轉換成攝氏</button>
+            <button type="submit" id="convertToCelsius" name="convert" value="toCelsius">▲轉換成攝氏</button>
             <button type="button" id="clearBtn">清除</button>
-            <button type="submit" id="convertToFahrenheit" name="convert" value="toFahrenheit">轉換成華氏</button>
+            <button type="submit" id="convertToFahrenheit" name="convert" value="toFahrenheit">轉換成華氏▼</button>
         </div>
 
         <div class="fahrenheit">

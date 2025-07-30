@@ -12,11 +12,11 @@ HtmlHelper::renderHeader('textLength', '74textLength.css');
 </header>
 
 <main class="container">
-    <form class="text-length__form" method="get" action="">
-        <textarea id="version4" name="text" placeholder="請在此輸入文字..." maxlength="100"></textarea>
+    <form method="get">
+        <div><textarea id="version4" name="text" placeholder="請在此輸入文字..." maxlength="100"></textarea></div>
     </form>
 
-    <section class="text-length__result">
+    <section class="result">
         <p id="charCount">字元個數: 0</p>
     </section>
 </main>

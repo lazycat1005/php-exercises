@@ -16,8 +16,10 @@ $controller = new EnglishLettersController();
 
 <main class="container">
     <form id="charForm" method="GET">
-        <label for="charInput">請輸入字串:</label>
-        <input type="text" id="charInput" name="charInput" required>
+        <div>
+            <label for="charInput">請輸入字串:</label>
+            <input type="text" id="charInput" name="charInput" required>
+        </div>
         <button type="submit">判斷</button>
     </form>
 

@@ -7,9 +7,6 @@ form {
     flex-direction: column;
   }
 }
-form input {
-  width: 250px;
-}
 
 .result {
   margin-top: 20px;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helper;
+namespace App\Views;
 
 class PerpetualCalendarHelper
 {

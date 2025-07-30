@@ -29,8 +29,10 @@ HtmlHelper::renderHeader('removeSpaces', '97removeSpaces.css');
     ?>
 
     <form action="" method="get">
-        <label for="inputString">請輸入字串：</label>
-        <input type="text" id="inputString" name="inputString" value="<?php echo htmlspecialchars($filteredString); ?>" required>
+        <div>
+            <label for="inputString">請輸入字串：</label>
+            <input type="text" id="inputString" name="inputString" value="<?php echo htmlspecialchars($filteredString); ?>" required>
+        </div>
         <button type="submit">送出</button>
     </form>
 </main>

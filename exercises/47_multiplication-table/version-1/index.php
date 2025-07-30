@@ -3,7 +3,7 @@ require_once '../../../vendor/autoload.php';
 
 use App\Helper\HtmlHelper;
 use App\Controller\MultiplicationTableController;
-use App\Helper\MultiplicationTableHelper;
+use App\Views\MultiplicationTableHelper;
 
 HtmlHelper::renderHeader('multiplicationTable', '47multiplicationTable.css');
 ?>

@@ -1,130 +1,24 @@
 @charset "UTF-8";
-/* 19_english-letter-case CSS Styles */
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f8f9fa;
-  padding: 20px;
-}
-
-/* Container */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Heading */
-h1 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  border-bottom: 3px solid #3498db;
-  padding-bottom: 10px;
-}
-
-/* Form styles */
-form {
-  margin-bottom: 30px;
-}
-
-fieldset {
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
-  padding: 20px;
-  background-color: #f8f9fa;
-}
-
-fieldset legend {
-  padding: 0 10px;
-  font-weight: bold;
-  color: #495057;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #495057;
-}
-
-input[type=text] {
-  width: 100%;
-  max-width: 300px;
-  padding: 12px 16px;
-  border: 2px solid #ced4da;
-  border-radius: 6px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input[type=text]:focus {
-  outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
-
-button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
 /* Result area */
 #result {
   background-color: #f8f9fa;
-  padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
 }
-
 #result ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 #result li {
   background-color: #ffffff;
   padding: 12px 16px;
   margin-bottom: 8px;
   border-radius: 6px;
-  border-left: 4px solid #3498db;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   font-family: "Courier New", monospace;
   transition: transform 0.2s ease;
 }
-
-#result li:hover {
-  transform: translateX(5px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-#result li:last-child {
-  margin-bottom: 0;
-}
-
 #result p {
   padding: 15px;
   margin: 0;
@@ -145,27 +39,15 @@ input.error {
   border-radius: 4px;
   display: none;
 }
-
 .error-message.error {
   color: #e74c3c;
   background-color: #fdf2f2;
   border: 1px solid #fecaca;
 }
-
 .error-message.success {
   color: #22c55e;
   background-color: #f0fdf4;
   border: 1px solid #bbf7d0;
-}
-
-.error-message.error:before {
-  content: "⚠ ";
-  font-weight: bold;
-}
-
-.error-message.success:before {
-  content: "✓ ";
-  font-weight: bold;
 }
 
 /*# sourceMappingURL=19englishLetters.css.map */

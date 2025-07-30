@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Validator\PerpetualCalendarValidator;
-use App\Helper\PerpetualCalendarHelper;
+use App\Views\PerpetualCalendarHelper;
 
 class PerpetualCalendarController
 {
