@@ -5,19 +5,117 @@ main {
   padding: 20px;
 }
 
-table.outer {
+form {
+  margin-bottom: 20px;
+
+  div {
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  button {
+    background-color: #007cba;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:hover {
+      background-color: #005a87;
+    }
+  }
+}
+
+.errorMessage {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border: 1px solid #e57373;
+  border-radius: 4px;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+// 乘法表樣式
+table {
   border-collapse: collapse;
-  width: 100%;
+  margin: 10px;
+
+  td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: top;
+
+    // 內層乘法表
+    table {
+      width: 100%;
+      border: 1px solid #ddd;
+
+      td {
+        padding: 5px;
+        border: 1px solid #eee;
+        min-width: 30px;
+      }
+    }
+  }
 }
 
-table.outer td {
-  border: 1px solid #000;
-  vertical-align: top;
-  padding: 5px;
-}
+// 答案輸入框樣式
+.answerInput {
+  width: 60px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.3s ease;
 
-table.inner td {
-  text-align: left;
-  font-family: monospace;
-  border: none;
+  &:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 5px rgba(0, 124, 186, 0.3);
+  }
+
+  // 正確答案樣式
+  &.correct {
+    background-color: #e8f5e8;
+    border-color: #4caf50;
+    color: #2e7d32;
+  }
+
+  // 錯誤答案樣式
+  &.incorrect {
+    background-color: #ffebee;
+    border-color: #f44336;
+    color: #c62828;
+  }
+
+  // 移除數字輸入框的上下箭頭
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  // Firefox 的數字輸入框樣式
+  &[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
 }

@@ -5,6 +5,12 @@ use App\Helper\HtmlHelper;
 use App\Controller\MultiplicationTableController;
 use App\Views\MultiplicationTableHelper;
 
+// 使用控制器獲取資料
+$controller = new MultiplicationTableController();
+$tableData = $controller->index();
+$errorMessage = $controller->getErrorMessage();
+$userInput = $controller->getUserInput();
+
 HtmlHelper::renderHeader('multiplicationTable', '47multiplicationTable.css');
 ?>
 
@@ -14,42 +20,25 @@ HtmlHelper::renderHeader('multiplicationTable', '47multiplicationTable.css');
 </header>
 
 <main>
-    <form method="get" id="tableForm">
+    <!-- 乘法表的子數量，例如使用者輸入1，則表示只生成1x1的乘法表，輸入2~4則表示生成2x2到4x4的乘法表，輸入1、5則表示生成1x1和5x5的乘法表 -->
+    <form method="get">
         <div>
-            <label for="tableCount">請輸入要產生哪些乘法表（例如：1~8、2、4,6,9、1~2,6,9）：</label>
-            <input type="text" id="tableCount" name="tableCount" autocomplete="off"
-                pattern="^[0-9,，~\- ]+$"
-                value="<?php echo isset($_GET['tableCount']) ? htmlspecialchars($_GET['tableCount']) : '9'; ?>">
+            <label for="subTableInput">請輸入要生成的乘法表子數量（例如：1、2~4、1,5）：</label>
+            <input type="text" id="subTableInput" name="subTableInput"
+                placeholder="例如：1、2~4、1,5"
+                value="<?php echo htmlspecialchars($userInput); ?>">
         </div>
-        <button type="submit">產生</button>
-        <span id="inputError" style="color:red;margin-left:1em;"></span>
+        <?php if (!empty($errorMessage)): ?>
+            <div class="errorMessage">
+                <?php echo htmlspecialchars($errorMessage); ?>
+            </div>
+        <?php endif; ?>
+        <button type="submit">生成乘法表</button>
     </form>
 
-    <section>
-        <h2>九九乘法表（3欄×3列的大表格，每格為5欄×9列的乘法子表格）</h2>
-        <table class="outer">
-            <?php
-            $colsPerRow = 3;
-            $rows = 3;
-            $tablesPerCell = 5;
-            $input = isset($_GET['tableCount']) ? $_GET['tableCount'] : '9';
-            $showError = false;
-            $controller = new MultiplicationTableController();
-            $result = $controller->generateTable($input);
-            $showError = !$result['success'];
-            $tableNumbers = $result['numbers'];
-
-
-            if (empty($tableNumbers) && !$showError) {
-                $tableNumbers = [9];
-            }
-            echo MultiplicationTableHelper::renderMultiplicationTable($tableNumbers, $colsPerRow, $rows, $tablesPerCell);
-            ?>
-        </table>
-        <?php if ($showError): ?>
-            <div style="color:red;">請勿輸入文字、科學符號、運算符號、小數點或超過9的數字</div>
-        <?php endif; ?>
-    </section>
+    <?php if (!empty($tableData)): ?>
+        <?php echo MultiplicationTableHelper::renderMultiplicationTable($tableData); ?>
+    <?php endif; ?>
 </main>
 
 <?php HtmlHelper::renderFooter('47multiplicationTable.js'); ?>
