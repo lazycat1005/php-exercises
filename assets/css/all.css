@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: 1px solid limegreen !important;
 }
 
 a {
@@ -75,6 +76,8 @@ form {
   background: linear-gradient(to right, #4f7cd1, #b0c1ee);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
 form > div {
   max-width: 100%;

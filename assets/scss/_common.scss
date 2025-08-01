@@ -46,6 +46,8 @@ form {
   background: linear-gradient(to right, #4f7cd1, #b0c1ee);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
   & > div {
     max-width: 100%;
     width: 60%;

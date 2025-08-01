@@ -42,9 +42,6 @@ table td {
     padding: 12px 5px 15px 5px;
     font-size: 14px;
   }
-  h1 {
-    font-size: 17px;
-  }
   form {
     flex-direction: column;
     gap: 7px;
